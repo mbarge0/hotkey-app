@@ -71,7 +71,7 @@
           "scheduleOptions": ["Sun 12 PM", "Sun 3 PM", "Sun 6 PM", "Now", "Custom"],
           "checked": true,
           "scheduleTime": "Sun 3 PM",
-          "media": "/review/media/Screenshot 2026-02-21 at 11.16.38 AM.png"
+          "media": "/review/media/Screenshot-2026-02-21-at-11-16-38-AM.png"
         },
         {
           "id": "linkedin",
@@ -83,7 +83,7 @@
           "scheduleOptions": ["Mon 8 AM", "Tue 8 AM", "Now", "Custom"],
           "checked": true,
           "scheduleTime": "Tue 8 AM",
-          "media": "/review/media/Screenshot 2026-02-21 at 11.16.38 AM.png"
+          "media": "/review/media/Screenshot-2026-02-21-at-11-16-38-AM.png"
         },
         {
           "id": "instagram",
@@ -95,7 +95,7 @@
           "scheduleOptions": ["Now", "Sun 6 PM", "Custom"],
           "checked": true,
           "scheduleTime": "Sun 9 PM",
-          "media": "/review/media/Screenshot 2026-02-21 at 11.16.38 AM.png"
+          "media": "/review/media/Screenshot-2026-02-21-at-11-16-38-AM.png"
         }
       ],
       "createdAt": "2026-02-21T23:30:22.433Z"
