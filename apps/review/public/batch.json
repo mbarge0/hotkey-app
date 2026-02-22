@@ -929,8 +929,209 @@
         }
       ],
       "createdAt": "2026-02-22T17:31:33.242Z"
+    },
+    {
+      "id": "kelly-story-2026-02-20-2352",
+      "story": {
+        "title": "Untitled",
+        "rawTitle": "Untitled",
+        "description": "Built an end-to-end App Store submission defense system after 5 rejections piled up. Created 5 scripts: `submission-gate.sh` (pre-flight catches 12+ rejection causes before upload), `asc-preflight.sh` (validates against App Store Connect API), `asc-monitor.sh` (dashboard of all app states), `asc-alert.sh` (state change detection), and `resubmit.sh` (enforces rejection logging before retry). Wired the gate as a hard blocker into the upload script - no more \"oops forgot to check\" submissions. Set up 15-minute cron monitoring that pings when Apple moves an app.",
+        "pillar": "ai",
+        "score": 78,
+        "timestamp": "2026-02-22T23:46:27.955Z"
+      },
+      "formats": [
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "platform": "Twitter",
+          "content": "Most indie devs think App Store rejections are random.\n\nThey're not. They're systematic.\n\nAfter 5 rejections piled up, I built an end-to-end defense system that catches rejection causes BEFORE Apple sees them.\n\n🧵 How to go from amateur to factory:\n\n1/7\n\nThe amateur cycle:\n• Submit app\n• Wait 2-7 days\n• Get rejected for obvious stuff\n• Fix ONE thing\n• Resubmit\n• Repeat\n\nI was stuck in this loop. Each rejection felt random.\n\n2/7\n\nBuilt 5 scripts that changed everything:\n\n• submission-gate.sh - catches 12+ rejection causes pre-flight\n• asc-preflight.sh - validates against App Store Connect API\n• asc-monitor.sh - dashboard of all app states\n• asc-alert.sh - detects state changes\n• resubmit.sh - forces rejection logging\n\n3/7\n\nThe gate is now a HARD BLOCKER.\n\nCan't upload without passing all checks.\n\nNo more \"oops forgot to check X\" submissions.\n\nWired directly into the upload script.\n\n4/7\n\nSet up 15-minute cron monitoring.\n\nKnow within 15 minutes when Apple moves an app.\n\nBefore: Check manually every few hours\nAfter: Get pinged the moment something changes\n\n5/7\n\nThe real power: institutional memory.\n\nEvery rejection gets logged.\nEvery fix gets documented.\nEvery pattern gets captured.\n\nThe system learns from every rejection and gets harder to reject over time.\n\n6/7\n\nThis is the difference between amateur and factory.\n\nAmateurs react to rejections.\nFactories prevent them.\n\nThe goal isn't perfect apps - it's systematic improvement.\n\n7/7\n\nWhat's the most frustrating rejection you've gotten?\n\nBet it was preventable with the right checks.",
+          "score": 92,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 12 PM",
+            "Sun 3 PM",
+            "Sun 6 PM",
+            "Mon 9 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Now",
+          "media": "- Screenshot of `asc-monitor.sh` output showing all app states"
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn Article",
+          "platform": "LinkedIn",
+          "content": "Most indie devs think App Store rejections are random.\nThey're systematic - and preventable.\n\nAfter 5 rejections piled up, I realized I was stuck in the amateur cycle: submit → wait → get rejected → fix one thing → repeat.\n\nSo I built an end-to-end defense system.\n\n5 scripts that changed everything:\n• submission-gate.sh - catches 12+ rejection causes before upload\n• asc-preflight.sh - validates against App Store Connect API  \n• asc-monitor.sh - dashboard of all app states\n• asc-alert.sh - detects state changes within 15 minutes\n• resubmit.sh - forces rejection logging before retry\n\nThe gate is now a hard blocker wired into our upload script. Can't submit without passing all checks. No more \"oops forgot to verify X\" moments.\n\nBut the real power is institutional memory. Every rejection gets logged. Every fix gets documented. Every pattern gets captured.\n\nThe factory learns from every rejection and gets harder to reject over time.\n\nThis is the difference between amateur and factory. Amateurs react to rejections. Factories prevent them.\n\nWhat's the most frustrating App Store rejection you've gotten? Bet it was preventable with the right system.",
+          "score": 88,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 8 AM",
+          "media": "- Screenshot of `asc-monitor.sh` output showing all app states"
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram Post",
+          "platform": "Instagram",
+          "content": "🔥 Built an App Store rejection defense system after 5 rejections piled up\n\nMost indie devs: submit → wait → rejected → fix one thing → repeat\n\nMe now: 5 scripts that catch 12+ rejection causes BEFORE Apple sees them\n\nThe difference between amateur and factory ⚡\n\n#BuildInPublic #IndieHacker #AppStore #iOS #Automation #SaaS #TechLife #CodeLife #StartupLife #ProductHunt",
+          "score": 85,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 6 PM",
+            "Mon 11 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Sun 6 PM",
+          "media": "- Screenshot of `asc-monitor.sh` output showing all app states"
+        }
+      ],
+      "createdAt": "2026-02-22T23:46:27.956Z"
+    },
+    {
+      "id": "kelly-story-2026-02-21-1116-corrected",
+      "story": {
+        "title": "Architecture Insight",
+        "rawTitle": "Architecture Insight",
+        "description": "Asked whether a spawned AI agent could complete the entire iOS factory flow (discovery → design → code → submit → marketing) in a single session. Answer: No. Context window fills up during the coding phase - each SwiftUI view is 100-300 lines, build errors add output, and by the time code compiles, context gets compacted and the agent loses track. Practical limit is ~1-2 phases per session. Solution: multi-session with memory handoffs via BUILD-CHECKLIST.md.",
+        "pillar": "ai",
+        "score": 68,
+        "timestamp": "2026-02-21 11:16"
+      },
+      "formats": [
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "platform": "Twitter",
+          "content": "Architecture Insight\n\nAsked whether a spawned AI agent could complete the entire iOS factory flow (discovery → design → code → submit → marketing) in a single session. Answer: No. Context window fills up during the coding phase - each SwiftUI view is 100-300 lines, build ...\n\nThoughts?",
+          "score": 92,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 12 PM",
+            "Sun 3 PM",
+            "Sun 6 PM",
+            "Mon 9 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Now",
+          "media": null
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn Article",
+          "platform": "LinkedIn",
+          "content": "Architecture Insight\n\nAsked whether a spawned AI agent could complete the entire iOS factory flow (discovery → design → code → submit → marketing) in a single session. Answer: No. Context window fills up during the coding phase - each SwiftUI view is 100-300 lines, build errors add output, and by the time code compiles, context gets compacted and the agent loses track. Practical limit is ~1-2 phases per session. Solution: multi-session with memory handoffs via BUILD-CHECKLIST.md.\n\nThis is a real constraint on autonomous AI coding. The fantasy is \"agent builds entire app.\" The reality is context limits create natural phase boundaries. The fix isn't bigger context windows - it's designing systems that checkpoint state to external memory (files) so the next session can pick up cleanly. Memory architecture matters more than raw capability.\n\nWhat's your experience with this?",
+          "score": 88,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 8 AM",
+          "media": null
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram Post",
+          "platform": "Instagram",
+          "content": "Architecture Insight 💡\n\nAsked whether a spawned AI agent could complete the entire iOS factory flow (discovery → design → code → submit → marketing) in a single session. Answer: No. Context window fills up during the coding phase - each SwiftUI view is 100-300 lines, build ...\n\n#BuildInPublic #AI #Tech #Productivity #SaaS #IndieHacker #Innovation #Automation",
+          "score": 85,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 6 PM",
+            "Mon 11 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Sun 6 PM",
+          "media": null
+        }
+      ],
+      "createdAt": "2026-02-22T23:46:44.698Z"
+    },
+    {
+      "id": "kelly-story-2026-02-21-1129",
+      "story": {
+        "title": "System Improvement",
+        "rawTitle": "System Improvement",
+        "description": "The `/story` hotkey failed - when triggered after discussing context window limits, I captured an unrelated \"best moment\" from earlier in the session instead of what just happened. Analyzed the failure, built criteria for scope detection: find the completion point (what just finished?), trace back to when that thread started, scope = that unit of work. Could be 1 exchange or 15 - depends on the work, not a fixed number. Key test: \"Could someone understand the story with just this scope?\"",
+        "pillar": "ai",
+        "score": 74,
+        "timestamp": "2026-02-21 11:29"
+      },
+      "formats": [
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "platform": "Twitter",
+          "content": "System Improvement\n\nThe `/story` hotkey failed - when triggered after discussing context window limits, I captured an unrelated \"best moment\" from earlier in the session instead of what just happened. Analyzed the failure, built criteria for scope detection: find the co...\n\nThoughts?",
+          "score": 92,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 12 PM",
+            "Sun 3 PM",
+            "Sun 6 PM",
+            "Mon 9 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Now",
+          "media": null
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn Article",
+          "platform": "LinkedIn",
+          "content": "System Improvement\n\nThe `/story` hotkey failed - when triggered after discussing context window limits, I captured an unrelated \"best moment\" from earlier in the session instead of what just happened. Analyzed the failure, built criteria for scope detection: find the completion point (what just finished?), trace back to when that thread started, scope = that unit of work. Could be 1 exchange or 15 - depends on the work, not a fixed number. Key test: \"Could someone understand the story with just this scope?\"\n\nFixed rules (\"always capture last 2 exchanges\") fail because interesting work varies in size. A quick insight is 1 exchange. A debugging session is 7. A feature build is 15. The right approach is identifying the \"unit of interesting work that just completed\" and scoping to that - not arbitrarily truncating or expanding. Same principle applies to any capture/logging system: match the boundary to the work, not to a rule.\n\nWhat's your experience with this?",
+          "score": 88,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 8 AM",
+          "media": null
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram Post",
+          "platform": "Instagram",
+          "content": "System Improvement 💡\n\nThe `/story` hotkey failed - when triggered after discussing context window limits, I captured an unrelated \"best moment\" from earlier in the session instead of what just happened. Analyzed the failure, built criteria for scope detection: find the co...\n\n#BuildInPublic #AI #Tech #Productivity #SaaS #IndieHacker #Innovation #Automation",
+          "score": 85,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 6 PM",
+            "Mon 11 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Sun 6 PM",
+          "media": null
+        }
+      ],
+      "createdAt": "2026-02-22T23:46:58.514Z"
     }
   ],
-  "total": 14,
-  "generated": "2026-02-22T17:31:33.380Z"
+  "total": 17,
+  "generated": "2026-02-22T23:47:15.490Z"
 }

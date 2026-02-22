@@ -168,7 +168,7 @@ async function processNewStories() {
   
   const processed = loadProcessed();
   const files = fs.readdirSync(CONTENT_INBOX)
-    .filter(f => f.startsWith('matt-story-') && f.endsWith('.md'))
+    .filter(f => (f.startsWith('matt-story-') || f.startsWith('kelly-story-')) && f.endsWith('.md'))
     .map(f => path.join(CONTENT_INBOX, f));
   
   const newFiles = files.filter(f => !processed.stories.includes(f));
