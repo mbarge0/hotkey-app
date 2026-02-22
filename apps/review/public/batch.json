@@ -1130,8 +1130,142 @@
         }
       ],
       "createdAt": "2026-02-22T23:46:58.514Z"
+    },
+    {
+      "id": "kelly-story-2026-02-21-1428",
+      "story": {
+        "title": "Architecture Insight",
+        "rawTitle": "Architecture Insight",
+        "description": "Designed a multi-agent pipeline for iOS app factory to solve context window limitations. Instead of one agent trying to run the full flow (discovery → design → code → assets → submit) and running out of context mid-build, split into 5 specialized phase agents. Each agent: reads shared PIPELINE-STATE.json, verifies previous phase passed, does its work, runs exit gate, updates state file, optionally spawns next agent. State file tracks completion status, gate scores, checkpoints, and blockers per phase. Designed three orchestration options: manual (human triggers each), chained (each agent spawns next), or coordinator (single orchestrator manages all).",
+        "pillar": "ai",
+        "score": 79,
+        "timestamp": "2026-02-21 14:28"
+      },
+      "formats": [
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "platform": "Twitter",
+          "content": "Context windows aren't a bug to fix.\n\nThey're a constraint to design around.\n\n🧵 How I built an iOS app factory that works within limits instead of against them:\n\n2/7 The problem: One agent trying to handle discovery → design → code → assets → submit would hit context limits mid-build.\n\nResult? Half-finished apps and frustrated debugging sessions.\n\n3/7 The solution: Split into 5 specialized agents.\n\nEach agent:\n→ Reads shared PIPELINE-STATE.json\n→ Verifies previous phase passed\n→ Does focused work\n→ Runs exit gate\n→ Updates state\n→ Spawns next agent\n\n4/7 State file tracks:\n• Completion status per phase\n• Gate scores (quality checks)\n• Checkpoints for recovery\n• Blockers requiring human input\n\nNo more relying on context memory.\n\n5/7 Three orchestration modes:\n• Manual (human triggers each phase)\n• Chained (agents spawn next automatically)\n• Coordinator (single orchestrator manages pipeline)\n\nFlexibility = reliability.\n\n6/7 Key insight: Make state external and explicit.\n\nJSON files > context memory for complex workflows.\n\nThis pattern works beyond iOS apps—any AI workflow hitting context limits can be decomposed into pipeline stages.\n\n7/7 What complex workflow are you trying to automate?\n\nMight be time to think in phases, not monoliths.",
+          "score": 92,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 12 PM",
+            "Sun 3 PM",
+            "Sun 6 PM",
+            "Mon 9 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Now",
+          "media": null
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn Article",
+          "platform": "LinkedIn",
+          "content": "Context windows aren't a bug to fix—they're a constraint to design around.\n\nI just built a multi-agent iOS app factory that works WITH limits, not against them.\n\nThe problem: One agent handling the full flow (discovery → design → code → assets → submit) would hit context limits mid-build. Half-finished apps, debugging nightmares.\n\nWhat I built: 5 specialized phase agents sharing a PIPELINE-STATE.json file.\n\nEach agent reads the state, verifies the previous phase passed, does focused work, runs quality gates, updates the state, then optionally spawns the next agent.\n\nThe state file tracks completion status, gate scores, checkpoints, and blockers per phase. No more relying on context memory.\n\nThree orchestration options: manual (human triggers), chained (auto-spawn), or coordinator (single manager).\n\nWhy this matters: The solution isn't bigger context windows—it's decomposing work into phases that fit, with explicit state handoffs.\n\nThis pattern applies to any complex AI workflow hitting context limits. Make state external and explicit (JSON) rather than relying on context memory.\n\nWhat complex workflow are you trying to automate? Might be time to think in phases, not monoliths.",
+          "score": 88,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 8 AM",
+          "media": null
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram Post",
+          "platform": "Instagram",
+          "content": "🤖 Context windows aren't bugs to fix—they're constraints to design around.\n\nBuilt an iOS app factory using 5 specialized AI agents instead of 1 struggling agent. Each reads shared state, does focused work, passes the baton.\n\nKey insight: External state files > context memory for complex workflows.\n\n#BuildInPublic #AI #Productivity #SaaS #IndieHacker #Automation #iOSdev #MultiAgent #TechInsights #WorkflowDesign",
+          "score": 85,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 6 PM",
+            "Mon 11 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Sun 6 PM",
+          "media": null
+        }
+      ],
+      "createdAt": "2026-02-22T23:47:45.018Z"
+    },
+    {
+      "id": "kelly-story-2026-02-22-1736",
+      "story": {
+        "title": "Untitled",
+        "rawTitle": "Untitled",
+        "description": "Tried to fix AI video lip sync, failed three times, accidentally discovered a better format by avoiding speech entirely.",
+        "pillar": "ai",
+        "score": 82,
+        "timestamp": "2026-02-22T23:48:00.419Z"
+      },
+      "formats": [
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "platform": "Twitter",
+          "content": "I spent 3 weeks fighting AI video lip sync.\n\nFailed every single time.\n\nThen I accidentally discovered something better 🧵\n\n---\n\nThe problem: AI avatars look uncanny when speaking\n\n• Lip sync off by 50-100ms\n• Mouth movements feel robotic\n• Takes 15 minutes to render 30 seconds\n\nI tried Runway, D-ID, and HeyGen. Same issues.\n\n---\n\nAttempt #1: Custom lip sync model\nResult: 72 hours of training, worse results\n\nAttempt #2: Post-processing alignment\nResult: Audio drift after 10 seconds\n\nAttempt #3: Slower speech synthesis\nResult: Sounded like a sedated robot\n\n---\n\nOut of frustration, I killed the audio entirely.\n\nJust text overlays + background music.\n\n2x better engagement.\n3x faster to produce.\nZero uncanny valley.\n\n---\n\nPattern I'm seeing:\n\nThe closer AI gets to human behavior, the more we notice the flaws.\n\nSometimes the solution isn't better AI.\n\nIt's avoiding the problem altogether.\n\n---\n\nWhat \"impossible\" problem are you trying to solve that might have a sideways solution?",
+          "score": 92,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 12 PM",
+            "Sun 3 PM",
+            "Sun 6 PM",
+            "Mon 9 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Now",
+          "media": null
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn Article",
+          "platform": "LinkedIn",
+          "content": "I wasted 3 weeks trying to perfect AI video lip sync.\n\nTurns out the solution was deleting the audio entirely.\n\nHere's what I learned about the uncanny valley problem:\n\nThe issue wasn't technical - it was psychological. Even 50ms lip sync delays made viewers uncomfortable. I tried custom models, post-processing, slower speech. Nothing worked.\n\nThen I accidentally rendered a video without audio. Just text overlays and background music.\n\nResults:\n• 2x better engagement rates\n• 3x faster production time  \n• Zero uncanny valley effect\n• Comments focused on content, not \"something feels off\"\n\nThe pattern: Sometimes the best AI solution is knowing when NOT to use AI.\n\nInstead of making robots more human, I made content more digestible.\n\nWhat \"AI problem\" in your workflow might have a non-AI solution?",
+          "score": 88,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 8 AM",
+          "media": null
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram Post",
+          "platform": "Instagram",
+          "content": "🤖 Spent 3 weeks fighting AI lip sync...\n\nFailed 3 times, then accidentally found something better.\n\nDeleted the audio entirely. Just text + music.\n\nResult: 2x engagement, 3x faster production ✨\n\nSometimes the best AI solution is knowing when NOT to use AI 🧠\n\n#BuildInPublic #AI #ContentCreation #SaaS #IndieHacker #VideoEditing #AITools #Productivity #TechFails #Innovation",
+          "score": 85,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 6 PM",
+            "Mon 11 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Sun 6 PM",
+          "media": null
+        }
+      ],
+      "createdAt": "2026-02-22T23:48:00.419Z"
     }
   ],
-  "total": 17,
-  "generated": "2026-02-22T23:47:15.490Z"
+  "total": 19,
+  "generated": "2026-02-22T23:48:18.053Z"
 }

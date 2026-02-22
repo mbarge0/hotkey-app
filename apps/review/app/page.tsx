@@ -221,23 +221,45 @@ export default function HotKey() {
               
               {/* Story navigation */}
               {batchData && batchData.total > 1 && (
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-3">
                   <button
                     onClick={() => setCurrentIndex(Math.max(0, currentIndex - 1))}
                     disabled={currentIndex === 0}
-                    className="p-1 text-gray-600 hover:text-gray-900 disabled:opacity-30 disabled:cursor-not-allowed"
+                    className="px-2 py-1 text-sm text-gray-600 hover:text-gray-900 disabled:opacity-30 disabled:cursor-not-allowed font-medium"
+                    title="Previous story"
                   >
-                    ←
+                    ← Prev
                   </button>
-                  <span className="text-xs text-gray-500">
-                    {currentIndex + 1} / {batchData.total}
+                  
+                  <div className="relative">
+                    <select
+                      value={currentIndex}
+                      onChange={(e) => setCurrentIndex(parseInt(e.target.value))}
+                      className="appearance-none bg-white border border-gray-300 rounded-lg px-3 py-1.5 pr-8 text-sm font-medium text-gray-900 hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer max-w-xs"
+                      style={{ minWidth: '200px' }}
+                    >
+                      {batchData.batches.map((b, idx) => (
+                        <option key={b.id} value={idx}>
+                          {idx + 1}. {b.story.title.slice(0, 50)}{b.story.title.length > 50 ? '...' : ''}
+                        </option>
+                      ))}
+                    </select>
+                    <div className="absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none text-gray-500">
+                      ▼
+                    </div>
+                  </div>
+                  
+                  <span className="text-xs text-gray-500 font-medium">
+                    {currentIndex + 1} of {batchData.total}
                   </span>
+                  
                   <button
                     onClick={() => setCurrentIndex(Math.min(batchData.total - 1, currentIndex + 1))}
                     disabled={currentIndex === batchData.total - 1}
-                    className="p-1 text-gray-600 hover:text-gray-900 disabled:opacity-30 disabled:cursor-not-allowed"
+                    className="px-2 py-1 text-sm text-gray-600 hover:text-gray-900 disabled:opacity-30 disabled:cursor-not-allowed font-medium"
+                    title="Next story"
                   >
-                    →
+                    Next →
                   </button>
                 </div>
               )}
