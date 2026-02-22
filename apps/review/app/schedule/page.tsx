@@ -180,14 +180,14 @@ export default function QueuePage() {
   const dismissedPosts = unscheduledPosts.filter(p => p.status === 'dismissed')
   const postedPosts = unscheduledPosts.filter(p => p.status === 'posted')
   
-  // Apply platform filter to unscheduled sidebar
+  // Apply platform filter to unscheduled sidebar (case-insensitive)
   const displayedUnscheduled = showDismissed 
     ? (unscheduledFilter === 'all' 
         ? dismissedPosts 
-        : dismissedPosts.filter(p => p.platform === unscheduledFilter))
+        : dismissedPosts.filter(p => p.platform.toLowerCase() === unscheduledFilter))
     : (unscheduledFilter === 'all'
         ? activeUnscheduled
-        : activeUnscheduled.filter(p => p.platform === unscheduledFilter))
+        : activeUnscheduled.filter(p => p.platform.toLowerCase() === unscheduledFilter))
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
