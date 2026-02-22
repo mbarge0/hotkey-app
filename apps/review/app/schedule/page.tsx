@@ -9,6 +9,9 @@ export default function QueuePage() {
   const [draggedPost, setDraggedPost] = useState<UnscheduledPost | null>(null)
   const [viewPlatform, setViewPlatform] = useState<Platform | 'all'>('all')
   const [showDismissed, setShowDismissed] = useState(false)
+  const [selectedPost, setSelectedPost] = useState<UnscheduledPost | null>(null)
+  const [editedContent, setEditedContent] = useState<string>('')
+  const [isEditing, setIsEditing] = useState(false)
 
   // Generate next 4 days
   const days = Array.from({ length: 4 }, (_, i) => {
@@ -146,7 +149,7 @@ export default function QueuePage() {
                 ← Back to Review
               </a>
               <h1 className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                HotKey Queue
+                HotKey Schedule
               </h1>
             </div>
 
@@ -194,7 +197,17 @@ export default function QueuePage() {
 
           {/* Unscheduled Sidebar */}
           <div className="w-80 flex-shrink-0">
-            <div className="bg-white rounded-lg shadow-md p-4 sticky top-8">
+            <div 
+              className="bg-white rounded-lg shadow-md p-4 sticky top-8"
+              onDragOver={(e) => e.preventDefault()}
+              onDrop={(e) => {
+                e.preventDefault()
+                const scheduledPostId = e.dataTransfer.getData('scheduledPostId')
+                if (scheduledPostId) {
+                  removeScheduledPost(scheduledPostId)
+                }
+              }}
+            >
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-lg font-semibold text-gray-900">
                   {showDismissed ? 'Dismissed' : 'Unscheduled'} ({displayedUnscheduled.length})
@@ -213,8 +226,9 @@ export default function QueuePage() {
                     key={post.id}
                     draggable={!showDismissed}
                     onDragStart={() => !showDismissed && handleDragStart(post)}
+                    onClick={() => setSelectedPost(post)}
                     className={`bg-gray-50 border border-gray-200 rounded-lg p-3 hover:shadow-sm transition-all ${
-                      showDismissed ? '' : 'cursor-move hover:border-blue-500'
+                      showDismissed ? 'cursor-pointer' : 'cursor-move hover:border-blue-500'
                     }`}
                   >
                     <div className="flex items-center gap-2 mb-1">
@@ -235,7 +249,10 @@ export default function QueuePage() {
                     <div className="flex gap-2">
                       {showDismissed ? (
                         <button
-                          onClick={() => undismissPost(post)}
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            undismissPost(post)
+                          }}
                           className="flex-1 px-2 py-1 bg-green-100 text-green-700 rounded text-xs font-medium hover:bg-green-200"
                         >
                           Restore
@@ -243,13 +260,19 @@ export default function QueuePage() {
                       ) : (
                         <>
                           <button
-                            onClick={() => autoSchedulePost(post)}
+                            onClick={(e) => {
+                              e.stopPropagation()
+                              autoSchedulePost(post)
+                            }}
                             className="flex-1 px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs font-medium hover:bg-blue-200"
                           >
                             Auto-schedule
                           </button>
                           <button
-                            onClick={() => dismissPost(post)}
+                            onClick={(e) => {
+                              e.stopPropagation()
+                              dismissPost(post)
+                            }}
                             className="px-3 py-1 bg-gray-200 text-gray-700 rounded text-xs font-medium hover:bg-gray-300"
                             title="Dismiss"
                           >
@@ -271,6 +294,134 @@ export default function QueuePage() {
           </div>
         </div>
       </div>
+
+      {/* Post Modal */}
+      {selectedPost && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 z-50"
+          onClick={() => {
+            setSelectedPost(null)
+            setIsEditing(false)
+          }}
+        >
+          <div 
+            className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="p-6 border-b border-gray-200 flex items-center justify-between bg-gradient-to-r from-blue-50 to-purple-50">
+              <div>
+                <h2 className="text-2xl font-bold text-gray-900">
+                  {selectedPost.platform.charAt(0).toUpperCase() + selectedPost.platform.slice(1)} - {selectedPost.title}
+                </h2>
+                <div className="flex items-center gap-2 mt-1">
+                  <span className={`px-2 py-0.5 rounded text-xs font-medium ${
+                    selectedPost.platform === 'twitter' ? 'bg-blue-100 text-blue-800' :
+                    selectedPost.platform === 'linkedin' ? 'bg-indigo-100 text-indigo-800' :
+                    'bg-pink-100 text-pink-800'
+                  }`}>
+                    {selectedPost.platform.charAt(0).toUpperCase() + selectedPost.platform.slice(1)}
+                  </span>
+                  <span className={`px-2 py-0.5 rounded text-xs font-medium ${
+                    selectedPost.status === 'unscheduled' ? 'bg-gray-100 text-gray-800' :
+                    selectedPost.status === 'scheduled' ? 'bg-green-100 text-green-800' :
+                    'bg-red-100 text-red-800'
+                  }`}>
+                    {selectedPost.status}
+                  </span>
+                </div>
+              </div>
+              <button
+                onClick={() => {
+                  setSelectedPost(null)
+                  setIsEditing(false)
+                }}
+                className="text-gray-400 hover:text-gray-600 text-3xl font-light"
+              >
+                ×
+              </button>
+            </div>
+            <div className="p-6 overflow-y-auto" style={{ maxHeight: 'calc(90vh - 300px)' }}>
+              {isEditing ? (
+                <textarea
+                  value={editedContent}
+                  onChange={(e) => setEditedContent(e.target.value)}
+                  className="w-full h-64 text-sm text-gray-800 font-mono bg-gray-50 p-4 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+                  style={{ minHeight: '400px' }}
+                />
+              ) : (
+                <pre 
+                  className="whitespace-pre-wrap text-sm text-gray-800 font-mono bg-gray-50 p-4 rounded-lg cursor-pointer hover:bg-gray-100"
+                  onClick={() => {
+                    setIsEditing(true)
+                    setEditedContent(selectedPost.content)
+                  }}
+                >
+                  {selectedPost.content}
+                </pre>
+              )}
+            </div>
+            <div className="p-6 border-t border-gray-200 bg-gray-50">
+              {/* Action Buttons */}
+              <div className="flex justify-between gap-3">
+                <button
+                  onClick={() => {
+                    navigator.clipboard.writeText(isEditing ? editedContent : selectedPost.content)
+                    alert('Copied to clipboard!')
+                  }}
+                  className="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-100 font-medium"
+                >
+                  Copy Content
+                </button>
+                <div className="flex gap-3">
+                  {isEditing && (
+                    <button
+                      onClick={() => {
+                        setUnscheduledPosts(unscheduledPosts.map(p => 
+                          p.id === selectedPost.id ? { ...p, content: editedContent } : p
+                        ))
+                        setSelectedPost({ ...selectedPost, content: editedContent })
+                        setIsEditing(false)
+                        alert('Changes saved!')
+                      }}
+                      className="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors"
+                    >
+                      Save Changes
+                    </button>
+                  )}
+                  <button
+                    onClick={() => {
+                      // Post Now - will implement with Publer
+                      alert('Post Now - Coming soon with Publer integration!')
+                    }}
+                    className="px-6 py-2 bg-orange-600 hover:bg-orange-700 text-white rounded-lg font-medium transition-colors"
+                  >
+                    Post Now
+                  </button>
+                  <button
+                    onClick={() => {
+                      autoSchedulePost(selectedPost)
+                      setSelectedPost(null)
+                      setIsEditing(false)
+                    }}
+                    className="px-6 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg font-medium transition-colors"
+                  >
+                    Auto-Schedule
+                  </button>
+                  <button
+                    onClick={() => {
+                      setSelectedPost(null)
+                      setIsEditing(false)
+                    }}
+                    className="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 font-medium"
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
@@ -313,7 +464,11 @@ function DayColumn({ date, label, posts, onDrop, onRemovePost }: DayColumnProps)
               {hourPosts.map(post => (
                 <div
                   key={post.id}
-                  className={`absolute left-14 right-2 top-0 border rounded px-2 py-1 text-xs font-medium cursor-pointer hover:opacity-90 group ${
+                  draggable
+                  onDragStart={(e) => {
+                    e.dataTransfer.setData('scheduledPostId', post.id)
+                  }}
+                  className={`absolute left-14 right-2 top-0 border rounded px-2 py-1 text-xs font-medium cursor-move hover:opacity-90 group ${
                     post.platform === 'twitter' ? 'bg-blue-100 border-blue-300 text-blue-900' :
                     post.platform === 'linkedin' ? 'bg-indigo-100 border-indigo-300 text-indigo-900' :
                     'bg-pink-100 border-pink-300 text-pink-900'
@@ -328,7 +483,10 @@ function DayColumn({ date, label, posts, onDrop, onRemovePost }: DayColumnProps)
                       <span className="truncate">{post.title}</span>
                     </div>
                     <button
-                      onClick={() => onRemovePost(post.id)}
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        onRemovePost(post.id)
+                      }}
                       className="ml-2 hover:text-red-600 opacity-0 group-hover:opacity-100"
                     >
                       ×

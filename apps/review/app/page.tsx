@@ -250,10 +250,10 @@ export default function HotKey() {
             </div>
             <div className="flex items-center gap-3">
               <a
-                href="/review/queue"
+                href="/review/schedule"
                 className="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg font-medium transition-all"
               >
-                View Queue
+                View Schedule
               </a>
               <button
                 onClick={() => {
@@ -642,6 +642,15 @@ export default function HotKey() {
                       Save Changes
                     </button>
                   )}
+                  <button
+                    onClick={() => {
+                      // Post Now - will implement with Publer
+                      alert('Post Now - Coming soon with Publer integration!')
+                    }}
+                    className="px-6 py-2 bg-orange-600 hover:bg-orange-700 text-white rounded-lg font-medium transition-colors"
+                  >
+                    Post Now
+                  </button>
                   <button
                     onClick={() => {
                       approveFormat(selectedFormat.id)
