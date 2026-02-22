@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Working Test</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body style="font-family: sans-serif; padding: 40px;">
+    <h1>Mailchimp Form Test</h1>
+    
+    <!-- Hidden iframe -->
+    <iframe name="mc-iframe" style="display:none"></iframe>
+    
+    <!-- Mailchimp Form -->
+    <form 
+        action="https://matthewbarge.us10.list-manage.com/subscribe/post?u=334e6a55e44a2dde8ff9835ee&id=250ca7a18e" 
+        method="post" 
+        target="mc-iframe"
+        id="test-form"
+        onsubmit="handleSubmit(event)">
+        
+        <input 
+            type="email" 
+            name="EMAIL" 
+            placeholder="Enter email"
+            required
+            style="padding: 10px; width: 300px; font-size: 16px;">
+        
+        <!-- Bot protection -->
+        <div style="position: absolute; left: -5000px;">
+            <input type="text" name="b_334e6a55e44a2dde8ff9835ee_250ca7a18e" tabindex="-1" value="">
+        </div>
+        
+        <button 
+            type="submit" 
+            id="submit-btn"
+            style="padding: 10px 20px; font-size: 16px; cursor: pointer; background: #0066cc; color: white; border: none; border-radius: 4px;">
+            Sign Up
+        </button>
+    </form>
+    
+    <div id="status" style="margin-top: 20px; padding: 10px; background: #f0f0f0;"></div>
+    
+    <script>
+        function handleSubmit(e) {
+            const btn = document.getElementById('submit-btn');
+            const status = document.getElementById('status');
+            
+            status.textContent = 'Form submitted! Waiting...';
+            
+            const originalText = btn.textContent;
+            btn.textContent = 'Submitting...';
+            btn.disabled = true;
+            
+            // Let form submit naturally
+            // After 1 second, show success
+            setTimeout(() => {
+                status.textContent = 'Success! Email sent to Mailchimp.';
+                btn.textContent = '✓ Done!';
+                btn.style.background = '#22c55e';
+                
+                // Fire confetti
+                if (typeof confetti === 'function') {
+                    confetti({
+                        particleCount: 100,
+                        spread: 70,
+                        origin: { y: 0.6 }
+                    });
+                    status.textContent += ' Confetti fired!';
+                } else {
+                    status.textContent += ' (No confetti - library not loaded)';
+                }
+                
+                // Reset
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.disabled = false;
+                    btn.style.background = '#0066cc';
+                    document.getElementById('test-form').reset();
+                }, 3000);
+            }, 1000);
+        }
+    </script>
+</body>
+</html>

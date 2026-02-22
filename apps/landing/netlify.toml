@@ -1,0 +1,28 @@
+# Netlify configuration for HotKey landing page
+
+[build]
+  publish = "."
+  command = "echo 'No build needed - static HTML'"
+  
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Ensure proper MIME types for Next.js assets
+[[headers]]
+  for = "/review/_next/static/css/*.css"
+  [headers.values]
+    Content-Type = "text/css"
+
+[[headers]]
+  for = "/review/_next/static/chunks/*.js"
+  [headers.values]
+    Content-Type = "application/javascript"
+
+[[headers]]
+  for = "/review/*.json"
+  [headers.values]
+    Content-Type = "application/json"

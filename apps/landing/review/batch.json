@@ -1,0 +1,572 @@
+{
+  "batches": [
+    {
+      "id": "kelly-1771653290861-ziu0u1rk0",
+      "story": {
+        "title": "App Store Submission Defense System",
+        "rawTitle": "2026-02-20 23:52 | Automation Win",
+        "description": "Built an end-to-end App Store submission defense system after 5 rejections piled up. Created 5 scripts: `submission-gate.sh` (pre-flight catches 12+ rejection causes before upload), `asc-preflight.sh` (validates against App Store Connect API), `asc-monitor.sh` (dashboard of all app states), `asc-alert.sh` (state change detection), and `resubmit.sh` (enforces rejection logging before retry). Wired the gate as a hard blocker into the upload script - no more \"oops forgot to check\" submissions. Set up 15-minute cron monitoring that pings when Apple moves an app.\n\nThis is the difference between amateur and factory. Most indie devs submit → wait → get rejected → fix one thing → repeat. We now have: (1) systematic pre-flight that catches issues BEFORE Apple sees them, (2) a rejection database that builds institutional memory, (3) real-time monitoring so we know within 15 minutes when something changes. The factory learns from every rejection and gets harder to reject over time.",
+        "pillar": "ai",
+        "score": 78,
+        "timestamp": "2026-02-20 23:52"
+      },
+      "formats": [
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "platform": "Twitter",
+          "content": "Built an end-to-end App Store submission defense system after 5 rejections piled up.\n\n Created 5 scripts: `submission-gate\n\nsh` (pre-flight catches 12+ rejection causes before upload), `asc-preflight\n\nsh` (validates against App Store Connect API), `asc-monitor",
+          "score": 92,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Sat 9 AM",
+            "Sat 12 PM",
+            "Sat 3 PM",
+            "Now",
+            "Custom"
+          ],
+          "checked": true,
+          "scheduleTime": "Sat 9 AM",
+          "media": "/review/media/MandatoryReviewandLearningPlaybook.mov"
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn Article",
+          "platform": "LinkedIn",
+          "content": "Built an end-to-end App Store submission defense system after 5 rejections piled up.\n\n**What happened:**\n Created 5 scripts: `submission-gate sh` (pre-flight catches 12+ rejection causes before upload), `asc-preflight sh` (validates against App Store Connect API), `asc-monitor\n\n**Why this matters:**\nsh` (dashboard of all app states), `asc-alert sh` (state change detection), and `resubmit sh` (enforces rejection logging before retry)\n\nBuilding in public and sharing what I learn along the way.\n\n#ai #buildinpublic #indiedev",
+          "score": 88,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Now",
+            "Custom"
+          ],
+          "checked": true,
+          "scheduleTime": "Mon 8 AM",
+          "media": "/review/media/MandatoryReviewandLearningPlaybook.mov"
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram Post",
+          "platform": "Instagram",
+          "content": "🤖 Built an end-to-end App Store submission defense system after 5 rejections piled\n\n• Created 5 scripts: `submission-gate\n• sh` (pre-flight catches 12+ rejection causes before upload),\n• sh` (validates against App Store Connect API), `asc-monitor\n\nBuilding in public, one win at a time.\n\n#buildinpublic #indiedev #ai #startup #maker #coding",
+          "score": 85,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sat 6 PM",
+            "Custom"
+          ],
+          "checked": true,
+          "scheduleTime": "Sat 6 PM",
+          "media": "/review/media/MandatoryReviewandLearningPlaybook.mov"
+        }
+      ],
+      "createdAt": "2026-02-21T05:54:50.861Z"
+    },
+    {
+      "id": "kelly-1771716622433-h8ffhqogc",
+      "story": {
+        "title": "2026-02-21 11:16 | Architecture Insight",
+        "rawTitle": "2026-02-21 11:16 | Architecture Insight",
+        "description": "Asked whether a spawned AI agent could complete the entire iOS factory flow (discovery → design → code → submit → marketing) in a single session. Answer: No. Context window fills up during the coding phase - each SwiftUI view is 100-300 lines, build errors add output, and by the time code compiles, context gets compacted and the agent loses track. Practical limit is ~1-2 phases per session. Solution: multi-session with memory handoffs via BUILD-CHECKLIST.md.\n\nThis is a real constraint on autonomous AI coding. The fantasy is \"agent builds entire app.\" The reality is context limits create natural phase boundaries. The fix isn't bigger context windows - it's designing systems that checkpoint state to external memory (files) so the next session can pick up cleanly. Memory architecture matters more than raw capability.",
+        "pillar": "ai",
+        "score": 68,
+        "timestamp": "2026-02-21 11:16"
+      },
+      "formats": [
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "platform": "Twitter",
+          "content": "Asked whether a spawned AI agent could complete the entire iOS factory flow (discovery → design → code → submit → marketing) in a single session.\n\n Context window fills up during the coding phase - each SwiftUI view is 100-300 lines, build errors add output, and by the time code compiles, context gets compacted and the agent loses track\n\n Practical limit is ~1-2 phases per session",
+          "score": 92,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Sat 9 AM",
+            "Sat 12 PM",
+            "Sat 3 PM",
+            "Now",
+            "Custom"
+          ],
+          "checked": true,
+          "scheduleTime": "Sat 9 AM",
+          "media": "/review/media/Screenshot 2026-02-21 at 11.16.38 AM.png"
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn Article",
+          "platform": "LinkedIn",
+          "content": "Asked whether a spawned AI agent could complete the entire iOS factory flow (discovery → design → code → submit → marketing) in a single session.\n\n**What happened:**\n Answer: No  Context window fills up during the coding phase - each SwiftUI view is 100-300 lines, build errors add output, and by the time code compiles, context gets compacted and the agent loses track  Practical limit is ~1-2 phases per session\n\n**Why this matters:**\n Solution: multi-session with memory handoffs via BUILD-CHECKLIST md \n\nThis is a real constraint on autonomous AI coding\n\nBuilding in public and sharing what I learn along the way.\n\n#ai #buildinpublic #indiedev",
+          "score": 88,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Now",
+            "Custom"
+          ],
+          "checked": true,
+          "scheduleTime": "Mon 8 AM",
+          "media": "/review/media/Screenshot 2026-02-21 at 11.16.38 AM.png"
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram Post",
+          "platform": "Instagram",
+          "content": "🤖 Asked whether a spawned AI agent could complete the entire iOS factory flow (dis\n\n• Context window fills up during the coding phase - each Swift\n• Practical limit is ~1-2 phases per session\n\nBuilding in public, one win at a time.\n\n#buildinpublic #indiedev #ai #startup #maker #coding",
+          "score": 85,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sat 6 PM",
+            "Custom"
+          ],
+          "checked": true,
+          "scheduleTime": "Sat 6 PM",
+          "media": "/review/media/Screenshot 2026-02-21 at 11.16.38 AM.png"
+        }
+      ],
+      "createdAt": "2026-02-21T23:30:22.433Z"
+    },
+    {
+      "id": "kelly-1771716622434-ev4esjvni",
+      "story": {
+        "title": "2026-02-21 11:29 | System Improvement",
+        "rawTitle": "2026-02-21 11:29 | System Improvement",
+        "description": "The `/story` hotkey failed - when triggered after discussing context window limits, I captured an unrelated \"best moment\" from earlier in the session instead of what just happened. Analyzed the failure, built criteria for scope detection: find the completion point (what just finished?), trace back to when that thread started, scope = that unit of work. Could be 1 exchange or 15 - depends on the work, not a fixed number. Key test: \"Could someone understand the story with just this scope?\"\n\nFixed rules (\"always capture last 2 exchanges\") fail because interesting work varies in size. A quick insight is 1 exchange. A debugging session is 7. A feature build is 15. The right approach is identifying the \"unit of interesting work that just completed\" and scoping to that - not arbitrarily truncating or expanding. Same principle applies to any capture/logging system: match the boundary to the work, not to a rule.",
+        "pillar": "ai",
+        "score": 74,
+        "timestamp": "2026-02-21 11:29"
+      },
+      "formats": [
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "platform": "Twitter",
+          "content": "built criteria for scope detection: find the completion point (what just finished.\n\n Analyzed the failure, built criteria for scope detection: find the completion point (what just finished\n\n), trace back to when that thread started, scope = that unit of work\n\n Could be 1 exchange or 15 - depends on the work, not a fixed number",
+          "score": 92,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Sat 9 AM",
+            "Sat 12 PM",
+            "Sat 3 PM",
+            "Now",
+            "Custom"
+          ],
+          "checked": true,
+          "scheduleTime": "Sat 9 AM"
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn Article",
+          "platform": "LinkedIn",
+          "content": "The `/story` hotkey failed - when triggered after discussing context window limits, I captured an unrelated \"best moment\" from earlier in the session instead of what just happened.\n\n**What happened:**\n Analyzed the failure, built criteria for scope detection: find the completion point (what just finished ), trace back to when that thread started, scope = that unit of work  Could be 1 exchange or 15 - depends on the work, not a fixed number\n\n**Why this matters:**\n Key test: \"Could someone understand the story with just this scope \"\n\nFixed rules (\"always capture last 2 exchanges\") fail because interesting work varies in size  A quick insight is 1 exchange\n\nBuilding in public and sharing what I learn along the way.\n\n#ai #buildinpublic #indiedev",
+          "score": 88,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Now",
+            "Custom"
+          ],
+          "checked": true,
+          "scheduleTime": "Mon 8 AM"
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram Post",
+          "platform": "Instagram",
+          "content": "🤖 The `/story` hotkey failed - when triggered after discussing context window limi\n\n• Analyzed the failure, built criteria for scope detection: fi\n• ), trace back to when that thread started, scope = that unit\n• Could be 1 exchange or 15 - depends on the work, not a fixed\n\nBuilding in public, one win at a time.\n\n#buildinpublic #indiedev #ai #startup #maker #coding",
+          "score": 85,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sat 6 PM",
+            "Custom"
+          ],
+          "checked": true,
+          "scheduleTime": "Sat 6 PM"
+        }
+      ],
+      "createdAt": "2026-02-21T23:30:22.434Z"
+    },
+    {
+      "id": "kelly-1771716622434-bjgnce1vz",
+      "story": {
+        "title": "Multi-agent Pipeline",
+        "rawTitle": "2026-02-21 14:28 | Architecture Insight",
+        "description": "Designed a multi-agent pipeline for iOS app factory to solve context window limitations. Instead of one agent trying to run the full flow (discovery → design → code → assets → submit) and running out of context mid-build, split into 5 specialized phase agents. Each agent: reads shared PIPELINE-STATE.json, verifies previous phase passed, does its work, runs exit gate, updates state file, optionally spawns next agent. State file tracks completion status, gate scores, checkpoints, and blockers per phase. Designed three orchestration options: manual (human triggers each), chained (each agent spawns next), or coordinator (single orchestrator manages all).\n\nContext limits aren't a bug to fix - they're a constraint to design around. The solution isn't bigger context windows, it's decomposing work into phases that fit, with explicit state handoffs between agents. Same pattern applies beyond iOS apps: any complex AI workflow that exceeds context limits can be split into pipeline stages with shared state. The key insight is making state external and explicit (JSON file) rather than relying on context memory.",
+        "pillar": "ai",
+        "score": 79,
+        "timestamp": "2026-02-21 14:28"
+      },
+      "formats": [
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "platform": "Twitter",
+          "content": "Designed a multi-agent pipeline for iOS app factory to solve context window limitations.\n\n Instead of one agent trying to run the full flow (discovery → design → code → assets → submit) and running out of context mid-build, split into 5 specialized phase agents\n\n Each agent: reads shared PIPELINE-STATE\n\njson, verifies previous phase passed, does its work, runs exit gate, updates state file, optionally spawns next agent",
+          "score": 92,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Sat 9 AM",
+            "Sat 12 PM",
+            "Sat 3 PM",
+            "Now",
+            "Custom"
+          ],
+          "checked": true,
+          "scheduleTime": "Sat 9 AM",
+          "media": "/review/media/Multi agent factory pipeline design.mov"
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn Article",
+          "platform": "LinkedIn",
+          "content": "Designed a multi-agent pipeline for iOS app factory to solve context window limitations.\n\n**What happened:**\n Instead of one agent trying to run the full flow (discovery → design → code → assets → submit) and running out of context mid-build, split into 5 specialized phase agents  Each agent: reads shared PIPELINE-STATE json, verifies previous phase passed, does its work, runs exit gate, updates state file, optionally spawns next agent\n\n**Why this matters:**\n State file tracks completion status, gate scores, checkpoints, and blockers per phase  Designed three orchestration options: manual (human triggers each), chained (each agent spawns next), or coordinator (single orchestrator manages all) \n\nContext limits aren't a bug to fix - they're a constraint to design around\n\nBuilding in public and sharing what I learn along the way.\n\n#ai #buildinpublic #indiedev",
+          "score": 88,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Now",
+            "Custom"
+          ],
+          "checked": true,
+          "scheduleTime": "Mon 8 AM",
+          "media": "/review/media/Multi agent factory pipeline design.mov"
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram Post",
+          "platform": "Instagram",
+          "content": "🤖 Designed a multi-agent pipeline for iOS app factory to solve context window limi\n\n• Instead of one agent trying to run the full flow (discovery \n• Each agent: reads shared PIPELINE-STATE\n• json, verifies previous phase passed, does its work, runs ex\n\nBuilding in public, one win at a time.\n\n#buildinpublic #indiedev #ai #startup #maker #coding",
+          "score": 85,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sat 6 PM",
+            "Custom"
+          ],
+          "checked": true,
+          "scheduleTime": "Sat 6 PM",
+          "media": "/review/media/Multi agent factory pipeline design.mov"
+        }
+      ],
+      "createdAt": "2026-02-21T23:30:22.434Z"
+    },
+    {
+      "id": "kelly-1771725192781-sh74cyhhf",
+      "story": {
+        "title": "Multi-agent Pipeline",
+        "rawTitle": "[2026-02-21 14:28] Architecture Insight",
+        "description": "Designed a multi-agent pipeline for iOS app factory to solve context window limitations. Instead of one agent trying to run the full flow (discovery → design → code → assets → submit) and running out of context mid-build, split into 5 specialized phase agents. Each agent: reads shared PIPELINE-STATE.json, verifies previous phase passed, does its work, runs exit gate, updates state file, optionally spawns next agent. State file tracks completion status, gate scores, checkpoints, and blockers per phase. Designed three orchestration options: manual (human triggers each), chained (each agent spawns next), or coordinator (single orchestrator manages all).\n\nContext limits aren't a bug to fix - they're a constraint to design around. The solution isn't bigger context windows, it's decomposing work into phases that fit, with explicit state handoffs between agents. Same pattern applies beyond iOS apps: any complex AI workflow that exceeds context limits can be split into pipeline stages with shared state. The key insight is making state external and explicit (JSON file) rather than relying on context memory.",
+        "pillar": "ai",
+        "score": 79,
+        "timestamp": "2026-02-21 14:28"
+      },
+      "formats": [
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "platform": "Twitter",
+          "content": "Designed a multi-agent pipeline for iOS app factory to solve context window limitations.\n\n Instead of one agent trying to run the full flow (discovery → design → code → assets → submit) and running out of context mid-build, split into 5 specialized phase agents\n\n Each agent: reads shared PIPELINE-STATE\n\njson, verifies previous phase passed, does its work, runs exit gate, updates state file, optionally spawns next agent",
+          "score": 92,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Sat 9 AM",
+            "Sat 12 PM",
+            "Sat 3 PM",
+            "Now",
+            "Custom"
+          ],
+          "checked": true,
+          "scheduleTime": "Sat 9 AM"
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn Article",
+          "platform": "LinkedIn",
+          "content": "Designed a multi-agent pipeline for iOS app factory to solve context window limitations.\n\n**What happened:**\n Instead of one agent trying to run the full flow (discovery → design → code → assets → submit) and running out of context mid-build, split into 5 specialized phase agents  Each agent: reads shared PIPELINE-STATE json, verifies previous phase passed, does its work, runs exit gate, updates state file, optionally spawns next agent\n\n**Why this matters:**\n State file tracks completion status, gate scores, checkpoints, and blockers per phase  Designed three orchestration options: manual (human triggers each), chained (each agent spawns next), or coordinator (single orchestrator manages all) \n\nContext limits aren't a bug to fix - they're a constraint to design around\n\nBuilding in public and sharing what I learn along the way.\n\n#ai #buildinpublic #indiedev",
+          "score": 88,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Now",
+            "Custom"
+          ],
+          "checked": true,
+          "scheduleTime": "Mon 8 AM"
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram Post",
+          "platform": "Instagram",
+          "content": "🤖 Designed a multi-agent pipeline for iOS app factory to solve context window limi\n\n• Instead of one agent trying to run the full flow (discovery \n• Each agent: reads shared PIPELINE-STATE\n• json, verifies previous phase passed, does its work, runs ex\n\nBuilding in public, one win at a time.\n\n#buildinpublic #indiedev #ai #startup #maker #coding",
+          "score": 85,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sat 6 PM",
+            "Custom"
+          ],
+          "checked": true,
+          "scheduleTime": "Sat 6 PM"
+        }
+      ],
+      "createdAt": "2026-02-22T01:53:12.781Z"
+    },
+    {
+      "id": "kelly-1771725192785-32wnzxc2o",
+      "story": {
+        "title": "[2026-02-21 11:29] System Improvement",
+        "rawTitle": "[2026-02-21 11:29] System Improvement",
+        "description": "The `/story` hotkey failed - when triggered after discussing context window limits, I captured an unrelated \"best moment\" from earlier in the session instead of what just happened. Analyzed the failure, built criteria for scope detection: find the completion point (what just finished?), trace back to when that thread started, scope = that unit of work. Could be 1 exchange or 15 - depends on the work, not a fixed number. Key test: \"Could someone understand the story with just this scope?\"\n\nFixed rules (\"always capture last 2 exchanges\") fail because interesting work varies in size. A quick insight is 1 exchange. A debugging session is 7. A feature build is 15. The right approach is identifying the \"unit of interesting work that just completed\" and scoping to that - not arbitrarily truncating or expanding. Same principle applies to any capture/logging system: match the boundary to the work, not to a rule.",
+        "pillar": "ai",
+        "score": 74,
+        "timestamp": "2026-02-21 11:29"
+      },
+      "formats": [
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "platform": "Twitter",
+          "content": "built criteria for scope detection: find the completion point (what just finished.\n\n Analyzed the failure, built criteria for scope detection: find the completion point (what just finished\n\n), trace back to when that thread started, scope = that unit of work\n\n Could be 1 exchange or 15 - depends on the work, not a fixed number",
+          "score": 92,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Sat 9 AM",
+            "Sat 12 PM",
+            "Sat 3 PM",
+            "Now",
+            "Custom"
+          ],
+          "checked": true,
+          "scheduleTime": "Sat 9 AM"
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn Article",
+          "platform": "LinkedIn",
+          "content": "The `/story` hotkey failed - when triggered after discussing context window limits, I captured an unrelated \"best moment\" from earlier in the session instead of what just happened.\n\n**What happened:**\n Analyzed the failure, built criteria for scope detection: find the completion point (what just finished ), trace back to when that thread started, scope = that unit of work  Could be 1 exchange or 15 - depends on the work, not a fixed number\n\n**Why this matters:**\n Key test: \"Could someone understand the story with just this scope \"\n\nFixed rules (\"always capture last 2 exchanges\") fail because interesting work varies in size  A quick insight is 1 exchange\n\nBuilding in public and sharing what I learn along the way.\n\n#ai #buildinpublic #indiedev",
+          "score": 88,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Now",
+            "Custom"
+          ],
+          "checked": true,
+          "scheduleTime": "Mon 8 AM"
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram Post",
+          "platform": "Instagram",
+          "content": "🤖 The `/story` hotkey failed - when triggered after discussing context window limi\n\n• Analyzed the failure, built criteria for scope detection: fi\n• ), trace back to when that thread started, scope = that unit\n• Could be 1 exchange or 15 - depends on the work, not a fixed\n\nBuilding in public, one win at a time.\n\n#buildinpublic #indiedev #ai #startup #maker #coding",
+          "score": 85,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sat 6 PM",
+            "Custom"
+          ],
+          "checked": true,
+          "scheduleTime": "Sat 6 PM"
+        }
+      ],
+      "createdAt": "2026-02-22T01:53:12.785Z"
+    },
+    {
+      "id": "kelly-1771725192787-sgwnr36yd",
+      "story": {
+        "title": "[2026-02-21 11:16] Architecture Insight",
+        "rawTitle": "[2026-02-21 11:16] Architecture Insight",
+        "description": "Asked whether a spawned AI agent could complete the entire iOS factory flow (discovery → design → code → submit → marketing) in a single session. Answer: No. Context window fills up during the coding phase - each SwiftUI view is 100-300 lines, build errors add output, and by the time code compiles, context gets compacted and the agent loses track. Practical limit is ~1-2 phases per session. Solution: multi-session with memory handoffs via BUILD-CHECKLIST.md.\n\nThis is a real constraint on autonomous AI coding. The fantasy is \"agent builds entire app.\" The reality is context limits create natural phase boundaries. The fix isn't bigger context windows - it's designing systems that checkpoint state to external memory (files) so the next session can pick up cleanly. Memory architecture matters more than raw capability.",
+        "pillar": "ai",
+        "score": 68,
+        "timestamp": "2026-02-21 11:16"
+      },
+      "formats": [
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "platform": "Twitter",
+          "content": "Asked whether a spawned AI agent could complete the entire iOS factory flow (discovery → design → code → submit → marketing) in a single session.\n\n Context window fills up during the coding phase - each SwiftUI view is 100-300 lines, build errors add output, and by the time code compiles, context gets compacted and the agent loses track\n\n Practical limit is ~1-2 phases per session",
+          "score": 92,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Sat 9 AM",
+            "Sat 12 PM",
+            "Sat 3 PM",
+            "Now",
+            "Custom"
+          ],
+          "checked": true,
+          "scheduleTime": "Sat 9 AM"
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn Article",
+          "platform": "LinkedIn",
+          "content": "Asked whether a spawned AI agent could complete the entire iOS factory flow (discovery → design → code → submit → marketing) in a single session.\n\n**What happened:**\n Answer: No  Context window fills up during the coding phase - each SwiftUI view is 100-300 lines, build errors add output, and by the time code compiles, context gets compacted and the agent loses track  Practical limit is ~1-2 phases per session\n\n**Why this matters:**\n Solution: multi-session with memory handoffs via BUILD-CHECKLIST md \n\nThis is a real constraint on autonomous AI coding\n\nBuilding in public and sharing what I learn along the way.\n\n#ai #buildinpublic #indiedev",
+          "score": 88,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Now",
+            "Custom"
+          ],
+          "checked": true,
+          "scheduleTime": "Mon 8 AM"
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram Post",
+          "platform": "Instagram",
+          "content": "🤖 Asked whether a spawned AI agent could complete the entire iOS factory flow (dis\n\n• Context window fills up during the coding phase - each Swift\n• Practical limit is ~1-2 phases per session\n\nBuilding in public, one win at a time.\n\n#buildinpublic #indiedev #ai #startup #maker #coding",
+          "score": 85,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sat 6 PM",
+            "Custom"
+          ],
+          "checked": true,
+          "scheduleTime": "Sat 6 PM"
+        }
+      ],
+      "createdAt": "2026-02-22T01:53:12.787Z"
+    },
+    {
+      "id": "matt-1771725210683-c69g7rv5h",
+      "story": {
+        "title": "Finalized HotKey product vision and MVP scope",
+        "rawTitle": "2026-02-21 17:37 | Product Launch",
+        "description": "Finalized HotKey product vision and MVP scope. Built complete review UI (v1.0.0) with 4 real stories, navigation, conversational sidebar personalized to user DNA, and platform previews. Defined full technical architecture: Chrome extension captures context from ChatGPT/Claude, sends to API, generates 3 initial drafts (Twitter/LinkedIn/Instagram), notifies via email, user reviews in web UI, copies to platforms. Decided on $29/mo pricing, no free tier to prevent AI cost abuse. Ready for pre-sell on Twitter.",
+        "pillar": "ai",
+        "score": 82,
+        "timestamp": "2026-02-21 17:37"
+      },
+      "formats": [
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "platform": "Twitter",
+          "content": "Finalized HotKey product vision and MVP scope.\n\n Built complete review UI (v1\n\n0) with 4 real stories, navigation, conversational sidebar personalized to user DNA, and platform previews",
+          "score": 92,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Sat 9 AM",
+            "Sat 12 PM",
+            "Sat 3 PM",
+            "Now",
+            "Custom"
+          ],
+          "checked": true,
+          "scheduleTime": "Sat 9 AM"
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn Article",
+          "platform": "LinkedIn",
+          "content": "Finalized HotKey product vision and MVP scope.\n\n**What happened:**\n Built complete review UI (v1 0 0) with 4 real stories, navigation, conversational sidebar personalized to user DNA, and platform previews\n\n**Why this matters:**\n Defined full technical architecture: Chrome extension captures context from ChatGPT/Claude, sends to API, generates 3 initial drafts (Twitter/LinkedIn/Instagram), notifies via email, user reviews in web UI, copies to platforms  Decided on $29/mo pricing, no free tier to prevent AI cost abuse  Ready for pre-sell on Twitter\n\nBuilding in public and sharing what I learn along the way.\n\n#ai #buildinpublic #indiedev",
+          "score": 88,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Now",
+            "Custom"
+          ],
+          "checked": true,
+          "scheduleTime": "Mon 8 AM"
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram Post",
+          "platform": "Instagram",
+          "content": "🤖 Finalized HotKey product vision and MVP scope\n\n• Built complete review UI (v1\n• 0) with 4 real stories, navigation, conversational sidebar p\n\nBuilding in public, one win at a time.\n\n#buildinpublic #indiedev #ai #startup #maker #coding",
+          "score": 85,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sat 6 PM",
+            "Custom"
+          ],
+          "checked": true,
+          "scheduleTime": "Sat 6 PM"
+        }
+      ],
+      "createdAt": "2026-02-22T01:53:30.683Z"
+    },
+    {
+      "id": "1771735852845-baepayulm",
+      "story": {
+        "title": "Content Hook Optimization System",
+        "rawTitle": "Content Hook Optimization System",
+        "description": "Identified critical flaw in HotKey content generation: posts were boring because `generate-review-data.js` uses text manipulation instead of AI generation with proper hooks. Researched viral content patterns (Twitter threads, LinkedIn articles, Instagram posts) and documented complete hook optimization system. Created two comprehensive docs: `HOOK-OPTIMIZATION.md` (system architecture) and `HOOK-COMPARISON.md` (before/after examples showing 40x engagement improvement).",
+        "pillar": "ai",
+        "score": 85
+      },
+      "formats": [
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "platform": "Twitter",
+          "content": "Created two comprehensive docs: `HOOK-OPTIMIZATION.\n\njs` uses text manipulation instead of AI generation with proper hooks\n\n Researched viral content patterns (Twitter threads, LinkedIn articles, Instagram posts) and documented complete hook optimization system\n\n Created two comprehensive docs: `HOOK-OPTIMIZATION",
+          "score": 92,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Sat 9 AM",
+            "Sat 12 PM",
+            "Sat 3 PM",
+            "Now",
+            "Custom"
+          ],
+          "checked": true,
+          "scheduleTime": "Sat 9 AM"
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn Article",
+          "platform": "LinkedIn",
+          "content": "Identified critical flaw in HotKey content generation: posts were boring because `generate-review-data.\n\n**What happened:**\njs` uses text manipulation instead of AI generation with proper hooks  Researched viral content patterns (Twitter threads, LinkedIn articles, Instagram posts) and documented complete hook optimization system  Created two comprehensive docs: `HOOK-OPTIMIZATION\n\n**Why this matters:**\nmd` (system architecture) and `HOOK-COMPARISON md` (before/after examples showing 40x engagement improvement)\n\nBuilding in public and sharing what I learn along the way.\n\n#ai #buildinpublic #indiedev",
+          "score": 88,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Now",
+            "Custom"
+          ],
+          "checked": true,
+          "scheduleTime": "Mon 8 AM"
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram Post",
+          "platform": "Instagram",
+          "content": "🤖 Identified critical flaw in HotKey content generation: posts were boring because\n\n• js` uses text manipulation instead of AI generation with pro\n• Researched viral content patterns (Twitter threads, LinkedIn\n• Created two comprehensive docs: `HOOK-OPTIMIZATION\n\nBuilding in public, one win at a time.\n\n#buildinpublic #indiedev #ai #startup #maker #coding",
+          "score": 85,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sat 6 PM",
+            "Custom"
+          ],
+          "checked": true,
+          "scheduleTime": "Sat 6 PM"
+        }
+      ],
+      "createdAt": "2026-02-22T05:00:05.411Z"
+    }
+  ],
+  "currentIndex": 0,
+  "total": 9
+}

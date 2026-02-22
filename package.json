@@ -1,0 +1,14 @@
+{
+  "name": "hotkey-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev:review": "cd apps/review && npm run dev",
+    "build:review": "cd apps/review && npm run build",
+    "build": "npm run build:review && npm run merge-outputs",
+    "merge-outputs": "node scripts/merge-outputs.js"
+  },
+  "workspaces": [
+    "apps/review"
+  ]
+}

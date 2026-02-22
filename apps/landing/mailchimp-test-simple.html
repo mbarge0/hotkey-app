@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mailchimp Test - Simple Form</title>
+</head>
+<body style="font-family: sans-serif; padding: 40px; max-width: 600px; margin: 0 auto;">
+    <h1>Simple Mailchimp Test</h1>
+    <p>This is the absolute simplest Mailchimp form possible:</p>
+    
+    <!-- BEGIN Mailchimp Signup Form -->
+    <form action="https://matthewbarge.us10.list-manage.com/subscribe/post?u=334e6a55e44a2dde8ff9835ee&amp;id=250ca7a18e" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
+        
+        <div>
+            <label for="mce-EMAIL">Email Address</label>
+            <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" required style="padding: 10px; width: 300px; font-size: 16px; margin: 10px 0;">
+        </div>
+        
+        <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+        <div style="position: absolute; left: -5000px;" aria-hidden="true">
+            <input type="text" name="b_334e6a55e44a2dde8ff9835ee_250ca7a18e" tabindex="-1" value="">
+        </div>
+        
+        <div>
+            <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button" style="padding: 10px 20px; font-size: 16px; cursor: pointer;">
+        </div>
+    </form>
+    <!-- End Mailchimp Signup Form -->
+    
+    <p style="margin-top: 20px; color: #666;">
+        Opens Mailchimp's confirmation page in new tab. If email appears in your audience, it works!
+    </p>
+    
+    <hr style="margin: 40px 0;">
+    
+    <h2>Test with iframe (No popup)</h2>
+    <p>Same form, but submits to hidden iframe:</p>
+    
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+    
+    <form action="https://matthewbarge.us10.list-manage.com/subscribe/post?u=334e6a55e44a2dde8ff9835ee&amp;id=250ca7a18e" method="post" target="hidden_iframe" onsubmit="submitted=true;">
+        
+        <div>
+            <label for="email2">Email Address</label>
+            <input type="email" value="" name="EMAIL" id="email2" required style="padding: 10px; width: 300px; font-size: 16px; margin: 10px 0;">
+        </div>
+        
+        <div style="position: absolute; left: -5000px;" aria-hidden="true">
+            <input type="text" name="b_334e6a55e44a2dde8ff9835ee_250ca7a18e" tabindex="-1" value="">
+        </div>
+        
+        <div>
+            <input type="submit" value="Subscribe (iframe)" style="padding: 10px 20px; font-size: 16px; cursor: pointer; background: #0066cc; color: white; border: none; border-radius: 4px;">
+        </div>
+    </form>
+    
+    <div id="success-message" style="display:none; margin-top: 20px; padding: 15px; background: #d4edda; color: #155724; border-radius: 4px;">
+        ✓ Thanks! Check your Mailchimp audience.
+    </div>
+    
+    <script>
+    var submitted = false;
+    </script>
+    
+    <script>
+    // Show success message after iframe form submit
+    window.addEventListener('load', function() {
+        if (submitted) {
+            document.getElementById('success-message').style.display = 'block';
+        }
+    });
+    </script>
+</body>
+</html>

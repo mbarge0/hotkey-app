@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HotKey - Turn Every Win Into 10 Posts in 30 Seconds</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="HotKey - Turn Every Win Into 10 Posts">
+    <meta property="og:description" content="Capture ChatGPT wins without breaking flow. Generate 10 posts in 30 seconds.">
+    <meta property="og:type" content="website">
+    <meta name="description" content="Capture your ChatGPT wins without breaking flow. One click → 10 platform-specific posts generated. Stay in the zone. Build in public. $29/month.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+    
+    <script>
+        function handleFormSubmit(formId) {
+            const form = document.getElementById(formId);
+            const btn = form.querySelector('button[type="submit"]');
+            const originalText = btn.textContent;
+            
+            btn.textContent = 'Signing up...';
+            btn.disabled = true;
+            
+            // Form submits to iframe automatically
+            // After 1 second, show success
+            setTimeout(() => {
+                btn.textContent = '🎉 You\'re on the list!';
+                btn.className = 'w-full bg-green-500 text-white font-bold py-3 px-6 rounded-lg shadow-lg';
+                
+                // Fire confetti
+                if (typeof confetti === 'function') {
+                    confetti({
+                        particleCount: 100,
+                        spread: 70,
+                        origin: { y: 0.6 },
+                        colors: ['#f59e0b', '#3b82f6', '#a855f7', '#ec4899']
+                    });
+                    
+                    setTimeout(() => {
+                        confetti({
+                            particleCount: 50,
+                            angle: 60,
+                            spread: 55,
+                            origin: { x: 0 }
+                        });
+                        confetti({
+                            particleCount: 50,
+                            angle: 120,
+                            spread: 55,
+                            origin: { x: 1 }
+                        });
+                    }, 250);
+                }
+                
+                // Increment counter
+                document.querySelectorAll('.signup-count').forEach(el => {
+                    const current = parseInt(el.textContent) || 127;
+                    el.textContent = current + 1;
+                });
+                
+                form.reset();
+                
+                // Reset button after 4 seconds
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.disabled = false;
+                    btn.className = btn.className.replace('bg-green-500', 'bg-yellow-400 hover:bg-yellow-300').replace('bg-gradient-to-r from-blue-600 to-purple-600', '');
+                    if (formId === 'form-pricing') {
+                        btn.className = 'w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold py-3 px-6 rounded-lg transition-all transform hover:scale-105 shadow-lg';
+                    } else {
+                        btn.className = 'w-full bg-yellow-400 hover:bg-yellow-300 text-gray-900 font-bold py-3 px-6 rounded-lg transition-all transform hover:scale-105 shadow-lg';
+                    }
+                }, 4000);
+            }, 1000);
+        }
+    </script>
+</head>
+<body class="bg-gray-50">
+    
+    <!-- Hidden iframe -->
+    <iframe name="hidden-iframe" style="display:none"></iframe>
+    
+    <!-- Hero Section -->
+    <div class="bg-gradient-to-br from-blue-600 via-purple-600 to-pink-500">
+        <div class="max-w-4xl mx-auto px-4 py-20 text-center text-white">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                Turn Every Win Into<br>
+                <span class="text-yellow-300">10 Posts in 30 Seconds</span>
+            </h1>
+            
+            <p class="text-xl md:text-2xl mb-8 text-blue-100 max-w-2xl mx-auto">
+                You're deep in ChatGPT, building something cool. You just figured it out.
+                <strong class="text-white">But you don't capture it.</strong>
+            </p>
+            
+            <p class="text-lg mb-10 text-blue-100">
+                <strong class="text-white">HotKey fixes that.</strong> One click → 10 platform-specific posts → stay in flow.
+            </p>
+            
+            <!-- CTA Form -->
+            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 max-w-md mx-auto border border-white/20">
+                <div class="text-sm font-medium text-yellow-300 mb-3">🎉 Launching in 4 weeks</div>
+                
+                <form 
+                    id="form-hero"
+                    action="https://matthewbarge.us10.list-manage.com/subscribe/post?u=334e6a55e44a2dde8ff9835ee&amp;id=250ca7a18e" 
+                    method="post" 
+                    target="hidden-iframe"
+                    onsubmit="handleFormSubmit('form-hero')"
+                    class="space-y-4">
+                    
+                    <input 
+                        type="email" 
+                        name="EMAIL"
+                        placeholder="Enter your email" 
+                        required
+                        class="w-full px-4 py-3 rounded-lg text-gray-900 font-medium focus:outline-none focus:ring-4 focus:ring-yellow-300"
+                    >
+                    
+                    <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                        <input type="text" name="b_334e6a55e44a2dde8ff9835ee_250ca7a18e" tabindex="-1" value="">
+                    </div>
+                    
+                    <button 
+                        type="submit"
+                        class="w-full bg-yellow-400 hover:bg-yellow-300 text-gray-900 font-bold py-3 px-6 rounded-lg transition-all transform hover:scale-105 shadow-lg"
+                    >
+                        Get Early Access
+                    </button>
+                </form>
+                
+                <p class="text-sm text-blue-100 mt-4">
+                    <span class="font-medium text-white signup-count">127</span> builders already signed up
+                </p>
+            </div>
+            
+            <p class="text-sm text-blue-200 mt-4">
+                $29/month • No free tier • Worth every penny
+            </p>
+        </div>
+    </div>
+    
+    <!-- Problem Section -->
+    <div class="max-w-4xl mx-auto px-4 py-20">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center">
+            The Problem
+        </h2>
+        
+        <div class="bg-red-50 border-l-4 border-red-500 p-6 rounded-lg mb-8">
+            <p class="text-lg text-gray-800 mb-4">
+                You're working in ChatGPT. Building, debugging, creating. You just solved a hard problem.
+            </p>
+            <p class="text-lg text-gray-800 mb-4">
+                You <em>should</em> tweet about it. Write a LinkedIn post. Share on Instagram.
+            </p>
+            <p class="text-lg text-gray-800 font-bold">
+                But you don't. Because it's <span class="text-red-600">friction</span>.
+            </p>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-6 mb-8">
+            <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                <div class="text-4xl mb-3">😓</div>
+                <h3 class="font-bold text-gray-900 mb-2">Breaks Flow</h3>
+                <p class="text-gray-600">
+                    Opening Twitter kills your momentum. You're in the zone. Why stop?
+                </p>
+            </div>
+            
+            <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                <div class="text-4xl mb-3">✍️</div>
+                <h3 class="font-bold text-gray-900 mb-2">Writing Takes Time</h3>
+                <p class="text-gray-600">
+                    Crafting the perfect post for each platform? That's another 20 minutes.
+                </p>
+            </div>
+            
+            <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                <div class="text-4xl mb-3">😔</div>
+                <h3 class="font-bold text-gray-900 mb-2">You Forget</h3>
+                <p class="text-gray-600">
+                    By the time you finish, you forgot the insight. It's gone forever.
+                </p>
+            </div>
+        </div>
+        
+        <p class="text-xl text-center text-gray-700 font-medium">
+            This is why most people <strong class="text-red-600">don't build in public</strong>.
+            <br>Not because they don't want to. Because it's <em>too much friction</em>.
+        </p>
+    </div>
+    
+    <!-- Solution Section -->
+    <div class="bg-gradient-to-br from-green-50 to-blue-50 py-20">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center">
+                HotKey Fixes This
+            </h2>
+            
+            <p class="text-xl text-center text-gray-700 mb-12 max-w-2xl mx-auto">
+                One click while you're working → captures what just happened → generates 10 posts → you review & share.
+                <strong class="text-green-600">30 seconds total.</strong>
+            </p>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="text-center">
+                    <div class="bg-blue-600 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+                        1
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-2 text-lg">Click HotKey</h3>
+                    <p class="text-gray-600">
+                        Working in ChatGPT or Claude? Click the extension icon. Takes 2 seconds.
+                    </p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-purple-600 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+                        2
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-2 text-lg">Get Notified</h3>
+                    <p class="text-gray-600">
+                        Go back to work. Email arrives: "3 posts ready to review"
+                    </p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-pink-600 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+                        3
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-2 text-lg">Review & Post</h3>
+                    <p class="text-gray-600">
+                        See all posts. Approve. Copy-paste. Done. Ship it.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-2xl shadow-2xl p-4 border-4 border-gray-200">
+                <div class="bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg p-8 text-center">
+                    <p class="text-gray-500 font-medium mb-2">Live Demo</p>
+                    <a href="https://content-factory-review.netlify.app/review" target="_blank" class="text-blue-600 hover:text-blue-700 font-bold text-lg underline">
+                        See HotKey In Action →
+                    </a>
+                    <p class="text-sm text-gray-500 mt-2">
+                        (Working demo with real posts)
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Pricing Section -->
+    <div class="max-w-4xl mx-auto px-4 py-20">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center">
+            Simple Pricing
+        </h2>
+        
+        <div class="max-w-md mx-auto bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-8 border-2 border-blue-200 shadow-xl">
+            <div class="text-center mb-6">
+                <div class="text-5xl font-bold text-gray-900 mb-2">
+                    $29<span class="text-2xl text-gray-600">/month</span>
+                </div>
+                <p class="text-gray-600">
+                    Or $290/year <span class="text-green-600 font-medium">(save 2 months)</span>
+                </p>
+            </div>
+            
+            <ul class="space-y-3 mb-8 text-gray-700">
+                <li class="flex items-start gap-2">
+                    <span class="text-green-600 font-bold">✓</span>
+                    <span>Unlimited captures</span>
+                </li>
+                <li class="flex items-start gap-2">
+                    <span class="text-green-600 font-bold">✓</span>
+                    <span>All 10 platforms included</span>
+                </li>
+                <li class="flex items-start gap-2">
+                    <span class="text-green-600 font-bold">✓</span>
+                    <span>Screenshots & videos</span>
+                </li>
+                <li class="flex items-start gap-2">
+                    <span class="text-green-600 font-bold">✓</span>
+                    <span>Email notifications</span>
+                </li>
+                <li class="flex items-start gap-2">
+                    <span class="text-green-600 font-bold">✓</span>
+                    <span>Beautiful review UI</span>
+                </li>
+                <li class="flex items-start gap-2">
+                    <span class="text-green-600 font-bold">✓</span>
+                    <span>Priority email support</span>
+                </li>
+            </ul>
+            
+            <p class="text-center text-sm text-gray-600 mb-6">
+                🎁 <strong class="text-gray-900">Early bird:</strong> First 100 signups get 50% off for life
+            </p>
+            
+            <form 
+                id="form-pricing"
+                action="https://matthewbarge.us10.list-manage.com/subscribe/post?u=334e6a55e44a2dde8ff9835ee&amp;id=250ca7a18e" 
+                method="post" 
+                target="hidden-iframe"
+                onsubmit="handleFormSubmit('form-pricing')"
+                class="space-y-4">
+                
+                <input 
+                    type="email" 
+                    name="EMAIL"
+                    placeholder="Enter your email" 
+                    required
+                    class="w-full px-4 py-3 rounded-lg border-2 border-gray-300 focus:border-blue-500 focus:outline-none font-medium"
+                >
+                
+                <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                    <input type="text" name="b_334e6a55e44a2dde8ff9835ee_250ca7a18e" tabindex="-1" value="">
+                </div>
+                
+                <button 
+                    type="submit"
+                    class="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold py-3 px-6 rounded-lg transition-all transform hover:scale-105 shadow-lg"
+                >
+                    Join Early Access
+                </button>
+            </form>
+            
+            <p class="text-xs text-gray-500 text-center mt-4">
+                We hate spam too. Unsubscribe anytime.
+            </p>
+        </div>
+        
+        <p class="text-center text-gray-600 mt-8">
+            <strong class="text-gray-900">Why no free tier?</strong> AI costs add up fast. Paid-only keeps quality high and prevents abuse.
+        </p>
+    </div>
+    
+    <!-- Final CTA -->
+    <div class="bg-gradient-to-br from-purple-600 via-pink-600 to-red-500 py-20">
+        <div class="max-w-2xl mx-auto px-4 text-center text-white">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                Ready to Build in Public?
+            </h2>
+            
+            <p class="text-xl mb-10 text-purple-100">
+                Join <span class="font-bold text-yellow-300 signup-count">127</span> builders who are tired of letting wins disappear into the void.
+            </p>
+            
+            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 max-w-md mx-auto border border-white/20">
+                <form 
+                    id="form-final"
+                    action="https://matthewbarge.us10.list-manage.com/subscribe/post?u=334e6a55e44a2dde8ff9835ee&amp;id=250ca7a18e" 
+                    method="post" 
+                    target="hidden-iframe"
+                    onsubmit="handleFormSubmit('form-final')"
+                    class="space-y-4">
+                    
+                    <input 
+                        type="email" 
+                        name="EMAIL"
+                        placeholder="Enter your email" 
+                        required
+                        class="w-full px-4 py-3 rounded-lg text-gray-900 font-medium focus:outline-none focus:ring-4 focus:ring-yellow-300"
+                    >
+                    
+                    <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                        <input type="text" name="b_334e6a55e44a2dde8ff9835ee_250ca7a18e" tabindex="-1" value="">
+                    </div>
+                    
+                    <button 
+                        type="submit"
+                        class="w-full bg-yellow-400 hover:bg-yellow-300 text-gray-900 font-bold py-3 px-6 rounded-lg transition-all transform hover:scale-105 shadow-lg"
+                    >
+                        Get Early Access
+                    </button>
+                </form>
+                
+                <p class="text-sm text-purple-100 mt-4">
+                    50% off for first 100 • Launching in 4 weeks
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <div class="bg-gray-900 text-gray-400 py-12">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div>
+                    <div class="text-2xl font-bold text-white mb-2">🔥 HotKey</div>
+                    <p class="text-sm">Turn every win into 10 posts in 30 seconds</p>
+                </div>
+                
+                <div class="flex gap-6">
+                    <a href="mailto:matt@gethotkey.com" class="hover:text-white transition-colors">Contact</a>
+                    <a href="#" class="hover:text-white transition-colors">Privacy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms</a>
+                </div>
+            </div>
+            
+            <div class="mt-8 pt-8 border-t border-gray-800 text-center text-sm">
+                <p>
+                    Built by <a href="https://twitter.com/matthewbarge" class="text-blue-400 hover:text-blue-300">Matt Barge</a> • 
+                    Indie maker • Shipping fast
+                </p>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
