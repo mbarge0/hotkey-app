@@ -46,6 +46,8 @@ export default function HotKey() {
   const [loading, setLoading] = useState(true)
   const [selectedFormat, setSelectedFormat] = useState<Format | null>(null)
   const [filter, setFilter] = useState<'all' | 'auto' | 'manual' | 'design' | 'video'>('all')
+  const [editedContent, setEditedContent] = useState<string>('')
+  const [isEditing, setIsEditing] = useState(false)
   
   const batch = batchData?.batches[currentIndex] || null
 
@@ -527,8 +529,17 @@ export default function HotKey() {
 
       {/* Preview Modal */}
       {selectedFormat && (
-        <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 z-50">
-          <div className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden shadow-2xl">
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 z-50"
+          onClick={() => {
+            setSelectedFormat(null)
+            setIsEditing(false)
+          }}
+        >
+          <div 
+            className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
             <div className="p-6 border-b border-gray-200 flex items-center justify-between bg-gradient-to-r from-blue-50 to-purple-50">
               <div>
                 <h2 className="text-2xl font-bold text-gray-900">{selectedFormat.name}</h2>
@@ -543,40 +554,114 @@ export default function HotKey() {
                 </div>
               </div>
               <button
-                onClick={() => setSelectedFormat(null)}
+                onClick={() => {
+                  setSelectedFormat(null)
+                  setIsEditing(false)
+                }}
                 className="text-gray-400 hover:text-gray-600 text-3xl font-light"
               >
                 ×
               </button>
             </div>
-            <div className="p-6 overflow-y-auto" style={{ maxHeight: 'calc(90vh - 200px)' }}>
-              <pre className="whitespace-pre-wrap text-sm text-gray-800 font-mono bg-gray-50 p-4 rounded-lg">
-                {selectedFormat.content}
-              </pre>
+            <div className="p-6 overflow-y-auto" style={{ maxHeight: 'calc(90vh - 300px)' }}>
+              {isEditing ? (
+                <textarea
+                  value={editedContent}
+                  onChange={(e) => setEditedContent(e.target.value)}
+                  className="w-full h-64 text-sm text-gray-800 font-mono bg-gray-50 p-4 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+                  style={{ minHeight: '400px' }}
+                />
+              ) : (
+                <pre 
+                  className="whitespace-pre-wrap text-sm text-gray-800 font-mono bg-gray-50 p-4 rounded-lg cursor-pointer hover:bg-gray-100"
+                  onClick={() => {
+                    setIsEditing(true)
+                    setEditedContent(selectedFormat.content)
+                  }}
+                >
+                  {selectedFormat.content}
+                </pre>
+              )}
             </div>
-            <div className="p-6 border-t border-gray-200 flex justify-between gap-3 bg-gray-50">
-              <button
-                onClick={() => {
-                  navigator.clipboard.writeText(selectedFormat.content)
-                  alert('Copied to clipboard!')
-                }}
-                className="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-100 font-medium"
-              >
-                Copy Content
-              </button>
-              <div className="flex gap-3">
-                <button
-                  onClick={() => approveFormat(selectedFormat.id)}
-                  className="px-6 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg font-medium transition-colors"
+            <div className="p-6 border-t border-gray-200 bg-gray-50">
+              {/* Schedule Section */}
+              <div className="mb-4">
+                <label className="block text-sm font-medium text-gray-700 mb-2">Schedule</label>
+                <select
+                  value={selectedFormat.scheduleTime}
+                  onChange={(e) => {
+                    if (!batch || !batchData) return
+                    const updatedBatches = [...batchData.batches]
+                    updatedBatches[currentIndex] = {
+                      ...batch,
+                      formats: batch.formats.map(f => 
+                        f.id === selectedFormat.id ? { ...f, scheduleTime: e.target.value } : f
+                      )
+                    }
+                    setBatchData({ ...batchData, batches: updatedBatches })
+                    setSelectedFormat({ ...selectedFormat, scheduleTime: e.target.value })
+                  }}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
                 >
-                  Approve & Close
-                </button>
+                  {selectedFormat.scheduleOptions.map(opt => (
+                    <option key={opt} value={opt}>{opt}</option>
+                  ))}
+                </select>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="flex justify-between gap-3">
                 <button
-                  onClick={() => setSelectedFormat(null)}
-                  className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-medium"
+                  onClick={() => {
+                    navigator.clipboard.writeText(isEditing ? editedContent : selectedFormat.content)
+                    alert('Copied to clipboard!')
+                  }}
+                  className="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-100 font-medium"
                 >
-                  Close
+                  Copy Content
                 </button>
+                <div className="flex gap-3">
+                  {isEditing && (
+                    <button
+                      onClick={() => {
+                        if (!batch || !batchData) return
+                        const updatedBatches = [...batchData.batches]
+                        updatedBatches[currentIndex] = {
+                          ...batch,
+                          formats: batch.formats.map(f => 
+                            f.id === selectedFormat.id ? { ...f, content: editedContent } : f
+                          )
+                        }
+                        setBatchData({ ...batchData, batches: updatedBatches })
+                        setSelectedFormat({ ...selectedFormat, content: editedContent })
+                        setIsEditing(false)
+                        alert('Changes saved!')
+                      }}
+                      className="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors"
+                    >
+                      Save Changes
+                    </button>
+                  )}
+                  <button
+                    onClick={() => {
+                      approveFormat(selectedFormat.id)
+                      setSelectedFormat(null)
+                      setIsEditing(false)
+                    }}
+                    className="px-6 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg font-medium transition-colors"
+                  >
+                    Approve & Schedule
+                  </button>
+                  <button
+                    onClick={() => {
+                      setSelectedFormat(null)
+                      setIsEditing(false)
+                    }}
+                    className="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 font-medium"
+                  >
+                    Close
+                  </button>
+                </div>
               </div>
             </div>
           </div>
