@@ -94,7 +94,7 @@ export default function InstagramPreview({
 
         {/* Likes */}
         <div className="font-semibold text-[14px] text-gray-900 mb-2">
-          0 likes
+          12 likes
         </div>
 
         {/* Caption */}

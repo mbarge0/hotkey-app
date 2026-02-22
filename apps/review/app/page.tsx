@@ -5,6 +5,7 @@ import TwitterPreview from './components/TwitterPreview'
 import LinkedInPreview from './components/LinkedInPreview'
 import InstagramPreview from './components/InstagramPreview'
 import { profileConfig } from './config/profile'
+import { generateStoryContext } from './utils/storyContext'
 
 interface Format {
   id: string
@@ -446,23 +447,20 @@ export default function HotKey() {
               <h3 className="text-lg font-semibold text-gray-900 mb-4">What We Did</h3>
               
               <div className="space-y-4 text-sm text-gray-700 leading-relaxed">
-                <p>
-                  You just captured a story about {batch.story.title.match(/^[aeiou]/i) ? 'an' : 'a'} <strong>{batch.story.title}</strong>.
-                </p>
-
-                <p>
-                  This hits right in your sweet spot - {profileConfig.dna.vibe}. Your audience knows you for {profileConfig.dna.focus.slice(0, -1).join(', ')} and {profileConfig.dna.focus[profileConfig.dna.focus.length - 1]} work, and this story shows how you actually build. It scored <strong>{batch.story.score}/100</strong>, which means it's solid.
-                </p>
-
-                <p>
-                  Here's what we did:
-                </p>
-
-                <ul className="space-y-2 text-sm text-gray-600 ml-4 list-none">
-                  <li><strong>Twitter</strong> gets the quick version - developers scrolling will get it fast</li>
-                  <li><strong>LinkedIn</strong> gets the full story - other builders want to see how you think</li>
-                  <li><strong>Instagram</strong> keeps it simple with hashtags - reaches more people that way</li>
-                </ul>
+                {(() => {
+                  const context = generateStoryContext(batch.story, profileConfig.dna.focus)
+                  return (
+                    <>
+                      <p>{context.intro}</p>
+                      <p>{context.insight}</p>
+                      <div className="space-y-2 text-sm text-gray-600">
+                        {context.platformNotes.map((note, i) => (
+                          <p key={i}>{note}</p>
+                        ))}
+                      </div>
+                    </>
+                  )
+                })()}
 
                 {batch.story.timestamp && (
                   <div className="pt-4 border-t border-gray-200">
