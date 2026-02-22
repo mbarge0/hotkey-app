@@ -18,7 +18,13 @@
           "content": "5 App Store rejections in a row taught me something:\n\nMost indie devs submit → wait → get rejected → fix one thing → repeat.\n\nI built a defense system instead:\n\n• submission-gate.sh: catches 12+ rejection causes BEFORE upload\n• asc-preflight.sh: validates against Apple's API\n• asc-monitor.sh: dashboard of all app states\n• asc-alert.sh: pings me within 15 min when Apple moves an app\n• resubmit.sh: forces rejection logging before retry\n\nThe gate is a hard blocker. Can't upload until it passes.\n\nThis is the difference between amateur and factory:\n\nAmateur = submit and hope\nFactory = systematic pre-flight that learns from every rejection\n\nThe system builds institutional memory. Gets harder to reject over time.",
           "score": 92,
           "publishType": "auto",
-          "scheduleOptions": ["Sun 12 PM", "Sun 3 PM", "Sun 6 PM", "Now", "Custom"],
+          "scheduleOptions": [
+            "Sun 12 PM",
+            "Sun 3 PM",
+            "Sun 6 PM",
+            "Now",
+            "Custom"
+          ],
           "checked": true,
           "scheduleTime": "Sun 12 PM",
           "media": "/review/media/MandatoryReviewandLearningPlaybook.mov"
@@ -30,7 +36,12 @@
           "content": "After 5 App Store rejections in a row, I stopped submitting and started building defense.\n\nMost indie developers operate like this:\nSubmit → Wait → Rejection → Fix one thing → Repeat\n\nThe problem? No memory. Each submission is a fresh gamble.\n\nSo I built a 5-script defense system:\n\n**1. submission-gate.sh**\nPre-flight that catches 12+ common rejection causes before upload. Hard blocker - can't submit until it passes.\n\n**2. asc-preflight.sh**\nValidates against App Store Connect API. Checks metadata, screenshots, privacy policy, all the stuff Apple nitpicks.\n\n**3. asc-monitor.sh**\nDashboard showing state of every app. One command, see everything.\n\n**4. asc-alert.sh**\nCron job that checks every 15 minutes. When Apple moves an app to a new state, I know immediately.\n\n**5. resubmit.sh**\nEnforces logging before retry. Forces you to document what went wrong and what changed. Builds rejection database.\n\nThe key insight: rejection isn't random, it's pattern-based.\n\nApple's review process is consistent. They check the same things every time. The reason most indie devs fail is they don't systematize learning.\n\nNow:\n• Pre-flight catches issues BEFORE Apple sees them\n• Rejection database builds institutional memory\n• Real-time monitoring cuts response time from hours to minutes\n• System learns from every rejection and gets harder to reject\n\nThis is the difference between amateur and factory:\n\nAmateur = submit and hope\nFactory = systematic quality gates that compound over time\n\nBuilding in public isn't just about shipping fast. It's about shipping with systems that make you faster next time.",
           "score": 88,
           "publishType": "auto",
-          "scheduleOptions": ["Mon 8 AM", "Tue 8 AM", "Now", "Custom"],
+          "scheduleOptions": [
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Now",
+            "Custom"
+          ],
           "checked": true,
           "scheduleTime": "Mon 8 AM",
           "media": "/review/media/MandatoryReviewandLearningPlaybook.mov"
@@ -42,7 +53,11 @@
           "content": "5 App Store rejections → Built a defense system instead of just resubmitting 🛡️\n\nMost indie devs: submit → wait → rejected → fix → repeat\n\nMe: Built 5 scripts that catch rejections BEFORE Apple sees them\n\n✅ submission-gate.sh: Pre-flight checks 12+ common rejection causes\n✅ asc-preflight.sh: Validates against Apple's API\n✅ asc-monitor.sh: Dashboard of all app states\n✅ asc-alert.sh: Pings me within 15 min when Apple moves\n✅ resubmit.sh: Forces logging before retry\n\nThe gate is a hard blocker. Can't upload until it passes.\n\nThis is the difference:\n• Amateur = submit and hope\n• Factory = systematic pre-flight that learns from every rejection\n\nThe system builds institutional memory. Gets harder to reject over time.\n\n#BuildInPublic #iOSDev #AppStore #Automation #IndieHacker #TechLife #CodingLife #AppDevelopment",
           "score": 85,
           "publishType": "auto",
-          "scheduleOptions": ["Now", "Sun 6 PM", "Custom"],
+          "scheduleOptions": [
+            "Now",
+            "Sun 6 PM",
+            "Custom"
+          ],
           "checked": true,
           "scheduleTime": "Sun 6 PM",
           "media": "/review/media/MandatoryReviewandLearningPlaybook.mov"
@@ -68,7 +83,13 @@
           "content": "Can an AI agent build an entire iOS app in one session?\n\nI tested this. The answer is no.\n\nHere's why:\n\nContext window fills up during coding phase:\n• Each SwiftUI view = 100-300 lines\n• Build errors add output\n• By the time code compiles, context gets compacted\n• Agent loses track of what it was building\n\nPractical limit: ~1-2 phases per session\n\nThe fantasy: \"Agent builds entire app\"\nThe reality: Context limits create natural phase boundaries\n\nThe fix isn't bigger context windows.\n\nIt's designing systems that checkpoint state to external memory (files) so the next session can pick up cleanly.\n\nSolution: Multi-session with memory handoffs via BUILD-CHECKLIST.md\n\nMemory architecture matters more than raw capability.",
           "score": 92,
           "publishType": "auto",
-          "scheduleOptions": ["Sun 12 PM", "Sun 3 PM", "Sun 6 PM", "Now", "Custom"],
+          "scheduleOptions": [
+            "Sun 12 PM",
+            "Sun 3 PM",
+            "Sun 6 PM",
+            "Now",
+            "Custom"
+          ],
           "checked": true,
           "scheduleTime": "Sun 3 PM",
           "media": "/review/media/Screenshot-2026-02-21-at-11-16-38-AM.png"
@@ -80,7 +101,12 @@
           "content": "The AI coding fantasy: \"Just ask the agent to build the entire app.\"\n\nThe reality I discovered testing my iOS factory: It can't.\n\nNot because the model isn't capable. Because context windows hit natural limits.\n\nHere's what happens when you try:\n\n**Phase 1 (Discovery):** Works fine. Agent asks questions, builds spec, creates PROJECT_OVERVIEW.md. Context usage: 20%.\n\n**Phase 2 (Design):** Still good. SwiftUI views, data models, navigation flow. Context usage: 40%.\n\n**Phase 3 (Code):** This is where it breaks.\n• Each SwiftUI view is 100-300 lines\n• Build errors add output\n• Agent references previous views\n• By the time code compiles, context is at 90%\n• Compaction kicks in\n• Agent loses track of earlier design decisions\n\nPractical limit: 1-2 phases per session before context fills up.\n\nMost people think the solution is bigger context windows. It's not.\n\nThe real solution: Design systems that checkpoint state to external memory.\n\nHere's what works:\n\n**BUILD-CHECKLIST.md** - Tracks what's done, what's next, blockers\n**PIPELINE-STATE.json** - Phase completion status, gate scores\n**Memory handoffs** - Each agent reads state, does work, updates file, spawns next agent\n\nContext limits aren't a bug to fix. They're a constraint to design around.\n\nThe fantasy: \"Agent builds entire app\"\nThe reality: Multi-session pipelines with explicit state management\n\nMemory architecture matters more than raw model capability.\n\nThis is what \"production AI\" actually looks like. Not demos. Real systems that work within constraints.",
           "score": 88,
           "publishType": "auto",
-          "scheduleOptions": ["Mon 8 AM", "Tue 8 AM", "Now", "Custom"],
+          "scheduleOptions": [
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Now",
+            "Custom"
+          ],
           "checked": true,
           "scheduleTime": "Tue 8 AM",
           "media": "/review/media/Screenshot-2026-02-21-at-11-16-38-AM.png"
@@ -92,7 +118,11 @@
           "content": "Can AI code an entire iOS app in one session? 🤔\n\nI tested this. Answer: Nope.\n\nHere's what happens:\n\n📱 Phase 1 (Discovery): ✅ Works fine\n🎨 Phase 2 (Design): ✅ Still good  \n💻 Phase 3 (Code): ❌ Context window fills up\n\nEach SwiftUI view = 100-300 lines\nBuild errors add output\nAgent loses track by the time code compiles\n\nPractical limit: 1-2 phases per session\n\nThe fix? Multi-session pipelines with memory handoffs.\n\nBUILD-CHECKLIST.md tracks progress\nPIPELINE-STATE.json manages phase gates\nEach agent reads state → does work → updates → spawns next\n\nContext limits aren't a bug.\nThey're a constraint to design around.\n\nMemory architecture > raw capability 💡\n\n#AIcoding #BuildInPublic #iOSDev #TechReality #AItools #SoftwareEngineering #IndieHacker #RealTalk",
           "score": 85,
           "publishType": "auto",
-          "scheduleOptions": ["Now", "Sun 6 PM", "Custom"],
+          "scheduleOptions": [
+            "Now",
+            "Sun 6 PM",
+            "Custom"
+          ],
           "checked": true,
           "scheduleTime": "Sun 9 PM",
           "media": "/review/media/Screenshot-2026-02-21-at-11-16-38-AM.png"
@@ -118,7 +148,13 @@
           "content": "One agent can't build an entire iOS app (context limits).\n\nSo I designed a 5-agent pipeline instead:\n\n**Agent 1:** Discovery\n- Asks questions, builds spec\n- Writes PROJECT_OVERVIEW.md\n- Updates PIPELINE-STATE.json\n- Spawns Agent 2\n\n**Agent 2:** Design  \n- Reads state, verifies Agent 1 passed\n- Designs SwiftUI views, data models\n- Runs design gate\n- Updates state, spawns Agent 3\n\n**Agent 3:** Code\n- Reads state, implements design\n- Compiles, fixes errors\n- Runs code quality gate\n- Updates state, spawns Agent 4\n\n**Agent 4:** Assets\n- Screenshots, icons, App Store copy\n- Runs asset completeness gate\n- Updates state, spawns Agent 5\n\n**Agent 5:** Submit\n- Pre-flight checks (12+ validation rules)\n- Uploads to App Store Connect\n- Sets up monitoring\n- Updates state to DONE\n\nKey insight:\n\nPIPELINE-STATE.json is shared memory. Each agent reads it, does work, updates it.\n\nContext limits aren't a bug.\nThey're a constraint to design around.\n\nThe solution: Decompose work into phases that fit, with explicit state handoffs.",
           "score": 92,
           "publishType": "auto",
-          "scheduleOptions": ["Sun 12 PM", "Sun 3 PM", "Sun 6 PM", "Now", "Custom"],
+          "scheduleOptions": [
+            "Sun 12 PM",
+            "Sun 3 PM",
+            "Sun 6 PM",
+            "Now",
+            "Custom"
+          ],
           "checked": true,
           "scheduleTime": "Sun 9 AM",
           "media": "/review/media/Multi agent factory pipeline design.mov"
@@ -130,7 +166,12 @@
           "content": "After discovering that one AI agent can't complete an entire iOS app build (context limits fill up during coding), I designed a multi-agent pipeline system.\n\nHere's the architecture:\n\n## The Problem\n\nSingle-agent approach:\n• Start with discovery\n• Design the app\n• Write code (100-300 lines per view)\n• Build errors fill context\n• By the time code compiles, context is compacted\n• Agent loses track of earlier decisions\n\nResult: Fails mid-build\n\n## The Solution: 5-Agent Pipeline\n\n**Agent 1: Discovery Phase**\n- Reads PIPELINE-STATE.json (starts at phase=discovery)\n- Asks user questions about app requirements\n- Writes PROJECT_OVERVIEW.md with full spec\n- Runs discovery gate (checks for clarity, feasibility)\n- Updates state: phase=design, discovery_passed=true\n- Spawns Agent 2\n\n**Agent 2: Design Phase**  \n- Reads PIPELINE-STATE.json\n- Verifies discovery_passed=true\n- Designs SwiftUI views, data models, navigation\n- Writes DESIGN-SPEC.md\n- Runs design gate (checks for completeness, iOS patterns)\n- Updates state: phase=code, design_passed=true\n- Spawns Agent 3\n\n**Agent 3: Code Phase**\n- Reads state + DESIGN-SPEC.md\n- Implements views one at a time\n- Compiles after each view\n- Fixes build errors in isolation\n- Runs code quality gate\n- Updates state: phase=assets, code_passed=true\n- Spawns Agent 4\n\n**Agent 4: Assets Phase**\n- Reads state\n- Generates screenshots (simulator)\n- Creates app icon\n- Writes App Store copy\n- Runs asset completeness gate\n- Updates state: phase=submit, assets_passed=true\n- Spawns Agent 5\n\n**Agent 5: Submit Phase**\n- Reads state\n- Runs pre-flight checks (12+ validation rules)\n- Uploads to App Store Connect\n- Sets up monitoring cron jobs\n- Updates state: phase=done, submit_passed=true\n\n## Key Design Decisions\n\n**Shared State File (PIPELINE-STATE.json)**\n```json\n{\n  \"current_phase\": \"code\",\n  \"phases\": {\n    \"discovery\": { \"status\": \"passed\", \"gate_score\": 95 },\n    \"design\": { \"status\": \"passed\", \"gate_score\": 88 },\n    \"code\": { \"status\": \"in_progress\", \"checkpoint\": \"View 3 of 7\" }\n  },\n  \"blockers\": []\n}\n```\n\n**Exit Gates**\nEach phase has quality gates. Agent can't proceed to next phase until gate passes. Forces systematic quality.\n\n**Three Orchestration Options**\n1. Manual: Human triggers each agent\n2. Chained: Each agent spawns next automatically\n3. Coordinator: Single orchestrator manages all 5 agents\n\n## Why This Works\n\nContext limits aren't a bug to fix. They're a constraint to design around.\n\nThe solution isn't bigger context windows. It's decomposing work into phases that fit, with explicit state handoffs between agents.\n\nSame pattern applies beyond iOS apps:\n• Any complex AI workflow that exceeds context limits\n• Can be split into pipeline stages with shared state\n• Key insight: Make state external and explicit (JSON file) rather than relying on context memory\n\nThis is what production AI systems actually look like. Not demos. Real architectures that work within constraints and scale.",
           "score": 88,
           "publishType": "auto",
-          "scheduleOptions": ["Mon 8 AM", "Tue 8 AM", "Now", "Custom"],
+          "scheduleOptions": [
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Now",
+            "Custom"
+          ],
           "checked": true,
           "scheduleTime": "Mon 8 AM",
           "media": "/review/media/Multi agent factory pipeline design.mov"
@@ -142,7 +183,11 @@
           "content": "One AI agent can't build an entire iOS app (context limits)\n\nSo I designed a 5-agent pipeline instead 🏗️\n\n**The Flow:**\n\n🔍 Agent 1: Discovery\n→ Asks questions, writes spec\n→ Updates PIPELINE-STATE.json\n→ Spawns Agent 2\n\n🎨 Agent 2: Design\n→ Reads state, designs UI\n→ Runs design gate\n→ Spawns Agent 3\n\n💻 Agent 3: Code  \n→ Implements views\n→ Compiles, fixes errors\n→ Spawns Agent 4\n\n📱 Agent 4: Assets\n→ Screenshots, icons, copy\n→ Runs completeness gate\n→ Spawns Agent 5\n\n🚀 Agent 5: Submit\n→ Pre-flight checks\n→ Uploads to App Store\n→ Done!\n\n**Key Insight:**\nPIPELINE-STATE.json = shared memory\nEach agent reads it → does work → updates it\n\nContext limits aren't a bug.\nThey're a constraint to design around.\n\nThe solution: Decompose work into phases with explicit state handoffs 💡\n\n#AIengineering #BuildInPublic #iOSDev #SystemsThinking #AIautomation #TechArchitecture #IndieHacker #CodeLife",
           "score": 85,
           "publishType": "auto",
-          "scheduleOptions": ["Now", "Mon 6 PM", "Custom"],
+          "scheduleOptions": [
+            "Now",
+            "Mon 6 PM",
+            "Custom"
+          ],
           "checked": true,
           "scheduleTime": "Mon 6 PM",
           "media": "/review/media/Multi agent factory pipeline design.mov"
@@ -168,7 +213,13 @@
           "content": "Built something for myself that I think you'll want.\n\nThe problem: I'm constantly having wins in ChatGPT/Claude chats. Figure out a clever architecture. Debug a tricky problem. Ship a feature.\n\nBut I don't capture them because switching to Twitter breaks flow.\n\nSo they die in chat history.\n\nThe fix: HotKey\n\nOne hotkey (Cmd+L) while working:\n• Captures what just happened\n• Generates 3 platform-ready posts (Twitter/LinkedIn/Instagram)  \n• Emails you a review link\n• Copy-paste to publish\n\n30 seconds. No app-switching. No \"I'll post about this later\" (you won't).\n\nThe business model: $29/month, no free tier.\n\nWhy? AI costs are real ($3/user/month), and free tiers attract people who won't use it.\n\nI want serious users building in public, not tire-kickers.\n\nCurrent status:\n• Review UI is live and working\n• Chrome extension starts next week  \n• 4-week timeline to launch\n\nPre-selling on Twitter first. If 10+ people want early access, I'm building it.\n\nThis is the difference between people who build in public and people who *want* to.\n\nRemoving the friction.",
           "score": 92,
           "publishType": "auto",
-          "scheduleOptions": ["Sun 9 AM", "Sun 12 PM", "Sun 3 PM", "Now", "Custom"],
+          "scheduleOptions": [
+            "Sun 9 AM",
+            "Sun 12 PM",
+            "Sun 3 PM",
+            "Now",
+            "Custom"
+          ],
           "checked": true,
           "scheduleTime": "Sun 12 PM",
           "media": "/review/media/HotKey Demo2.mov"
@@ -180,7 +231,12 @@
           "content": "**The \"building in public\" friction problem**\n\nI just finalized the MVP for HotKey - a Chrome extension that captures your AI chat wins and turns them into social posts in 30 seconds.\n\nHere's why I'm building it:\n\n## The Reality\n\nEvery day, white-collar AI workers (developers, founders, consultants) have genuinely interesting wins:\n• Solve a tricky architecture problem\n• Debug something clever\n• Ship a feature that took 30 minutes instead of 3 hours\n\nThese are great content moments. But they don't get shared because the friction is too high.\n\nYou'd have to:\n1. Stop what you're doing\n2. Screenshot the chat\n3. Open Twitter/LinkedIn\n4. Remember what was interesting\n5. Write the post\n6. Format it for the platform\n\nBy the time you finish, you've lost 10 minutes and broken your flow. So you don't do it.\n\n## The Solution\n\nHotKey removes the friction:\n• Hit Cmd+L while working in ChatGPT/Claude\n• System captures context + screenshot\n• AI generates 3 platform-specific drafts (Twitter, LinkedIn, Instagram)\n• Email notification with review link\n• Copy-paste to publish\n\n30 seconds total. Zero app-switching.\n\n## Product Decisions\n\n**$29/month subscription (no free tier)**\nWhy? AI costs are $3/user/month. A free tier would attract people who won't use it. I want serious users building in public, not people collecting tools.\n\n**Chrome extension MVP (not native app)**\nWhy? Works everywhere (ChatGPT, Claude, OpenClaw web). iOS app is Phase 2.\n\n**Copy-paste workflow (not auto-posting)**\nWhy? User stays in control. Auto-posting adds complexity and trust issues. Manual copy-paste is fast enough and keeps the user in the loop.\n\n## Timeline\n\n• Review UI: ✅ Done (v1.0.0 live)\n• Chrome extension: Week 1-2\n• API + email notifications: Week 3\n• Beta launch: Week 4\n\n## Pre-sell Validation\n\nBefore building the extension, I'm pre-selling on Twitter. If 10+ people want early access, it's a signal there's real demand.\n\nThis is the difference between people who successfully build in public and people who *want* to build in public but never do.\n\nThe friction kills the habit before it starts.",
           "score": 88,
           "publishType": "auto",
-          "scheduleOptions": ["Mon 8 AM", "Tue 8 AM", "Now", "Custom"],
+          "scheduleOptions": [
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Now",
+            "Custom"
+          ],
           "checked": true,
           "scheduleTime": "Mon 8 AM",
           "media": "/review/media/HotKey Demo2.mov"
@@ -192,15 +248,689 @@
           "content": "Built something for myself that you might want too 💡\n\nHotKey: One hotkey while working in ChatGPT/Claude → captures your win → generates posts for Twitter/LinkedIn/Instagram → emails you → copy-paste to publish.\n\n30 seconds. No app-switching. No \"I'll post about this later.\"\n\nThe problem: You have cool wins every day (solved a tricky bug, shipped a feature, figured out a clever architecture).\n\nBut you don't share them because switching to social media breaks your flow.\n\nSo they die in chat history.\n\nHotKey removes the friction:\n\n✨ One click captures it\n🤖 AI writes the posts  \n📧 Email notification\n📋 Review and publish\n\n$29/month. No free tier (AI costs are real, free tiers attract tire-kickers).\n\n4-week timeline. Pre-selling first to validate demand.\n\nThis is the difference between people who build in public and people who want to but never start.\n\nRemove the friction, build the habit 🚀\n\n#BuildInPublic #AI #Productivity #SaaS #ChromeExtension #ContentCreation #Automation #IndieHacker",
           "score": 85,
           "publishType": "auto",
-          "scheduleOptions": ["Now", "Sun 6 PM", "Custom"],
+          "scheduleOptions": [
+            "Now",
+            "Sun 6 PM",
+            "Custom"
+          ],
           "checked": true,
           "scheduleTime": "Sun 6 PM",
           "media": "/review/media/HotKey Demo2.mov"
         }
       ],
       "createdAt": "2026-02-22T01:53:30.683Z"
+    },
+    {
+      "id": "matt-story-2026-02-21-1737",
+      "story": {
+        "title": "Product Launch",
+        "rawTitle": "Product Launch",
+        "description": "Finalized HotKey product vision and MVP scope. Built complete review UI (v1.0.0) with 4 real stories, navigation, conversational sidebar personalized to user DNA, and platform previews. Defined full technical architecture: Chrome extension captures context from ChatGPT/Claude, sends to API, generates 3 initial drafts (Twitter/LinkedIn/Instagram), notifies via email, user reviews in web UI, copies to platforms. Decided on $29/mo pricing, no free tier to prevent AI cost abuse. Ready for pre-sell on Twitter.",
+        "pillar": "ai",
+        "score": 82,
+        "timestamp": "2026-02-21 17:37"
+      },
+      "formats": [
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "platform": "Twitter",
+          "content": "Product Launch\n\nFinalized HotKey product vision and MVP scope. Built complete review UI (v1.0.0) with 4 real stories, navigation, conversational sidebar personalized to user DNA, and platform previews. Defined full t...",
+          "score": 92,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 12 PM",
+            "Sun 3 PM",
+            "Sun 6 PM",
+            "Mon 9 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Now",
+          "media": null
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn Article",
+          "platform": "LinkedIn",
+          "content": "Product Launch\n\nFinalized HotKey product vision and MVP scope. Built complete review UI (v1.0.0) with 4 real stories, navigation, conversational sidebar personalized to user DNA, and platform previews. Defined full technical architecture: Chrome extension captures context from ChatGPT/Claude, sends to API, generates 3 initial drafts (Twitter/LinkedIn/Instagram), notifies via email, user reviews in web UI, copies to platforms. Decided on $29/mo pricing, no free tier to prevent AI cost abuse. Ready for pre-sell on Twitter.\n\nHotKey solves the \"building in public\" friction problem. White-collar AI workers (ChatGPT/Claude users) have cool wins but don't capture them because it breaks flow. One click → captured → posts written → ready to share. 30 seconds instead of never. This is the difference between people who build in public and people who don't - removing the friction. Chrome extension = universal (works anywhere), email notification = no app needed, copy-paste = user stays in control. Market validation via pre-sell before building reduces risk.",
+          "score": 88,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 8 AM",
+          "media": null
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram Post",
+          "platform": "Instagram",
+          "content": "Product Launch\n\nFinalized HotKey product vision and MVP scope. Built complete review UI (v1.0.0) with 4 real stories, navigation, conversational sidebar personalized to user DNA, and platform previews. Defined full technical architecture: Chrome extension captures context from ChatGPT/Claude, sends to API, generate...\n\n#BuildInPublic #AI #Tech",
+          "score": 85,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 6 PM",
+            "Mon 11 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Sun 6 PM",
+          "media": null
+        }
+      ],
+      "createdAt": "2026-02-22T17:30:06.622Z"
+    },
+    {
+      "id": "matt-story-2026-02-21-2241",
+      "story": {
+        "title": "Content Hook Optimization System",
+        "rawTitle": "Content Hook Optimization System",
+        "description": "Identified critical flaw in HotKey content generation: posts were boring because `generate-review-data.js` uses text manipulation instead of AI generation with proper hooks. Researched viral content patterns (Twitter threads, LinkedIn articles, Instagram posts) and documented complete hook optimization system. Created two comprehensive docs: `HOOK-OPTIMIZATION.md` (system architecture) and `HOOK-COMPARISON.md` (before/after examples showing 40x engagement improvement).",
+        "pillar": "ai",
+        "score": 85,
+        "timestamp": "2026-02-21 22:41"
+      },
+      "formats": [
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "platform": "Twitter",
+          "content": "Content Hook Optimization System\n\nIdentified critical flaw in HotKey content generation: posts were boring because `generate-review-data.js` uses text manipulation instead of AI generation with proper hooks. Researched viral content p...",
+          "score": 92,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 12 PM",
+            "Sun 3 PM",
+            "Sun 6 PM",
+            "Mon 9 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Now",
+          "media": null
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn Article",
+          "platform": "LinkedIn",
+          "content": "Content Hook Optimization System\n\nIdentified critical flaw in HotKey content generation: posts were boring because `generate-review-data.js` uses text manipulation instead of AI generation with proper hooks. Researched viral content patterns (Twitter threads, LinkedIn articles, Instagram posts) and documented complete hook optimization system. Created two comprehensive docs: `HOOK-OPTIMIZATION.md` (system architecture) and `HOOK-COMPARISON.md` (before/after examples showing 40x engagement improvement).\n\nHotKey's value proposition is \"turn wins into 10 posts in 30 seconds\" but if those posts are boring, nobody reads them. The difference between a boring post (\"Designed a multi-agent pipeline...\") and a hooked post (\"Our AI agent kept failing at line 147. Context full. Memory lost. Here's the fix 🧵\") is 5 likes vs 500 likes. That's 40x more reach from better hooks alone.\n\nDiscovery: Current system generates posts via text manipulation (splitting sentences), not AI generation with platform-specific system prompts and hook patterns. The sophisticated templates we built aren't even being used. Fix requires: (1) Replace text manipulation with Claude API calls, (2) Create platform skills with proven hook patterns, (3) Inject user DNA into every generation, (4) Hook-first generation (generate 3-5 hooks, score them, pick best, build post around it).",
+          "score": 88,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 8 AM",
+          "media": null
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram Post",
+          "platform": "Instagram",
+          "content": "Content Hook Optimization System\n\nIdentified critical flaw in HotKey content generation: posts were boring because `generate-review-data.js` uses text manipulation instead of AI generation with proper hooks. Researched viral content patterns (Twitter threads, LinkedIn articles, Instagram posts) and documented complete hook optimizat...\n\n#BuildInPublic #AI #Tech",
+          "score": 85,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 6 PM",
+            "Mon 11 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Sun 6 PM",
+          "media": null
+        }
+      ],
+      "createdAt": "2026-02-22T17:30:11.121Z"
+    },
+    {
+      "id": "matt-story-2026-02-21-2251",
+      "story": {
+        "title": "HotKey Product Optimization Decisions",
+        "rawTitle": "HotKey Product Optimization Decisions",
+        "description": "Made critical product decision for HotKey optimization: Outcome-oriented user DNA - add goals/CTAs to user profile so posts can be intentionally oriented toward specific outcomes (inbound leads, partnerships, etc) instead of just being \"content.\"",
+        "pillar": "ai",
+        "score": 82,
+        "timestamp": "2026-02-21 22:51"
+      },
+      "formats": [
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "platform": "Twitter",
+          "content": "HotKey Product Optimization Decisions\n\nMade critical product decision for HotKey optimization: Outcome-oriented user DNA - add goals/CTAs to user profile so posts can be intentionally oriented toward specific outcomes (inbound leads, partn...",
+          "score": 92,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 12 PM",
+            "Sun 3 PM",
+            "Sun 6 PM",
+            "Mon 9 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Now",
+          "media": null
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn Article",
+          "platform": "LinkedIn",
+          "content": "HotKey Product Optimization Decisions\n\nMade critical product decision for HotKey optimization: Outcome-oriented user DNA - add goals/CTAs to user profile so posts can be intentionally oriented toward specific outcomes (inbound leads, partnerships, etc) instead of just being \"content.\"\n\nThese decisions shift HotKey from \"content generator\" to \"business development engine.\" Current approach generates content for content's sake. Outcome-oriented DNA makes every post subtly work toward specific goals - DM invites, partnership inquiries, early access signups. The difference between \"I post on Twitter\" and \"Twitter is my lead gen engine.\"\n\nKey insight: Already got one $9.5k proposal from Twitter content. With outcome-oriented posts (soft CTAs, conversation starters, relevant invites), that could happen weekly instead of randomly. Not every post needs a CTA, but when they do (1 in 3), they should align with actual business goals and feel natural, not pushy.\n\nImplementation: Add \"goals\" section to user DNA with primary_outcome, target_actions, cta_guidelines (style/frequency/types/avoid), and value_propositions per domain (real estate, AI, SaaS). System prompts inject this so AI knows when/how to add soft CTAs that match the content.",
+          "score": 88,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 8 AM",
+          "media": null
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram Post",
+          "platform": "Instagram",
+          "content": "HotKey Product Optimization Decisions\n\nMade critical product decision for HotKey optimization: Outcome-oriented user DNA - add goals/CTAs to user profile so posts can be intentionally oriented toward specific outcomes (inbound leads, partnerships, etc) instead of just being \"content.\"...\n\n#BuildInPublic #AI #Tech",
+          "score": 85,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 6 PM",
+            "Mon 11 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Sun 6 PM",
+          "media": null
+        }
+      ],
+      "createdAt": "2026-02-22T17:30:13.515Z"
+    },
+    {
+      "id": "matt-story-2026-02-22-1115",
+      "story": {
+        "title": "Complete HotKey Pipeline - From Capture to Auto-Post",
+        "rawTitle": "Complete HotKey Pipeline - From Capture to Auto-Post",
+        "description": "Built complete end-to-end content pipeline for HotKey in one session. Started with basic queue, ended with production-ready scheduling system + full automation plan.\n\n**UI Improvements:**\n- Added modal for unscheduled posts (click to open, edit content, schedule)\n- Drag-and-drop both ways: unscheduled → timeline AND timeline → unscheduled\n- Renamed \"Queue\" → \"Schedule\" (better UX terminology)\n- Post Now button in both UI Review and Schedule modals\n- Status system: unscheduled → scheduled → dismissed (with restore)\n- All 12 posts loading correctly (4 stories × 3 platforms)\n\n**Architecture Win:**\nDocumented complete Publer integration plan with optimized flow:\n1. `/story` → captures work + media\n2. AUTO: Generate all 3 platform posts (Twitter, LinkedIn, Instagram) using hook optimization skills\n3. AUTO: Telegram notification: \"New post ready to review\"\n4. User opens UI Review → sees all variations\n5. User approves → moves to Schedule\n6. AUTO: Publer schedules at next best time per platform\n7. AUTO: Publer publishes at scheduled time\n\n**User's actual work:** `/story` + add media + approve. Everything else automated.\n\n**Technical Decisions:**\n- Generate all platforms at once (not iterative) - saves API calls and complexity\n- Use Publer for scheduling/posting (don't build own executor)\n- Media via public Netlify URLs (already served at hotkey-ai.netlify.app/review/media/)\n- Hook optimization skills for better content quality\n- Model: `anthropic/claude-sonnet-4-5` (~$0.03 per story for 3 posts)",
+        "pillar": "ai",
+        "score": 88,
+        "timestamp": "2026-02-22 11:15"
+      },
+      "formats": [
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "platform": "Twitter",
+          "content": "Complete HotKey Pipeline - From Capture to Auto-Post\n\nBuilt complete end-to-end content pipeline for HotKey in one session. Started with basic queue, ended with production-ready scheduling system + full automation plan.\n\n**UI Improvements:**\n- Added moda...",
+          "score": 92,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 12 PM",
+            "Sun 3 PM",
+            "Sun 6 PM",
+            "Mon 9 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Now",
+          "media": null
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn Article",
+          "platform": "LinkedIn",
+          "content": "Complete HotKey Pipeline - From Capture to Auto-Post\n\nBuilt complete end-to-end content pipeline for HotKey in one session. Started with basic queue, ended with production-ready scheduling system + full automation plan.\n\n**UI Improvements:**\n- Added modal for unscheduled posts (click to open, edit content, schedule)\n- Drag-and-drop both ways: unscheduled → timeline AND timeline → unscheduled\n- Renamed \"Queue\" → \"Schedule\" (better UX terminology)\n- Post Now button in both UI Review and Schedule modals\n- Status system: unscheduled → scheduled → dismissed (with restore)\n- All 12 posts loading correctly (4 stories × 3 platforms)\n\n**Architecture Win:**\nDocumented complete Publer integration plan with optimized flow:\n1. `/story` → captures work + media\n2. AUTO: Generate all 3 platform posts (Twitter, LinkedIn, Instagram) using hook optimization skills\n3. AUTO: Telegram notification: \"New post ready to review\"\n4. User opens UI Review → sees all variations\n5. User approves → moves to Schedule\n6. AUTO: Publer schedules at next best time per platform\n7. AUTO: Publer publishes at scheduled time\n\n**User's actual work:** `/story` + add media + approve. Everything else automated.\n\n**Technical Decisions:**\n- Generate all platforms at once (not iterative) - saves API calls and complexity\n- Use Publer for scheduling/posting (don't build own executor)\n- Media via public Netlify URLs (already served at hotkey-ai.netlify.app/review/media/)\n- Hook optimization skills for better content quality\n- Model: `anthropic/claude-sonnet-4-5` (~$0.03 per story for 3 posts)\n\nThis is the difference between \"content tool\" and \"content factory.\"\n\nMost tools make you do:\n1. Write post manually\n2. Format for each platform\n3. Schedule each one\n4. Remember to post\n\nHotKey now does:\n1. You type `/story` and add screenshot\n2. AI generates optimized posts for all platforms\n3. You review and approve\n4. System auto-schedules and auto-posts\n\nThe hard parts (hook optimization, platform formatting, timing, actual posting) are automated. The human part (deciding what to share, verifying quality) stays human.\n\n**Real impact:**\n- User flow: 30 seconds of work vs 10+ minutes per story\n- Quality: Hook-optimized with proven patterns vs generic text\n- Consistency: Posts every day at best times vs whenever you remember\n- Scale: 3-5 stories/day sustainable vs 1-2 manually\n\nThis is production-ready. Just needs Publer API key and auto-generation watcher to go fully live.",
+          "score": 88,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 8 AM",
+          "media": null
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram Post",
+          "platform": "Instagram",
+          "content": "Complete HotKey Pipeline - From Capture to Auto-Post\n\nBuilt complete end-to-end content pipeline for HotKey in one session. Started with basic queue, ended with production-ready scheduling system + full automation plan.\n\n**UI Improvements:**\n- Added modal for unscheduled posts (click to open, edit content, schedule)\n- Drag-and-drop both ways: unschedul...\n\n#BuildInPublic #AI #Tech",
+          "score": 85,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 6 PM",
+            "Mon 11 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Sun 6 PM",
+          "media": null
+        }
+      ],
+      "createdAt": "2026-02-22T17:30:15.832Z"
+    },
+    {
+      "id": "matt-story-2026-02-22-1118",
+      "story": {
+        "title": "The Real Problem HotKey Solves - Distribution, Not Creation",
+        "rawTitle": "The Real Problem HotKey Solves - Distribution, Not Creation",
+        "description": "Had a clarity moment about what HotKey actually does. It's not a posting tool - it's an audience merge tool.\n\nThe problem I'm solving for myself:\n- I build multiple products (BuyBox, CityPlace, real estate tools, iOS factory)\n- I have multiple audiences (AI/tech Twitter, real estate LinkedIn, professional Instagram)\n- I create rich media constantly (unit walk-throughs, demos, screenshots)\n- I ship new stuff daily\n\nBut they're **siloed**. Ryane (real estate guy) only follows me on Instagram - doesn't know about my AI work. AI Twitter doesn't know I'm doing commercial real estate. LinkedIn doesn't see the technical depth.\n\n**The insight:** My bottleneck isn't capability. It's distribution. I have way more product than distribution.",
+        "pillar": "ai",
+        "score": 92,
+        "timestamp": "2026-02-22 11:18"
+      },
+      "formats": [
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "platform": "Twitter",
+          "content": "The Real Problem HotKey Solves - Distribution, Not Creation\n\nHad a clarity moment about what HotKey actually does. It's not a posting tool - it's an audience merge tool.\n\nThe problem I'm solving for myself:\n- I build multiple products (BuyBox, CityPlace, real e...",
+          "score": 92,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 12 PM",
+            "Sun 3 PM",
+            "Sun 6 PM",
+            "Mon 9 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Now",
+          "media": null
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn Article",
+          "platform": "LinkedIn",
+          "content": "The Real Problem HotKey Solves - Distribution, Not Creation\n\nHad a clarity moment about what HotKey actually does. It's not a posting tool - it's an audience merge tool.\n\nThe problem I'm solving for myself:\n- I build multiple products (BuyBox, CityPlace, real estate tools, iOS factory)\n- I have multiple audiences (AI/tech Twitter, real estate LinkedIn, professional Instagram)\n- I create rich media constantly (unit walk-throughs, demos, screenshots)\n- I ship new stuff daily\n\nBut they're **siloed**. Ryane (real estate guy) only follows me on Instagram - doesn't know about my AI work. AI Twitter doesn't know I'm doing commercial real estate. LinkedIn doesn't see the technical depth.\n\n**The insight:** My bottleneck isn't capability. It's distribution. I have way more product than distribution.\n\nMost founders have the same problem: visible in one channel, invisible everywhere else.\n\n**Before HotKey:**\n- Cool thing happens → think \"should post about this\"\n- Never happens (friction too high)\n- Audiences stay segmented\n- Work stays invisible\n\n**With HotKey:**\n- Cool thing happens → `/story` + screenshot (2 seconds)\n- Auto-generates Twitter + LinkedIn + Instagram (hook-optimized)\n- One approval → scheduled optimally (30 seconds total)\n- **All audiences see all work**\n\n**The compounding effect:**\n\nWeek 1: Post 5 stories instead of 0-1\n- Real estate people see AI work\n- AI people see real estate wins\n- Professional network sees both\n\nWeek 12: Posted 60+ stories\n- Audience crossover accelerates\n- Pattern recognition: \"Matt builds AND ships\"\n- Inbound increases across all channels\n\n**Example:** CityPlace unit walk-through video (already filmed) becomes:\n- LinkedIn post for commercial real estate prospects\n- Instagram post for local investors\n- Twitter thread for \"building in public\" audience\n\nSame video, same 30 seconds of work, three different audiences merged.",
+          "score": 88,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 8 AM",
+          "media": null
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram Post",
+          "platform": "Instagram",
+          "content": "The Real Problem HotKey Solves - Distribution, Not Creation\n\nHad a clarity moment about what HotKey actually does. It's not a posting tool - it's an audience merge tool.\n\nThe problem I'm solving for myself:\n- I build multiple products (BuyBox, CityPlace, real estate tools, iOS factory)\n- I have multiple audiences (AI/tech Twitter, real estate LinkedIn, profes...\n\n#BuildInPublic #AI #Tech",
+          "score": 85,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 6 PM",
+            "Mon 11 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Sun 6 PM",
+          "media": null
+        }
+      ],
+      "createdAt": "2026-02-22T17:30:18.167Z"
+    },
+    {
+      "id": "matt-story-2026-02-21-1737",
+      "story": {
+        "title": "Product Launch",
+        "rawTitle": "Product Launch",
+        "description": "Finalized HotKey product vision and MVP scope. Built complete review UI (v1.0.0) with 4 real stories, navigation, conversational sidebar personalized to user DNA, and platform previews. Defined full technical architecture: Chrome extension captures context from ChatGPT/Claude, sends to API, generates 3 initial drafts (Twitter/LinkedIn/Instagram), notifies via email, user reviews in web UI, copies to platforms. Decided on $29/mo pricing, no free tier to prevent AI cost abuse. Ready for pre-sell on Twitter.",
+        "pillar": "ai",
+        "score": 82,
+        "timestamp": "2026-02-21 17:37"
+      },
+      "formats": [
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "platform": "Twitter",
+          "content": "Product Launch\n\nFinalized HotKey product vision and MVP scope. Built complete review UI (v1.0.0) with 4 real stories, navigation, conversational sidebar personalized to user DNA, and platform previews. Defined full technical architecture: Chrome extension captures c...\n\nThoughts?",
+          "score": 92,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 12 PM",
+            "Sun 3 PM",
+            "Sun 6 PM",
+            "Mon 9 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Now",
+          "media": null
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn Article",
+          "platform": "LinkedIn",
+          "content": "Product Launch\n\nFinalized HotKey product vision and MVP scope. Built complete review UI (v1.0.0) with 4 real stories, navigation, conversational sidebar personalized to user DNA, and platform previews. Defined full technical architecture: Chrome extension captures context from ChatGPT/Claude, sends to API, generates 3 initial drafts (Twitter/LinkedIn/Instagram), notifies via email, user reviews in web UI, copies to platforms. Decided on $29/mo pricing, no free tier to prevent AI cost abuse. Ready for pre-sell on Twitter.\n\nHotKey solves the \"building in public\" friction problem. White-collar AI workers (ChatGPT/Claude users) have cool wins but don't capture them because it breaks flow. One click → captured → posts written → ready to share. 30 seconds instead of never. This is the difference between people who build in public and people who don't - removing the friction. Chrome extension = universal (works anywhere), email notification = no app needed, copy-paste = user stays in control. Market validation via pre-sell before building reduces risk.\n\nWhat's your experience with this?",
+          "score": 88,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 8 AM",
+          "media": null
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram Post",
+          "platform": "Instagram",
+          "content": "Product Launch 💡\n\nFinalized HotKey product vision and MVP scope. Built complete review UI (v1.0.0) with 4 real stories, navigation, conversational sidebar personalized to user DNA, and platform previews. Defined full technical architecture: Chrome extension captures c...\n\n#BuildInPublic #AI #Tech #Productivity #SaaS #IndieHacker #Innovation #Automation",
+          "score": 85,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 6 PM",
+            "Mon 11 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Sun 6 PM",
+          "media": null
+        }
+      ],
+      "createdAt": "2026-02-22T17:31:32.423Z"
+    },
+    {
+      "id": "matt-story-2026-02-21-2241",
+      "story": {
+        "title": "Content Hook Optimization System",
+        "rawTitle": "Content Hook Optimization System",
+        "description": "Identified critical flaw in HotKey content generation: posts were boring because `generate-review-data.js` uses text manipulation instead of AI generation with proper hooks. Researched viral content patterns (Twitter threads, LinkedIn articles, Instagram posts) and documented complete hook optimization system. Created two comprehensive docs: `HOOK-OPTIMIZATION.md` (system architecture) and `HOOK-COMPARISON.md` (before/after examples showing 40x engagement improvement).",
+        "pillar": "ai",
+        "score": 85,
+        "timestamp": "2026-02-21 22:41"
+      },
+      "formats": [
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "platform": "Twitter",
+          "content": "Content Hook Optimization System\n\nIdentified critical flaw in HotKey content generation: posts were boring because `generate-review-data.js` uses text manipulation instead of AI generation with proper hooks. Researched viral content patterns (Twitter threads, LinkedIn articles, Insta...\n\nThoughts?",
+          "score": 92,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 12 PM",
+            "Sun 3 PM",
+            "Sun 6 PM",
+            "Mon 9 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Now",
+          "media": null
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn Article",
+          "platform": "LinkedIn",
+          "content": "Content Hook Optimization System\n\nIdentified critical flaw in HotKey content generation: posts were boring because `generate-review-data.js` uses text manipulation instead of AI generation with proper hooks. Researched viral content patterns (Twitter threads, LinkedIn articles, Instagram posts) and documented complete hook optimization system. Created two comprehensive docs: `HOOK-OPTIMIZATION.md` (system architecture) and `HOOK-COMPARISON.md` (before/after examples showing 40x engagement improvement).\n\nHotKey's value proposition is \"turn wins into 10 posts in 30 seconds\" but if those posts are boring, nobody reads them. The difference between a boring post (\"Designed a multi-agent pipeline...\") and a hooked post (\"Our AI agent kept failing at line 147. Context full. Memory lost. Here's the fix 🧵\") is 5 likes vs 500 likes. That's 40x more reach from better hooks alone.\n\nDiscovery: Current system generates posts via text manipulation (splitting sentences), not AI generation with platform-specific system prompts and hook patterns. The sophisticated templates we built aren't even being used. Fix requires: (1) Replace text manipulation with Claude API calls, (2) Create platform skills with proven hook patterns, (3) Inject user DNA into every generation, (4) Hook-first generation (generate 3-5 hooks, score them, pick best, build post around it).\n\nWhat's your experience with this?",
+          "score": 88,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 8 AM",
+          "media": null
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram Post",
+          "platform": "Instagram",
+          "content": "Content Hook Optimization System 💡\n\nIdentified critical flaw in HotKey content generation: posts were boring because `generate-review-data.js` uses text manipulation instead of AI generation with proper hooks. Researched viral content patterns (Twitter threads, LinkedIn articles, Insta...\n\n#BuildInPublic #AI #Tech #Productivity #SaaS #IndieHacker #Innovation #Automation",
+          "score": 85,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 6 PM",
+            "Mon 11 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Sun 6 PM",
+          "media": null
+        }
+      ],
+      "createdAt": "2026-02-22T17:31:32.815Z"
+    },
+    {
+      "id": "matt-story-2026-02-21-2251",
+      "story": {
+        "title": "HotKey Product Optimization Decisions",
+        "rawTitle": "HotKey Product Optimization Decisions",
+        "description": "Made critical product decision for HotKey optimization: Outcome-oriented user DNA - add goals/CTAs to user profile so posts can be intentionally oriented toward specific outcomes (inbound leads, partnerships, etc) instead of just being \"content.\"",
+        "pillar": "ai",
+        "score": 82,
+        "timestamp": "2026-02-21 22:51"
+      },
+      "formats": [
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "platform": "Twitter",
+          "content": "HotKey Product Optimization Decisions\n\nMade critical product decision for HotKey optimization: Outcome-oriented user DNA - add goals/CTAs to user profile so posts can be intentionally oriented toward specific outcomes (inbound leads, partnerships, etc) instead of just being \"content.\"...\n\nThoughts?",
+          "score": 92,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 12 PM",
+            "Sun 3 PM",
+            "Sun 6 PM",
+            "Mon 9 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Now",
+          "media": null
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn Article",
+          "platform": "LinkedIn",
+          "content": "HotKey Product Optimization Decisions\n\nMade critical product decision for HotKey optimization: Outcome-oriented user DNA - add goals/CTAs to user profile so posts can be intentionally oriented toward specific outcomes (inbound leads, partnerships, etc) instead of just being \"content.\"\n\nThese decisions shift HotKey from \"content generator\" to \"business development engine.\" Current approach generates content for content's sake. Outcome-oriented DNA makes every post subtly work toward specific goals - DM invites, partnership inquiries, early access signups. The difference between \"I post on Twitter\" and \"Twitter is my lead gen engine.\"\n\nKey insight: Already got one $9.5k proposal from Twitter content. With outcome-oriented posts (soft CTAs, conversation starters, relevant invites), that could happen weekly instead of randomly. Not every post needs a CTA, but when they do (1 in 3), they should align with actual business goals and feel natural, not pushy.\n\nImplementation: Add \"goals\" section to user DNA with primary_outcome, target_actions, cta_guidelines (style/frequency/types/avoid), and value_propositions per domain (real estate, AI, SaaS). System prompts inject this so AI knows when/how to add soft CTAs that match the content.\n\nWhat's your experience with this?",
+          "score": 88,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 8 AM",
+          "media": null
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram Post",
+          "platform": "Instagram",
+          "content": "HotKey Product Optimization Decisions 💡\n\nMade critical product decision for HotKey optimization: Outcome-oriented user DNA - add goals/CTAs to user profile so posts can be intentionally oriented toward specific outcomes (inbound leads, partnerships, etc) instead of just being \"content.\"...\n\n#BuildInPublic #AI #Tech #Productivity #SaaS #IndieHacker #Innovation #Automation",
+          "score": 85,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 6 PM",
+            "Mon 11 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Sun 6 PM",
+          "media": null
+        }
+      ],
+      "createdAt": "2026-02-22T17:31:32.956Z"
+    },
+    {
+      "id": "matt-story-2026-02-22-1115",
+      "story": {
+        "title": "Complete HotKey Pipeline - From Capture to Auto-Post",
+        "rawTitle": "Complete HotKey Pipeline - From Capture to Auto-Post",
+        "description": "Built complete end-to-end content pipeline for HotKey in one session. Started with basic queue, ended with production-ready scheduling system + full automation plan.\n\n**UI Improvements:**\n- Added modal for unscheduled posts (click to open, edit content, schedule)\n- Drag-and-drop both ways: unscheduled → timeline AND timeline → unscheduled\n- Renamed \"Queue\" → \"Schedule\" (better UX terminology)\n- Post Now button in both UI Review and Schedule modals\n- Status system: unscheduled → scheduled → dismissed (with restore)\n- All 12 posts loading correctly (4 stories × 3 platforms)\n\n**Architecture Win:**\nDocumented complete Publer integration plan with optimized flow:\n1. `/story` → captures work + media\n2. AUTO: Generate all 3 platform posts (Twitter, LinkedIn, Instagram) using hook optimization skills\n3. AUTO: Telegram notification: \"New post ready to review\"\n4. User opens UI Review → sees all variations\n5. User approves → moves to Schedule\n6. AUTO: Publer schedules at next best time per platform\n7. AUTO: Publer publishes at scheduled time\n\n**User's actual work:** `/story` + add media + approve. Everything else automated.\n\n**Technical Decisions:**\n- Generate all platforms at once (not iterative) - saves API calls and complexity\n- Use Publer for scheduling/posting (don't build own executor)\n- Media via public Netlify URLs (already served at hotkey-ai.netlify.app/review/media/)\n- Hook optimization skills for better content quality\n- Model: `anthropic/claude-sonnet-4-5` (~$0.03 per story for 3 posts)",
+        "pillar": "ai",
+        "score": 88,
+        "timestamp": "2026-02-22 11:15"
+      },
+      "formats": [
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "platform": "Twitter",
+          "content": "Complete HotKey Pipeline - From Capture to Auto-Post\n\nBuilt complete end-to-end content pipeline for HotKey in one session. Started with basic queue, ended with production-ready scheduling system + full automation plan.\n\n**UI Improvements:**\n- Added modal for unscheduled posts (click to open, edit conte...\n\nThoughts?",
+          "score": 92,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 12 PM",
+            "Sun 3 PM",
+            "Sun 6 PM",
+            "Mon 9 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Now",
+          "media": null
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn Article",
+          "platform": "LinkedIn",
+          "content": "Complete HotKey Pipeline - From Capture to Auto-Post\n\nBuilt complete end-to-end content pipeline for HotKey in one session. Started with basic queue, ended with production-ready scheduling system + full automation plan.\n\n**UI Improvements:**\n- Added modal for unscheduled posts (click to open, edit content, schedule)\n- Drag-and-drop both ways: unscheduled → timeline AND timeline → unscheduled\n- Renamed \"Queue\" → \"Schedule\" (better UX terminology)\n- Post Now button in both UI Review and Schedule modals\n- Status system: unscheduled → scheduled → dismissed (with restore)\n- All 12 posts loading correctly (4 stories × 3 platforms)\n\n**Architecture Win:**\nDocumented complete Publer integration plan with optimized flow:\n1. `/story` → captures work + media\n2. AUTO: Generate all 3 platform posts (Twitter, LinkedIn, Instagram) using hook optimization skills\n3. AUTO: Telegram notification: \"New post ready to review\"\n4. User opens UI Review → sees all variations\n5. User approves → moves to Schedule\n6. AUTO: Publer schedules at next best time per platform\n7. AUTO: Publer publishes at scheduled time\n\n**User's actual work:** `/story` + add media + approve. Everything else automated.\n\n**Technical Decisions:**\n- Generate all platforms at once (not iterative) - saves API calls and complexity\n- Use Publer for scheduling/posting (don't build own executor)\n- Media via public Netlify URLs (already served at hotkey-ai.netlify.app/review/media/)\n- Hook optimization skills for better content quality\n- Model: `anthropic/claude-sonnet-4-5` (~$0.03 per story for 3 posts)\n\nThis is the difference between \"content tool\" and \"content factory.\"\n\nMost tools make you do:\n1. Write post manually\n2. Format for each platform\n3. Schedule each one\n4. Remember to post\n\nHotKey now does:\n1. You type `/story` and add screenshot\n2. AI generates optimized posts for all platforms\n3. You review and approve\n4. System auto-schedules and auto-posts\n\nThe hard parts (hook optimization, platform formatting, timing, actual posting) are automated. The human part (deciding what to share, verifying quality) stays human.\n\n**Real impact:**\n- User flow: 30 seconds of work vs 10+ minutes per story\n- Quality: Hook-optimized with proven patterns vs generic text\n- Consistency: Posts every day at best times vs whenever you remember\n- Scale: 3-5 stories/day sustainable vs 1-2 manually\n\nThis is production-ready. Just needs Publer API key and auto-generation watcher to go fully live.\n\nWhat's your experience with this?",
+          "score": 88,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 8 AM",
+          "media": null
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram Post",
+          "platform": "Instagram",
+          "content": "Complete HotKey Pipeline - From Capture to Auto-Post 💡\n\nBuilt complete end-to-end content pipeline for HotKey in one session. Started with basic queue, ended with production-ready scheduling system + full automation plan.\n\n**UI Improvements:**\n- Added modal for unscheduled posts (click to open, edit conte...\n\n#BuildInPublic #AI #Tech #Productivity #SaaS #IndieHacker #Innovation #Automation",
+          "score": 85,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 6 PM",
+            "Mon 11 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Sun 6 PM",
+          "media": null
+        }
+      ],
+      "createdAt": "2026-02-22T17:31:33.086Z"
+    },
+    {
+      "id": "matt-story-2026-02-22-1118",
+      "story": {
+        "title": "The Real Problem HotKey Solves - Distribution, Not Creation",
+        "rawTitle": "The Real Problem HotKey Solves - Distribution, Not Creation",
+        "description": "Had a clarity moment about what HotKey actually does. It's not a posting tool - it's an audience merge tool.\n\nThe problem I'm solving for myself:\n- I build multiple products (BuyBox, CityPlace, real estate tools, iOS factory)\n- I have multiple audiences (AI/tech Twitter, real estate LinkedIn, professional Instagram)\n- I create rich media constantly (unit walk-throughs, demos, screenshots)\n- I ship new stuff daily\n\nBut they're **siloed**. Ryane (real estate guy) only follows me on Instagram - doesn't know about my AI work. AI Twitter doesn't know I'm doing commercial real estate. LinkedIn doesn't see the technical depth.\n\n**The insight:** My bottleneck isn't capability. It's distribution. I have way more product than distribution.",
+        "pillar": "ai",
+        "score": 92,
+        "timestamp": "2026-02-22 11:18"
+      },
+      "formats": [
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "platform": "Twitter",
+          "content": "The Real Problem HotKey Solves - Distribution, Not Creation\n\nHad a clarity moment about what HotKey actually does. It's not a posting tool - it's an audience merge tool.\n\nThe problem I'm solving for myself:\n- I build multiple products (BuyBox, CityPlace, real estate tools, iOS factory)\n- I have multiple audien...\n\nThoughts?",
+          "score": 92,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 12 PM",
+            "Sun 3 PM",
+            "Sun 6 PM",
+            "Mon 9 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Now",
+          "media": null
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn Article",
+          "platform": "LinkedIn",
+          "content": "The Real Problem HotKey Solves - Distribution, Not Creation\n\nHad a clarity moment about what HotKey actually does. It's not a posting tool - it's an audience merge tool.\n\nThe problem I'm solving for myself:\n- I build multiple products (BuyBox, CityPlace, real estate tools, iOS factory)\n- I have multiple audiences (AI/tech Twitter, real estate LinkedIn, professional Instagram)\n- I create rich media constantly (unit walk-throughs, demos, screenshots)\n- I ship new stuff daily\n\nBut they're **siloed**. Ryane (real estate guy) only follows me on Instagram - doesn't know about my AI work. AI Twitter doesn't know I'm doing commercial real estate. LinkedIn doesn't see the technical depth.\n\n**The insight:** My bottleneck isn't capability. It's distribution. I have way more product than distribution.\n\nMost founders have the same problem: visible in one channel, invisible everywhere else.\n\n**Before HotKey:**\n- Cool thing happens → think \"should post about this\"\n- Never happens (friction too high)\n- Audiences stay segmented\n- Work stays invisible\n\n**With HotKey:**\n- Cool thing happens → `/story` + screenshot (2 seconds)\n- Auto-generates Twitter + LinkedIn + Instagram (hook-optimized)\n- One approval → scheduled optimally (30 seconds total)\n- **All audiences see all work**\n\n**The compounding effect:**\n\nWeek 1: Post 5 stories instead of 0-1\n- Real estate people see AI work\n- AI people see real estate wins\n- Professional network sees both\n\nWeek 12: Posted 60+ stories\n- Audience crossover accelerates\n- Pattern recognition: \"Matt builds AND ships\"\n- Inbound increases across all channels\n\n**Example:** CityPlace unit walk-through video (already filmed) becomes:\n- LinkedIn post for commercial real estate prospects\n- Instagram post for local investors\n- Twitter thread for \"building in public\" audience\n\nSame video, same 30 seconds of work, three different audiences merged.\n\nWhat's your experience with this?",
+          "score": 88,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 8 AM",
+          "media": null
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram Post",
+          "platform": "Instagram",
+          "content": "The Real Problem HotKey Solves - Distribution, Not Creation 💡\n\nHad a clarity moment about what HotKey actually does. It's not a posting tool - it's an audience merge tool.\n\nThe problem I'm solving for myself:\n- I build multiple products (BuyBox, CityPlace, real estate tools, iOS factory)\n- I have multiple audien...\n\n#BuildInPublic #AI #Tech #Productivity #SaaS #IndieHacker #Innovation #Automation",
+          "score": 85,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 6 PM",
+            "Mon 11 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Sun 6 PM",
+          "media": null
+        }
+      ],
+      "createdAt": "2026-02-22T17:31:33.242Z"
     }
   ],
-  "total": 4,
-  "generated": "2026-02-22T15:59:00.000Z"
+  "total": 14,
+  "generated": "2026-02-22T17:31:33.380Z"
 }

@@ -10,5 +10,8 @@
   },
   "workspaces": [
     "apps/review"
-  ]
+  ],
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.78.0"
+  }
 }
