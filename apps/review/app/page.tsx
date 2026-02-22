@@ -246,25 +246,33 @@ export default function HotKey() {
               </span>
               <span className="text-sm text-gray-500">{batch.story.score}</span>
             </div>
-            <button
-              onClick={() => {
-                if (!batch || !batchData) return
-                // Approve all top 3 platforms
-                const topIds = ['twitter', 'linkedin', 'instagram']
-                const updatedBatches = [...batchData.batches]
-                updatedBatches[currentIndex] = {
-                  ...batch,
-                  formats: batch.formats.map(f => 
-                    topIds.includes(f.id) ? { ...f, checked: true } : f
-                  )
-                }
-                setBatchData({ ...batchData, batches: updatedBatches })
-                alert('Approved top 3 platforms: Twitter, LinkedIn, Instagram')
-              }}
-              className="px-6 py-2 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white rounded-lg font-medium shadow-md transition-all"
-            >
-              Approve Top 3
-            </button>
+            <div className="flex items-center gap-3">
+              <a
+                href="/review/queue"
+                className="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg font-medium transition-all"
+              >
+                View Queue
+              </a>
+              <button
+                onClick={() => {
+                  if (!batch || !batchData) return
+                  // Approve all top 3 platforms
+                  const topIds = ['twitter', 'linkedin', 'instagram']
+                  const updatedBatches = [...batchData.batches]
+                  updatedBatches[currentIndex] = {
+                    ...batch,
+                    formats: batch.formats.map(f => 
+                      topIds.includes(f.id) ? { ...f, checked: true } : f
+                    )
+                  }
+                  setBatchData({ ...batchData, batches: updatedBatches })
+                  alert('Approved top 3 platforms: Twitter, LinkedIn, Instagram')
+                }}
+                className="px-6 py-2 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white rounded-lg font-medium shadow-md transition-all"
+              >
+                Approve Top 3
+              </button>
+            </div>
           </div>
         </div>
       </div>

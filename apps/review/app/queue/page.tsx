@@ -112,9 +112,17 @@ export default function QueuePage() {
       <div className="bg-white border-b border-gray-200 shadow-sm">
         <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8 py-3">
           <div className="flex items-center justify-between">
-            <h1 className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              HotKey Queue
-            </h1>
+            <div className="flex items-center gap-4">
+              <a
+                href="/review"
+                className="text-gray-600 hover:text-gray-900"
+              >
+                ← Back to Review
+              </a>
+              <h1 className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                HotKey Queue
+              </h1>
+            </div>
 
             {/* Platform Tabs */}
             <div className="flex gap-2">
