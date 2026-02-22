@@ -8,10 +8,12 @@ export default function QueuePage() {
   const [unscheduledPosts, setUnscheduledPosts] = useState<UnscheduledPost[]>([])
   const [draggedPost, setDraggedPost] = useState<UnscheduledPost | null>(null)
   const [viewPlatform, setViewPlatform] = useState<Platform | 'all'>('all')
+  const [unscheduledFilter, setUnscheduledFilter] = useState<Platform | 'all'>('all')
   const [showDismissed, setShowDismissed] = useState(false)
   const [selectedPost, setSelectedPost] = useState<UnscheduledPost | null>(null)
   const [editedContent, setEditedContent] = useState<string>('')
   const [isEditing, setIsEditing] = useState(false)
+  const [postStatus, setPostStatus] = useState<Record<string, { status: string, timestamp: string }>>({})
 
   // Generate next 4 days
   const days = Array.from({ length: 4 }, (_, i) => {
@@ -23,6 +25,7 @@ export default function QueuePage() {
 
   useEffect(() => {
     loadQueue()
+    loadPostStatus()
   }, [])
 
   async function loadQueue() {
@@ -58,6 +61,40 @@ export default function QueuePage() {
     } catch (err) {
       console.error('Error loading queue:', err)
     }
+  }
+
+  async function loadPostStatus() {
+    try {
+      const res = await fetch('/review/post-status.json')
+      if (res.ok) {
+        const data = await res.json()
+        setPostStatus(data.posts || {})
+        
+        // Apply loaded status to unscheduled posts
+        setUnscheduledPosts(prev => prev.map(p => ({
+          ...p,
+          status: (data.posts[p.id]?.status as any) || p.status
+        })))
+      }
+    } catch (err) {
+      console.log('No post status file yet')
+    }
+  }
+
+  async function savePostStatus(postId: string, status: string) {
+    const updated = {
+      ...postStatus,
+      [postId]: {
+        status,
+        timestamp: new Date().toISOString()
+      }
+    }
+    
+    setPostStatus(updated)
+    
+    // Save to file (client-side, will need server endpoint for real persistence)
+    console.log('Post status updated:', { postId, status })
+    // TODO: Implement server endpoint to save post-status.json
   }
 
   function handleDragStart(post: UnscheduledPost) {
@@ -110,12 +147,21 @@ export default function QueuePage() {
     setUnscheduledPosts(unscheduledPosts.map(p => 
       p.id === post.id ? { ...p, status: 'dismissed' } : p
     ))
+    savePostStatus(post.id, 'dismissed')
   }
 
   function undismissPost(post: UnscheduledPost) {
     setUnscheduledPosts(unscheduledPosts.map(p => 
       p.id === post.id ? { ...p, status: 'unscheduled' } : p
     ))
+    savePostStatus(post.id, 'unscheduled')
+  }
+
+  function markAsPosted(post: UnscheduledPost) {
+    setUnscheduledPosts(unscheduledPosts.map(p => 
+      p.id === post.id ? { ...p, status: 'posted' } : p
+    ))
+    savePostStatus(post.id, 'posted')
   }
 
   function removeScheduledPost(postId: string) {
@@ -132,8 +178,16 @@ export default function QueuePage() {
   // Filter by status
   const activeUnscheduled = unscheduledPosts.filter(p => p.status === 'unscheduled')
   const dismissedPosts = unscheduledPosts.filter(p => p.status === 'dismissed')
+  const postedPosts = unscheduledPosts.filter(p => p.status === 'posted')
   
-  const displayedUnscheduled = showDismissed ? dismissedPosts : activeUnscheduled
+  // Apply platform filter to unscheduled sidebar
+  const displayedUnscheduled = showDismissed 
+    ? (unscheduledFilter === 'all' 
+        ? dismissedPosts 
+        : dismissedPosts.filter(p => p.platform === unscheduledFilter))
+    : (unscheduledFilter === 'all'
+        ? activeUnscheduled
+        : activeUnscheduled.filter(p => p.platform === unscheduledFilter))
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
@@ -208,7 +262,7 @@ export default function QueuePage() {
                 }
               }}
             >
-              <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center justify-between mb-2">
                 <h3 className="text-lg font-semibold text-gray-900">
                   {showDismissed ? 'Dismissed' : 'Unscheduled'} ({displayedUnscheduled.length})
                 </h3>
@@ -218,6 +272,23 @@ export default function QueuePage() {
                 >
                   {showDismissed ? `← Unscheduled (${activeUnscheduled.length})` : `Dismissed (${dismissedPosts.length})`}
                 </button>
+              </div>
+
+              {/* Platform filter buttons */}
+              <div className="flex gap-1 mb-3">
+                {(['all', 'twitter', 'linkedin', 'instagram'] as const).map(filter => (
+                  <button
+                    key={filter}
+                    onClick={() => setUnscheduledFilter(filter)}
+                    className={`flex-1 px-2 py-1 rounded text-xs font-medium transition-colors ${
+                      unscheduledFilter === filter
+                        ? 'bg-blue-600 text-white'
+                        : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                    }`}
+                  >
+                    {filter === 'all' ? 'All' : filter.charAt(0).toUpperCase()}
+                  </button>
+                ))}
               </div>
 
               <div className="space-y-2 max-h-[calc(100vh-200px)] overflow-y-auto">
@@ -257,6 +328,10 @@ export default function QueuePage() {
                         >
                           Restore
                         </button>
+                      ) : post.status === 'posted' ? (
+                        <div className="flex-1 px-2 py-1 bg-green-100 text-green-700 rounded text-xs font-medium text-center">
+                          ✓ Posted
+                        </div>
                       ) : (
                         <>
                           <button
@@ -267,6 +342,16 @@ export default function QueuePage() {
                             className="flex-1 px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs font-medium hover:bg-blue-200"
                           >
                             Auto-schedule
+                          </button>
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation()
+                              markAsPosted(post)
+                            }}
+                            className="px-2 py-1 bg-green-100 text-green-700 rounded text-xs font-medium hover:bg-green-200"
+                            title="Mark as Posted"
+                          >
+                            ✓
                           </button>
                           <button
                             onClick={(e) => {

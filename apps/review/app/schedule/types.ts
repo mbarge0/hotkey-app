@@ -14,7 +14,7 @@ export interface ScheduledPost {
   status: 'pending' | 'scheduled' | 'published' | 'failed'
 }
 
-export type PostStatus = 'unscheduled' | 'scheduled' | 'dismissed'
+export type PostStatus = 'unscheduled' | 'scheduled' | 'dismissed' | 'posted'
 
 export interface UnscheduledPost {
   id: string
