@@ -14,13 +14,16 @@ export interface ScheduledPost {
   status: 'pending' | 'scheduled' | 'published' | 'failed'
 }
 
+export type PostStatus = 'unscheduled' | 'scheduled' | 'dismissed'
+
 export interface UnscheduledPost {
   id: string
   storyId: string
   platform: Platform
   title: string
   content: string
-  approved: boolean
+  status: PostStatus
+  createdAt: string
 }
 
 export interface ChannelRules {

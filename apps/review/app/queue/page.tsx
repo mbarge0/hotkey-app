@@ -8,6 +8,7 @@ export default function QueuePage() {
   const [unscheduledPosts, setUnscheduledPosts] = useState<UnscheduledPost[]>([])
   const [draggedPost, setDraggedPost] = useState<UnscheduledPost | null>(null)
   const [viewPlatform, setViewPlatform] = useState<Platform | 'all'>('all')
+  const [showDismissed, setShowDismissed] = useState(false)
 
   // Generate next 4 days
   const days = Array.from({ length: 4 }, (_, i) => {
@@ -28,30 +29,29 @@ export default function QueuePage() {
       if (!res.ok) throw new Error('Failed to load batch')
       
       const data = await res.json()
-      const allUnscheduled: UnscheduledPost[] = []
+      const allPosts: UnscheduledPost[] = []
       
-      // Extract all unapproved formats from all batches
-      data.batches.forEach((batch: any) => {
-        batch.formats.forEach((format: any) => {
-          if (!format.checked) {
-            allUnscheduled.push({
-              id: `${batch.id}-${format.id}`,
-              storyId: batch.id,
-              platform: format.id as Platform,
-              title: batch.story.title,
-              content: format.content,
-              approved: false
-            })
-          }
+      // Extract ALL formats from all batches
+      data.batches.forEach((batch: any, batchIndex: number) => {
+        batch.formats.forEach((format: any, formatIndex: number) => {
+          allPosts.push({
+            id: `${batch.id}-${format.id}`,
+            storyId: batch.id,
+            platform: format.id as Platform,
+            title: batch.story.title,
+            content: format.content,
+            status: 'unscheduled',
+            createdAt: batch.createdAt || new Date().toISOString()
+          })
         })
       })
       
-      // Sort by creation time (oldest first)
-      allUnscheduled.sort((a, b) => {
-        return a.storyId.localeCompare(b.storyId)
+      // Sort by creation time (oldest first, newest at bottom)
+      allPosts.sort((a, b) => {
+        return a.createdAt.localeCompare(b.createdAt)
       })
       
-      setUnscheduledPosts(allUnscheduled)
+      setUnscheduledPosts(allPosts)
     } catch (err) {
       console.error('Error loading queue:', err)
     }
@@ -68,7 +68,7 @@ export default function QueuePage() {
     scheduledTime.setHours(hour, 0, 0, 0)
 
     const newPost: ScheduledPost = {
-      id: `sched-${Date.now()}`,
+      id: draggedPost.id,
       storyId: draggedPost.storyId,
       platform: draggedPost.platform,
       title: draggedPost.title,
@@ -78,7 +78,9 @@ export default function QueuePage() {
     }
 
     setScheduledPosts([...scheduledPosts, newPost])
-    setUnscheduledPosts(unscheduledPosts.filter(p => p.id !== draggedPost.id))
+    setUnscheduledPosts(unscheduledPosts.map(p => 
+      p.id === draggedPost.id ? { ...p, status: 'scheduled' } : p
+    ))
     setDraggedPost(null)
   }
 
@@ -86,7 +88,7 @@ export default function QueuePage() {
     const nextSlot = findNextAvailableSlot(post.platform, scheduledPosts)
     
     const newPost: ScheduledPost = {
-      id: `sched-${Date.now()}`,
+      id: post.id,
       storyId: post.storyId,
       platform: post.platform,
       title: post.title,
@@ -96,32 +98,39 @@ export default function QueuePage() {
     }
 
     setScheduledPosts([...scheduledPosts, newPost])
-    setUnscheduledPosts(unscheduledPosts.filter(p => p.id !== post.id))
+    setUnscheduledPosts(unscheduledPosts.map(p => 
+      p.id === post.id ? { ...p, status: 'scheduled' } : p
+    ))
+  }
+
+  function dismissPost(post: UnscheduledPost) {
+    setUnscheduledPosts(unscheduledPosts.map(p => 
+      p.id === post.id ? { ...p, status: 'dismissed' } : p
+    ))
+  }
+
+  function undismissPost(post: UnscheduledPost) {
+    setUnscheduledPosts(unscheduledPosts.map(p => 
+      p.id === post.id ? { ...p, status: 'unscheduled' } : p
+    ))
   }
 
   function removeScheduledPost(postId: string) {
-    const post = scheduledPosts.find(p => p.id === postId)
-    if (!post) return
-
-    const unscheduled: UnscheduledPost = {
-      id: `unsch-${Date.now()}`,
-      storyId: post.storyId,
-      platform: post.platform,
-      title: post.title,
-      content: post.content,
-      approved: true
-    }
-
-    setUnscheduledPosts([...unscheduledPosts, unscheduled])
     setScheduledPosts(scheduledPosts.filter(p => p.id !== postId))
+    setUnscheduledPosts(unscheduledPosts.map(p => 
+      p.id === postId ? { ...p, status: 'unscheduled' } : p
+    ))
   }
 
   const platformPosts = viewPlatform === 'all' 
     ? scheduledPosts 
     : scheduledPosts.filter(p => p.platform === viewPlatform)
   
-  // Show all unscheduled posts (no filtering)
-  const displayedUnscheduled = unscheduledPosts
+  // Filter by status
+  const activeUnscheduled = unscheduledPosts.filter(p => p.status === 'unscheduled')
+  const dismissedPosts = unscheduledPosts.filter(p => p.status === 'dismissed')
+  
+  const displayedUnscheduled = showDismissed ? dismissedPosts : activeUnscheduled
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
@@ -186,17 +195,27 @@ export default function QueuePage() {
           {/* Unscheduled Sidebar */}
           <div className="w-80 flex-shrink-0">
             <div className="bg-white rounded-lg shadow-md p-4 sticky top-8">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                Unscheduled ({displayedUnscheduled.length})
-              </h3>
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-lg font-semibold text-gray-900">
+                  {showDismissed ? 'Dismissed' : 'Unscheduled'} ({displayedUnscheduled.length})
+                </h3>
+                <button
+                  onClick={() => setShowDismissed(!showDismissed)}
+                  className="text-xs px-2 py-1 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded font-medium"
+                >
+                  {showDismissed ? `← Unscheduled (${activeUnscheduled.length})` : `Dismissed (${dismissedPosts.length})`}
+                </button>
+              </div>
 
               <div className="space-y-2 max-h-[calc(100vh-200px)] overflow-y-auto">
                 {displayedUnscheduled.map(post => (
                   <div
                     key={post.id}
-                    draggable
-                    onDragStart={() => handleDragStart(post)}
-                    className="bg-gray-50 border border-gray-200 rounded-lg p-3 cursor-move hover:border-blue-500 hover:shadow-sm transition-all"
+                    draggable={!showDismissed}
+                    onDragStart={() => !showDismissed && handleDragStart(post)}
+                    className={`bg-gray-50 border border-gray-200 rounded-lg p-3 hover:shadow-sm transition-all ${
+                      showDismissed ? '' : 'cursor-move hover:border-blue-500'
+                    }`}
                   >
                     <div className="flex items-center gap-2 mb-1">
                       <span className={`px-2 py-0.5 rounded text-xs font-medium ${
@@ -210,21 +229,41 @@ export default function QueuePage() {
                         {post.title}
                       </span>
                     </div>
-                    <div className="text-xs text-gray-500 line-clamp-2">
+                    <div className="text-xs text-gray-500 line-clamp-2 mb-2">
                       {post.content}
                     </div>
-                    <button
-                      onClick={() => autoSchedulePost(post)}
-                      className="mt-2 w-full px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs font-medium hover:bg-blue-200"
-                    >
-                      Auto-schedule
-                    </button>
+                    <div className="flex gap-2">
+                      {showDismissed ? (
+                        <button
+                          onClick={() => undismissPost(post)}
+                          className="flex-1 px-2 py-1 bg-green-100 text-green-700 rounded text-xs font-medium hover:bg-green-200"
+                        >
+                          Restore
+                        </button>
+                      ) : (
+                        <>
+                          <button
+                            onClick={() => autoSchedulePost(post)}
+                            className="flex-1 px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs font-medium hover:bg-blue-200"
+                          >
+                            Auto-schedule
+                          </button>
+                          <button
+                            onClick={() => dismissPost(post)}
+                            className="px-3 py-1 bg-gray-200 text-gray-700 rounded text-xs font-medium hover:bg-gray-300"
+                            title="Dismiss"
+                          >
+                            ×
+                          </button>
+                        </>
+                      )}
+                    </div>
                   </div>
                 ))}
 
                 {displayedUnscheduled.length === 0 && (
                   <div className="text-sm text-gray-500 text-center py-8">
-                    All posts are scheduled!
+                    {showDismissed ? 'No dismissed posts' : 'All posts are scheduled!'}
                   </div>
                 )}
               </div>
