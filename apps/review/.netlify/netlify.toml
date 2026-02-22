@@ -1,5 +1,5 @@
-redirectsOrigin = "inline"
-headersOrigin = "inline"
+redirectsOrigin = "config"
+headers = []
 
 [functions]
 
@@ -18,6 +18,7 @@ commandOrigin = "config"
 command = "npm run build"
 
 [build.environment]
+NETLIFY_NEXT_PLUGIN_SKIP = "true"
 
 [build.processing]
 
@@ -30,12 +31,6 @@ command = "npm run build"
 [build.processing.js]
 
 [build.services]
-
-[[headers]]
-for = "/review/_next/static/*"
-
-[headers.values]
-Cache-Control = "public, max-age=31536000, immutable"
 
 [[redirects]]
 from = "/review"
@@ -68,36 +63,6 @@ status = 200.0
 force = false
 
 [redirects.query]
-
-[redirects.conditions]
-
-[redirects.headers]
-
-[[redirects]]
-from = "/review/_next/image/"
-to = "/.netlify/images?url=:url&w=:width&q=:quality"
-status = 200.0
-force = false
-
-[redirects.query]
-url = ":url"
-w = ":width"
-q = ":quality"
-
-[redirects.conditions]
-
-[redirects.headers]
-
-[[redirects]]
-from = "/_ipx/*"
-to = "/.netlify/images?url=:url&w=:width&q=:quality"
-status = 200.0
-force = false
-
-[redirects.query]
-url = ":url"
-w = ":width"
-q = ":quality"
 
 [redirects.conditions]
 
