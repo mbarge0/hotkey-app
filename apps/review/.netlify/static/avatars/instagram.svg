@@ -1,0 +1,16 @@
+<svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Instagram gradient background -->
+  <defs>
+    <radialGradient id="instagramGrad" cx="30%" cy="110%">
+      <stop offset="0%" style="stop-color:#FFD521;stop-opacity:1" />
+      <stop offset="20%" style="stop-color:#F7931E;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#E4405F;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#5B51D8;stop-opacity:1" />
+    </radialGradient>
+  </defs>
+  
+  <circle cx="200" cy="200" r="200" fill="url(#instagramGrad)"/>
+  
+  <!-- Initials -->
+  <text x="200" y="250" font-family="Arial, sans-serif" font-size="160" font-weight="bold" fill="white" text-anchor="middle">MB</text>
+</svg>
