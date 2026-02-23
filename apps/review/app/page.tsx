@@ -370,14 +370,25 @@ export default function HotKey() {
                     key={format.id} 
                     className={`rounded-2xl shadow-lg overflow-hidden border-2 transition-all ${
                       isScheduledOrPosted 
-                        ? 'bg-gray-100 border-gray-300 opacity-75' 
+                        ? 'bg-gray-200 border-gray-400 opacity-80' 
                         : 'bg-white border-transparent hover:border-blue-500'
                     }`}
                   >
+                    {/* Status Banner */}
+                    {isScheduledOrPosted && (
+                      <div className={`px-6 py-3 text-center font-bold text-lg ${
+                        status === 'scheduled' 
+                          ? 'bg-yellow-400 text-yellow-900' 
+                          : 'bg-green-400 text-green-900'
+                      }`}>
+                        {status === 'scheduled' ? '📅 SCHEDULED' : '✅ POSTED'}
+                      </div>
+                    )}
+                    
                     {/* Preview - Clickable */}
                     <div 
                       className={`p-6 relative cursor-pointer transition-colors ${
-                        isScheduledOrPosted ? 'hover:bg-gray-200' : 'hover:bg-gray-50'
+                        isScheduledOrPosted ? 'hover:bg-gray-300' : 'hover:bg-gray-50'
                       }`}
                       onClick={() => setSelectedFormat(format)}
                     >
@@ -403,7 +414,7 @@ export default function HotKey() {
 
                     {/* Controls */}
                     <div className={`border-t p-4 ${
-                      isScheduledOrPosted ? 'border-gray-300 bg-gray-200' : 'border-gray-200 bg-gray-50'
+                      isScheduledOrPosted ? 'border-gray-400 bg-gray-300' : 'border-gray-200 bg-gray-50'
                     }`}>
                       <div className="flex items-center justify-between mb-3">
                         <div className="flex items-center gap-2">
@@ -420,46 +431,68 @@ export default function HotKey() {
                             </div>
                           </div>
                         </div>
-                      </div>
-
-                      {/* Show big Approve button for unscheduled, or status text for scheduled/posted */}
-                      {!isScheduledOrPosted ? (
-                        <button
-                          onClick={(e) => {
-                            e.stopPropagation()
-                            approveFormat(format.id)
-                          }}
-                          className="w-full px-4 py-3 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white rounded-lg font-semibold shadow-md transition-all text-center"
-                        >
-                          Approve
-                        </button>
-                      ) : (
-                        <div className="flex items-center justify-between">
-                          <span className="text-sm text-gray-600 font-medium">
-                            {status === 'scheduled' ? '📅 Already scheduled' : '✅ Already posted'}
-                          </span>
+                        
+                        {/* Undo button for scheduled/posted */}
+                        {isScheduledOrPosted && (
                           <button
                             onClick={(e) => {
                               e.stopPropagation()
                               updateFormatStatus(format.id, 'unscheduled')
                             }}
-                            className="text-xs text-gray-500 hover:text-gray-700 underline"
+                            className="text-xs text-gray-600 hover:text-gray-900 underline font-medium"
                           >
                             Undo
                           </button>
-                        </div>
-                      )}
+                        )}
+                      </div>
 
-                      {format.checked && !isScheduledOrPosted && (
-                        <select
-                          value={format.scheduleTime}
-                          onChange={(e) => updateScheduleTime(format.id, e.target.value)}
-                          className="w-full mt-3 px-3 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-                        >
-                          {format.scheduleOptions.map(opt => (
-                            <option key={opt} value={opt}>{opt}</option>
-                          ))}
-                        </select>
+                      {/* Unscheduled post: Show Approve button + date selector + status options */}
+                      {!isScheduledOrPosted && (
+                        <>
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation()
+                              approveFormat(format.id)
+                            }}
+                            className="w-full px-4 py-3 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white rounded-lg font-semibold shadow-md transition-all text-center"
+                          >
+                            Approve
+                          </button>
+
+                          {format.checked && (
+                            <select
+                              value={format.scheduleTime}
+                              onChange={(e) => updateScheduleTime(format.id, e.target.value)}
+                              className="w-full mt-3 px-3 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                            >
+                              {format.scheduleOptions.map(opt => (
+                                <option key={opt} value={opt}>{opt}</option>
+                              ))}
+                            </select>
+                          )}
+
+                          {/* Status marking buttons */}
+                          <div className="flex items-center gap-2 mt-3">
+                            <button
+                              onClick={(e) => {
+                                e.stopPropagation()
+                                updateFormatStatus(format.id, 'scheduled')
+                              }}
+                              className="flex-1 px-3 py-1.5 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded text-xs font-medium transition-colors"
+                            >
+                              Already scheduled
+                            </button>
+                            <button
+                              onClick={(e) => {
+                                e.stopPropagation()
+                                updateFormatStatus(format.id, 'posted')
+                              }}
+                              className="flex-1 px-3 py-1.5 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded text-xs font-medium transition-colors"
+                            >
+                              Already posted
+                            </button>
+                          </div>
+                        </>
                       )}
                     </div>
                   </div>
