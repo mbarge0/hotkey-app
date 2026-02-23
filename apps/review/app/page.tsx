@@ -370,26 +370,28 @@ export default function HotKey() {
                     key={format.id} 
                     className={`rounded-2xl shadow-lg overflow-hidden border-2 transition-all relative ${
                       isScheduledOrPosted 
-                        ? 'bg-gray-200 border-gray-400 opacity-80' 
+                        ? 'border-gray-400' 
                         : 'bg-white border-transparent hover:border-blue-500'
                     }`}
                   >
-                    {/* Status Badge - Overlaid on top right */}
-                    {isScheduledOrPosted && (
-                      <div className="absolute top-4 right-4 z-10 px-3 py-1.5 bg-white/90 backdrop-blur-sm rounded-lg shadow-md border border-gray-300">
-                        <span className="text-sm font-semibold text-gray-700">
-                          {status === 'scheduled' ? '📅 Scheduled' : '✅ Posted'}
-                        </span>
-                      </div>
-                    )}
-                    
                     {/* Preview - Clickable */}
                     <div 
                       className={`p-6 relative cursor-pointer transition-colors ${
-                        isScheduledOrPosted ? 'hover:bg-gray-300' : 'hover:bg-gray-50'
+                        isScheduledOrPosted ? 'bg-gray-300 hover:bg-gray-400' : 'bg-white hover:bg-gray-50'
                       }`}
                       onClick={() => setSelectedFormat(format)}
                     >
+                      {/* Status Badge - Centered over content */}
+                      {isScheduledOrPosted && (
+                        <div className="absolute inset-0 flex items-center justify-center pointer-events-none" style={{ top: '40%' }}>
+                          <div className="px-4 py-2 bg-white/95 backdrop-blur-sm rounded-lg shadow-lg border-2 border-gray-400">
+                            <span className="text-base font-bold text-gray-700">
+                              {status === 'scheduled' ? '📅 Scheduled' : '✅ Posted'}
+                            </span>
+                          </div>
+                        </div>
+                      )}
+                    
                       {format.id === 'twitter' && (
                         <TwitterPreview 
                           content={format.content}
@@ -412,7 +414,7 @@ export default function HotKey() {
 
                     {/* Controls */}
                     <div className={`border-t p-4 ${
-                      isScheduledOrPosted ? 'border-gray-400 bg-gray-300' : 'border-gray-200 bg-gray-50'
+                      isScheduledOrPosted ? 'border-gray-500 bg-gray-400' : 'border-gray-200 bg-gray-50'
                     }`}>
                       <div className="flex items-center justify-between mb-3">
                         <div className="flex items-center gap-2">
