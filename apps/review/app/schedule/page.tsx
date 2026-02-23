@@ -25,12 +25,24 @@ export default function QueuePage() {
   })
 
   useEffect(() => {
-    loadQueue()
-    loadPostStatusData()
+    loadQueueWithStatus()
   }, [])
 
-  async function loadQueue() {
+  async function loadQueueWithStatus() {
     try {
+      // Load status first
+      const statusData = loadPostStatus()
+      const statusMap: Record<string, { status: string, timestamp: string }> = {}
+      
+      Object.entries(statusData.posts).forEach(([id, info]) => {
+        statusMap[id] = {
+          status: info.status,
+          timestamp: info.timestamp
+        }
+      })
+      
+      setPostStatus(statusMap)
+      
       // Load from batch.json
       const res = await fetch('/review/batch.json')
       if (!res.ok) throw new Error('Failed to load batch')
@@ -38,16 +50,19 @@ export default function QueuePage() {
       const data = await res.json()
       const allPosts: UnscheduledPost[] = []
       
-      // Extract ALL formats from all batches
+      // Extract ALL formats from all batches and apply saved status
       data.batches.forEach((batch: any, batchIndex: number) => {
         batch.formats.forEach((format: any, formatIndex: number) => {
+          const postId = `${batch.id}-${format.id}`
+          const savedStatus = getPostStatus(postId) || 'unscheduled'
+          
           allPosts.push({
-            id: `${batch.id}-${format.id}`,
+            id: postId,
             storyId: batch.id,
             platform: format.id as Platform,
             title: batch.story.title,
             content: format.content,
-            status: 'unscheduled',
+            status: savedStatus as any,
             createdAt: batch.createdAt || new Date().toISOString()
           })
         })
@@ -61,31 +76,6 @@ export default function QueuePage() {
       setUnscheduledPosts(allPosts)
     } catch (err) {
       console.error('Error loading queue:', err)
-    }
-  }
-
-  async function loadPostStatusData() {
-    try {
-      // Load from localStorage via utility
-      const data = loadPostStatus()
-      const statusMap: Record<string, { status: string, timestamp: string }> = {}
-      
-      Object.entries(data.posts).forEach(([id, info]) => {
-        statusMap[id] = {
-          status: info.status,
-          timestamp: info.timestamp
-        }
-      })
-      
-      setPostStatus(statusMap)
-      
-      // Apply loaded status to unscheduled posts
-      setUnscheduledPosts(prev => prev.map(p => ({
-        ...p,
-        status: (getPostStatus(p.id) as any) || p.status
-      })))
-    } catch (err) {
-      console.log('No post status found, starting fresh')
     }
   }
 
