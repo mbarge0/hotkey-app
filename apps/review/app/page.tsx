@@ -376,14 +376,17 @@ export default function HotKey() {
                   >
                     {/* Preview - Clickable */}
                     <div 
-                      className={`p-6 relative cursor-pointer transition-colors ${
-                        isScheduledOrPosted ? 'bg-gray-300 hover:bg-gray-400' : 'bg-white hover:bg-gray-50'
-                      }`}
+                      className="p-6 relative cursor-pointer transition-colors bg-white hover:bg-gray-50"
                       onClick={() => setSelectedFormat(format)}
                     >
-                      {/* Status Badge - Centered over content */}
+                      {/* Grey overlay for scheduled/posted - over the post content */}
                       {isScheduledOrPosted && (
-                        <div className="absolute inset-0 flex items-center justify-center pointer-events-none" style={{ top: '40%' }}>
+                        <div className="absolute inset-0 bg-gray-400/60 pointer-events-none"></div>
+                      )}
+                      
+                      {/* Status Badge - Centered horizontally, positioned over post text */}
+                      {isScheduledOrPosted && (
+                        <div className="absolute left-1/2 transform -translate-x-1/2 pointer-events-none z-10" style={{ top: '20%' }}>
                           <div className="px-4 py-2 bg-white/95 backdrop-blur-sm rounded-lg shadow-lg border-2 border-gray-400">
                             <span className="text-base font-bold text-gray-700">
                               {status === 'scheduled' ? '📅 Scheduled' : '✅ Posted'}
@@ -414,7 +417,7 @@ export default function HotKey() {
 
                     {/* Controls */}
                     <div className={`border-t p-4 ${
-                      isScheduledOrPosted ? 'border-gray-500 bg-gray-400' : 'border-gray-200 bg-gray-50'
+                      isScheduledOrPosted ? 'border-gray-300 bg-gray-100' : 'border-gray-200 bg-gray-50'
                     }`}>
                       <div className="flex items-center justify-between mb-3">
                         <div className="flex items-center gap-2">
