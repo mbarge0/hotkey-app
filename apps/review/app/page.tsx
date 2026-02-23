@@ -361,101 +361,110 @@ export default function HotKey() {
           <div className="lg:col-span-3">
             {/* Top 3 Platforms - Big Preview Cards */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
-              {topPlatforms.map(format => (
-                <div key={format.id} className="bg-white rounded-2xl shadow-lg overflow-hidden border-2 border-transparent hover:border-blue-500 transition-all">
-                  {/* Preview - Clickable */}
+              {topPlatforms.map(format => {
+                const status = getFormatStatus(format.id)
+                const isScheduledOrPosted = status === 'scheduled' || status === 'posted'
+                
+                return (
                   <div 
-                    className="p-6 relative cursor-pointer hover:bg-gray-50 transition-colors"
-                    onClick={() => setSelectedFormat(format)}
+                    key={format.id} 
+                    className={`rounded-2xl shadow-lg overflow-hidden border-2 transition-all ${
+                      isScheduledOrPosted 
+                        ? 'bg-gray-100 border-gray-300 opacity-75' 
+                        : 'bg-white border-transparent hover:border-blue-500'
+                    }`}
                   >
-                    {format.id === 'twitter' && (
-                      <TwitterPreview 
-                        content={format.content}
-                        media={format.media}
-                      />
-                    )}
-                    {format.id === 'linkedin' && (
-                      <LinkedInPreview 
-                        content={format.content}
-                        media={format.media}
-                      />
-                    )}
-                    {format.id === 'instagram' && (
-                      <InstagramPreview 
-                        content={format.content}
-                        media={format.media}
-                      />
-                    )}
-                  </div>
-
-                  {/* Controls */}
-                  <div className="border-t border-gray-200 p-4 bg-gray-50">
-                    <div className="flex items-center justify-between mb-3">
-                      <div className="flex items-center gap-2">
-                        <input
-                          type="checkbox"
-                          checked={format.checked}
-                          onChange={() => toggleFormat(format.id)}
-                          className="h-5 w-5 text-blue-600 rounded focus:ring-blue-500"
+                    {/* Preview - Clickable */}
+                    <div 
+                      className={`p-6 relative cursor-pointer transition-colors ${
+                        isScheduledOrPosted ? 'hover:bg-gray-200' : 'hover:bg-gray-50'
+                      }`}
+                      onClick={() => setSelectedFormat(format)}
+                    >
+                      {format.id === 'twitter' && (
+                        <TwitterPreview 
+                          content={format.content}
+                          media={format.media}
                         />
-                        <div>
-                          <div className="font-semibold text-gray-900">{format.name}</div>
-                          <div className="text-sm text-gray-500">
-                            Score: {format.score}
-                            {getFormatStatus(format.id) && (
-                              <span className={`ml-2 px-2 py-0.5 rounded text-xs font-medium ${
-                                getFormatStatus(format.id) === 'scheduled' ? 'bg-yellow-100 text-yellow-700' :
-                                getFormatStatus(format.id) === 'posted' ? 'bg-green-100 text-green-700' :
-                                'bg-gray-100 text-gray-600'
-                              }`}>
-                                {getFormatStatus(format.id) === 'scheduled' ? '📅 Scheduled' :
-                                 getFormatStatus(format.id) === 'posted' ? '✅ Posted' :
-                                 getFormatStatus(format.id)}
-                              </span>
-                            )}
+                      )}
+                      {format.id === 'linkedin' && (
+                        <LinkedInPreview 
+                          content={format.content}
+                          media={format.media}
+                        />
+                      )}
+                      {format.id === 'instagram' && (
+                        <InstagramPreview 
+                          content={format.content}
+                          media={format.media}
+                        />
+                      )}
+                    </div>
+
+                    {/* Controls */}
+                    <div className={`border-t p-4 ${
+                      isScheduledOrPosted ? 'border-gray-300 bg-gray-200' : 'border-gray-200 bg-gray-50'
+                    }`}>
+                      <div className="flex items-center justify-between mb-3">
+                        <div className="flex items-center gap-2">
+                          <input
+                            type="checkbox"
+                            checked={format.checked}
+                            onChange={() => toggleFormat(format.id)}
+                            className="h-5 w-5 text-blue-600 rounded focus:ring-blue-500"
+                          />
+                          <div>
+                            <div className="font-semibold text-gray-900">{format.name}</div>
+                            <div className="text-sm text-gray-500">
+                              Score: {format.score}
+                            </div>
                           </div>
                         </div>
                       </div>
-                      
-                      {/* Status Buttons */}
-                      <div className="flex items-center gap-2">
-                        <button
-                          onClick={(e) => {
-                            e.stopPropagation()
-                            updateFormatStatus(format.id, 'scheduled')
-                          }}
-                          className="px-3 py-1.5 bg-yellow-100 hover:bg-yellow-200 text-yellow-700 rounded-lg text-sm font-medium transition-colors"
-                          title="Mark as Scheduled"
-                        >
-                          🕐 Scheduled
-                        </button>
-                        <button
-                          onClick={(e) => {
-                            e.stopPropagation()
-                            updateFormatStatus(format.id, 'posted')
-                          }}
-                          className="px-3 py-1.5 bg-green-100 hover:bg-green-200 text-green-700 rounded-lg text-sm font-medium transition-colors"
-                          title="Mark as Posted"
-                        >
-                          ✅ Posted
-                        </button>
-                      </div>
-                    </div>
 
-                    {format.checked && (
-                      <select
-                        value={format.scheduleTime}
-                        onChange={(e) => updateScheduleTime(format.id, e.target.value)}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-                      >
-                        {format.scheduleOptions.map(opt => (
-                          <option key={opt} value={opt}>{opt}</option>
-                        ))}
-                      </select>
-                    )}
+                      {/* Show big Approve button for unscheduled, or status text for scheduled/posted */}
+                      {!isScheduledOrPosted ? (
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            approveFormat(format.id)
+                          }}
+                          className="w-full px-4 py-3 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white rounded-lg font-semibold shadow-md transition-all text-center"
+                        >
+                          Approve
+                        </button>
+                      ) : (
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm text-gray-600 font-medium">
+                            {status === 'scheduled' ? '📅 Already scheduled' : '✅ Already posted'}
+                          </span>
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation()
+                              updateFormatStatus(format.id, 'unscheduled')
+                            }}
+                            className="text-xs text-gray-500 hover:text-gray-700 underline"
+                          >
+                            Undo
+                          </button>
+                        </div>
+                      )}
+
+                      {format.checked && !isScheduledOrPosted && (
+                        <select
+                          value={format.scheduleTime}
+                          onChange={(e) => updateScheduleTime(format.id, e.target.value)}
+                          className="w-full mt-3 px-3 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                        >
+                          {format.scheduleOptions.map(opt => (
+                            <option key={opt} value={opt}>{opt}</option>
+                          ))}
+                        </select>
+                      )}
+                    </div>
                   </div>
-                </div>
-              ))}
+                )
+              })}
             </div>
 
             {/* Other Platforms */}
