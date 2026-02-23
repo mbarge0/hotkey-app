@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { ScheduledPost, UnscheduledPost, Platform, findNextAvailableSlot } from './types'
 
 export default function QueuePage() {
@@ -175,25 +175,30 @@ export default function QueuePage() {
     ? scheduledPosts 
     : scheduledPosts.filter(p => p.platform === viewPlatform)
   
-  // Filter by status
-  const activeUnscheduled = unscheduledPosts.filter(p => p.status === 'unscheduled')
-  const dismissedPosts = unscheduledPosts.filter(p => p.status === 'dismissed')
-  const postedPosts = unscheduledPosts.filter(p => p.status === 'posted')
+  // Filter by status (useMemo to ensure proper re-rendering)
+  const activeUnscheduled = useMemo(
+    () => unscheduledPosts.filter(p => p.status === 'unscheduled'),
+    [unscheduledPosts]
+  )
+  const dismissedPosts = useMemo(
+    () => unscheduledPosts.filter(p => p.status === 'dismissed'),
+    [unscheduledPosts]
+  )
+  const postedPosts = useMemo(
+    () => unscheduledPosts.filter(p => p.status === 'posted'),
+    [unscheduledPosts]
+  )
   
-  // Apply platform filter to unscheduled sidebar
-  const displayedUnscheduled = showDismissed 
-    ? (unscheduledFilter === 'all' 
-        ? dismissedPosts 
-        : dismissedPosts.filter(p => {
-            console.log(`Filtering dismissed: ${p.platform} === ${unscheduledFilter} ?`, p.platform === unscheduledFilter)
-            return p.platform === unscheduledFilter
-          }))
-    : (unscheduledFilter === 'all'
-        ? activeUnscheduled
-        : activeUnscheduled.filter(p => {
-            console.log(`Filtering active: ${p.platform} === ${unscheduledFilter} ?`, p.platform === unscheduledFilter)
-            return p.platform === unscheduledFilter
-          }))
+  // Apply platform filter to unscheduled sidebar (useMemo with proper dependencies)
+  const displayedUnscheduled = useMemo(() => {
+    const baseList = showDismissed ? dismissedPosts : activeUnscheduled
+    
+    if (unscheduledFilter === 'all') {
+      return baseList
+    }
+    
+    return baseList.filter(p => p.platform === unscheduledFilter)
+  }, [showDismissed, dismissedPosts, activeUnscheduled, unscheduledFilter])
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
