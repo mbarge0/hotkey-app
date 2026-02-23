@@ -6,6 +6,7 @@ import LinkedInPreview from './components/LinkedInPreview'
 import InstagramPreview from './components/InstagramPreview'
 import { profileConfig } from './config/profile'
 import { generateStoryContext } from './utils/storyContext'
+import { loadPostStatus, getPostStatus } from './utils/postStatus'
 
 interface Format {
   id: string
@@ -48,8 +49,27 @@ export default function HotKey() {
   const [filter, setFilter] = useState<'all' | 'auto' | 'manual' | 'design' | 'video'>('all')
   const [editedContent, setEditedContent] = useState<string>('')
   const [isEditing, setIsEditing] = useState(false)
+  const [showCompleted, setShowCompleted] = useState(false)
   
-  const batch = batchData?.batches[currentIndex] || null
+  // Filter batches based on completion status
+  const filteredBatches = batchData?.batches.filter(batch => {
+    const hasUnscheduled = batch.formats.some(format => {
+      const postId = `${batch.id}-${format.id}`
+      const status = getPostStatus(postId)
+      return !status || status === 'unscheduled'
+    })
+    
+    return showCompleted ? !hasUnscheduled : hasUnscheduled
+  })
+  
+  const batch = filteredBatches?.[currentIndex] || null
+  const totalActive = batchData?.batches.filter(b => {
+    return b.formats.some(f => {
+      const status = getPostStatus(`${b.id}-${f.id}`)
+      return !status || status === 'unscheduled'
+    })
+  }).length || 0
+  const totalCompleted = (batchData?.batches.length || 0) - totalActive
 
   useEffect(() => {
     loadBatch()
@@ -219,8 +239,13 @@ export default function HotKey() {
                 HotKey
               </h1>
               
+              {/* Status indicator */}
+              <div className="text-sm text-gray-600">
+                {showCompleted ? `${totalCompleted} completed` : `${totalActive} active`}
+              </div>
+              
               {/* Story navigation */}
-              {batchData && batchData.total > 1 && (
+              {batchData && (filteredBatches?.length || 0) > 1 && (
                 <div className="flex items-center gap-3">
                   <button
                     onClick={() => setCurrentIndex(Math.max(0, currentIndex - 1))}
@@ -238,7 +263,7 @@ export default function HotKey() {
                       className="appearance-none bg-white border border-gray-300 rounded-lg px-3 py-1.5 pr-8 text-sm font-medium text-gray-900 hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer max-w-xs"
                       style={{ minWidth: '200px' }}
                     >
-                      {batchData.batches.map((b, idx) => (
+                      {filteredBatches?.map((b, idx) => (
                         <option key={b.id} value={idx}>
                           {idx + 1}. {b.story.title.slice(0, 50)}{b.story.title.length > 50 ? '...' : ''}
                         </option>
@@ -250,12 +275,12 @@ export default function HotKey() {
                   </div>
                   
                   <span className="text-xs text-gray-500 font-medium">
-                    {currentIndex + 1} of {batchData.total}
+                    {currentIndex + 1} of {filteredBatches?.length || 0}
                   </span>
                   
                   <button
-                    onClick={() => setCurrentIndex(Math.min(batchData.total - 1, currentIndex + 1))}
-                    disabled={currentIndex === batchData.total - 1}
+                    onClick={() => setCurrentIndex(Math.min((filteredBatches?.length || 1) - 1, currentIndex + 1))}
+                    disabled={currentIndex === (filteredBatches?.length || 1) - 1}
                     className="px-2 py-1 text-sm text-gray-600 hover:text-gray-900 disabled:opacity-30 disabled:cursor-not-allowed font-medium"
                     title="Next story"
                   >
@@ -271,6 +296,12 @@ export default function HotKey() {
               <span className="text-sm text-gray-500">{batch.story.score}</span>
             </div>
             <div className="flex items-center gap-3">
+              <button
+                onClick={() => setShowCompleted(!showCompleted)}
+                className="text-xs text-gray-500 hover:text-gray-700 font-medium transition-colors"
+              >
+                {showCompleted ? `← Active (${totalActive})` : `Completed (${totalCompleted}) →`}
+              </button>
               <a
                 href="/review/schedule"
                 className="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg font-medium transition-all"
