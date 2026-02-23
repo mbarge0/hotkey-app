@@ -376,22 +376,26 @@ export default function QueuePage() {
                           <button
                             onClick={(e) => {
                               e.stopPropagation()
+                              // Mark as scheduled without auto-scheduling
+                              setUnscheduledPosts(unscheduledPosts.map(p => 
+                                p.id === post.id ? { ...p, status: 'scheduled' } : p
+                              ))
+                              savePostStatus(post.id, 'scheduled')
+                            }}
+                            className="px-2 py-1 bg-yellow-100 text-yellow-700 rounded text-xs font-medium hover:bg-yellow-200"
+                            title="Mark as Scheduled"
+                          >
+                            🕐
+                          </button>
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation()
                               markAsPosted(post)
                             }}
                             className="px-2 py-1 bg-green-100 text-green-700 rounded text-xs font-medium hover:bg-green-200"
                             title="Mark as Posted"
                           >
-                            ✓
-                          </button>
-                          <button
-                            onClick={(e) => {
-                              e.stopPropagation()
-                              dismissPost(post)
-                            }}
-                            className="px-3 py-1 bg-gray-200 text-gray-700 rounded text-xs font-medium hover:bg-gray-300"
-                            title="Dismiss"
-                          >
-                            ×
+                            ✅
                           </button>
                         </>
                       )}

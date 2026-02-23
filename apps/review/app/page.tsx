@@ -6,7 +6,7 @@ import LinkedInPreview from './components/LinkedInPreview'
 import InstagramPreview from './components/InstagramPreview'
 import { profileConfig } from './config/profile'
 import { generateStoryContext } from './utils/storyContext'
-import { loadPostStatus, getPostStatus } from './utils/postStatus'
+import { loadPostStatus, getPostStatus, savePostStatus } from './utils/postStatus'
 
 interface Format {
   id: string
@@ -50,6 +50,7 @@ export default function HotKey() {
   const [editedContent, setEditedContent] = useState<string>('')
   const [isEditing, setIsEditing] = useState(false)
   const [showCompleted, setShowCompleted] = useState(false)
+  const [formatStatuses, setFormatStatuses] = useState<Record<string, string>>({})
   
   // Filter batches based on completion status
   const filteredBatches = batchData?.batches.filter(batch => {
@@ -73,7 +74,28 @@ export default function HotKey() {
 
   useEffect(() => {
     loadBatch()
+    loadStatuses()
   }, [])
+  
+  function loadStatuses() {
+    const data = loadPostStatus()
+    const statusMap: Record<string, string> = {}
+    Object.entries(data.posts).forEach(([id, info]) => {
+      statusMap[id] = info.status
+    })
+    setFormatStatuses(statusMap)
+  }
+  
+  function updateFormatStatus(formatId: string, status: string) {
+    const postId = batch ? `${batch.id}-${formatId}` : formatId
+    savePostStatus(postId, status as any)
+    setFormatStatuses(prev => ({ ...prev, [postId]: status }))
+  }
+  
+  function getFormatStatus(formatId: string): string | null {
+    const postId = batch ? `${batch.id}-${formatId}` : formatId
+    return formatStatuses[postId] || getPostStatus(postId) || null
+  }
 
   async function loadBatch() {
     try {
@@ -378,20 +400,46 @@ export default function HotKey() {
                         />
                         <div>
                           <div className="font-semibold text-gray-900">{format.name}</div>
-                          <div className="text-sm text-gray-500">Score: {format.score}</div>
+                          <div className="text-sm text-gray-500">
+                            Score: {format.score}
+                            {getFormatStatus(format.id) && (
+                              <span className={`ml-2 px-2 py-0.5 rounded text-xs font-medium ${
+                                getFormatStatus(format.id) === 'scheduled' ? 'bg-yellow-100 text-yellow-700' :
+                                getFormatStatus(format.id) === 'posted' ? 'bg-green-100 text-green-700' :
+                                'bg-gray-100 text-gray-600'
+                              }`}>
+                                {getFormatStatus(format.id) === 'scheduled' ? '📅 Scheduled' :
+                                 getFormatStatus(format.id) === 'posted' ? '✅ Posted' :
+                                 getFormatStatus(format.id)}
+                              </span>
+                            )}
+                          </div>
                         </div>
                       </div>
                       
-                      {/* Approve Button - Bottom Right */}
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation()
-                          approveFormat(format.id)
-                        }}
-                        className="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg font-medium transition-colors shadow-md"
-                      >
-                        ✓ Approve
-                      </button>
+                      {/* Status Buttons */}
+                      <div className="flex items-center gap-2">
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            updateFormatStatus(format.id, 'scheduled')
+                          }}
+                          className="px-3 py-1.5 bg-yellow-100 hover:bg-yellow-200 text-yellow-700 rounded-lg text-sm font-medium transition-colors"
+                          title="Mark as Scheduled"
+                        >
+                          🕐 Scheduled
+                        </button>
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            updateFormatStatus(format.id, 'posted')
+                          }}
+                          className="px-3 py-1.5 bg-green-100 hover:bg-green-200 text-green-700 rounded-lg text-sm font-medium transition-colors"
+                          title="Mark as Posted"
+                        >
+                          ✅ Posted
+                        </button>
+                      </div>
                     </div>
 
                     {format.checked && (
