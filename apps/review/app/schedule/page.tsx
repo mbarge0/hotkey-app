@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useMemo } from 'react'
 import { ScheduledPost, UnscheduledPost, Platform, findNextAvailableSlot } from './types'
+import { savePostStatus as persistPostStatus, loadPostStatus, getPostStatus } from '../utils/postStatus'
 
 export default function QueuePage() {
   const [scheduledPosts, setScheduledPosts] = useState<ScheduledPost[]>([])
@@ -25,7 +26,7 @@ export default function QueuePage() {
 
   useEffect(() => {
     loadQueue()
-    loadPostStatus()
+    loadPostStatusData()
   }, [])
 
   async function loadQueue() {
@@ -63,25 +64,36 @@ export default function QueuePage() {
     }
   }
 
-  async function loadPostStatus() {
+  async function loadPostStatusData() {
     try {
-      const res = await fetch('/review/post-status.json')
-      if (res.ok) {
-        const data = await res.json()
-        setPostStatus(data.posts || {})
-        
-        // Apply loaded status to unscheduled posts
-        setUnscheduledPosts(prev => prev.map(p => ({
-          ...p,
-          status: (data.posts[p.id]?.status as any) || p.status
-        })))
-      }
+      // Load from localStorage via utility
+      const data = loadPostStatus()
+      const statusMap: Record<string, { status: string, timestamp: string }> = {}
+      
+      Object.entries(data.posts).forEach(([id, info]) => {
+        statusMap[id] = {
+          status: info.status,
+          timestamp: info.timestamp
+        }
+      })
+      
+      setPostStatus(statusMap)
+      
+      // Apply loaded status to unscheduled posts
+      setUnscheduledPosts(prev => prev.map(p => ({
+        ...p,
+        status: (getPostStatus(p.id) as any) || p.status
+      })))
     } catch (err) {
-      console.log('No post status file yet')
+      console.log('No post status found, starting fresh')
     }
   }
 
-  async function savePostStatus(postId: string, status: string) {
+  function savePostStatus(postId: string, status: string, scheduledTime?: string) {
+    // Persist to localStorage
+    persistPostStatus(postId, status as any, { scheduledTime })
+    
+    // Update local state
     const updated = {
       ...postStatus,
       [postId]: {
@@ -89,12 +101,7 @@ export default function QueuePage() {
         timestamp: new Date().toISOString()
       }
     }
-    
     setPostStatus(updated)
-    
-    // Save to file (client-side, will need server endpoint for real persistence)
-    console.log('Post status updated:', { postId, status })
-    // TODO: Implement server endpoint to save post-status.json
   }
 
   function handleDragStart(post: UnscheduledPost) {
@@ -121,6 +128,7 @@ export default function QueuePage() {
     setUnscheduledPosts(unscheduledPosts.map(p => 
       p.id === draggedPost.id ? { ...p, status: 'scheduled' } : p
     ))
+    savePostStatus(draggedPost.id, 'scheduled', scheduledTime.toISOString())
     setDraggedPost(null)
   }
 
@@ -141,6 +149,7 @@ export default function QueuePage() {
     setUnscheduledPosts(unscheduledPosts.map(p => 
       p.id === post.id ? { ...p, status: 'scheduled' } : p
     ))
+    savePostStatus(post.id, 'scheduled', nextSlot.toISOString())
   }
 
   function dismissPost(post: UnscheduledPost) {
@@ -232,23 +241,6 @@ export default function QueuePage() {
                 HotKey Schedule
               </h1>
             </div>
-
-            {/* View Filters */}
-            <div className="flex gap-2">
-              {(['all', 'twitter', 'linkedin', 'instagram'] as const).map(view => (
-                <button
-                  key={view}
-                  onClick={() => setViewPlatform(view)}
-                  className={`px-4 py-2 rounded-lg font-medium transition-colors text-sm ${
-                    viewPlatform === view
-                      ? 'bg-blue-600 text-white'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                  }`}
-                >
-                  {view === 'all' ? 'All Platforms' : view.charAt(0).toUpperCase() + view.slice(1)}
-                </button>
-              ))}
-            </div>
           </div>
         </div>
       </div>
@@ -324,11 +316,16 @@ export default function QueuePage() {
                 {displayedUnscheduled.map(post => (
                   <div
                     key={`${post.id}-${unscheduledFilter}`}
-                    draggable={!showDismissed}
-                    onDragStart={() => !showDismissed && handleDragStart(post)}
+                    draggable={!showDismissed && post.status === 'unscheduled'}
+                    onDragStart={() => !showDismissed && post.status === 'unscheduled' && handleDragStart(post)}
                     onClick={() => setSelectedPost(post)}
-                    className={`bg-gray-50 border border-gray-200 rounded-lg p-3 hover:shadow-sm transition-all ${
-                      showDismissed ? 'cursor-pointer' : 'cursor-move hover:border-blue-500'
+                    className={`border rounded-lg p-3 hover:shadow-sm transition-all ${
+                      post.status === 'scheduled' ? 'bg-green-50 border-green-200' :
+                      post.status === 'posted' ? 'bg-gray-100 border-gray-300' :
+                      post.status === 'dismissed' ? 'bg-red-50 border-red-200' :
+                      'bg-gray-50 border-gray-200'
+                    } ${
+                      showDismissed || post.status !== 'unscheduled' ? 'cursor-pointer' : 'cursor-move hover:border-blue-500'
                     }`}
                   >
                     <div className="flex items-center gap-2 mb-1">
@@ -357,9 +354,13 @@ export default function QueuePage() {
                         >
                           Restore
                         </button>
+                      ) : post.status === 'scheduled' ? (
+                        <div className="flex-1 text-xs text-green-700 font-medium">
+                          📅 Scheduled
+                        </div>
                       ) : post.status === 'posted' ? (
-                        <div className="flex-1 px-2 py-1 bg-green-100 text-green-700 rounded text-xs font-medium text-center">
-                          ✓ Posted
+                        <div className="flex-1 text-xs text-gray-600 font-medium">
+                          ✅ Posted
                         </div>
                       ) : (
                         <>
