@@ -193,11 +193,26 @@ export default function QueuePage() {
   const displayedUnscheduled = useMemo(() => {
     const baseList = showDismissed ? dismissedPosts : activeUnscheduled
     
+    console.log('Filter recalculating:', {
+      unscheduledFilter,
+      showDismissed,
+      baseListLength: baseList.length,
+      baseListPlatforms: baseList.map(p => p.platform)
+    })
+    
     if (unscheduledFilter === 'all') {
+      console.log('Returning all posts:', baseList.length)
       return baseList
     }
     
-    return baseList.filter(p => p.platform === unscheduledFilter)
+    const filtered = baseList.filter(p => {
+      const match = p.platform === unscheduledFilter
+      console.log(`Post ${p.id}: platform=${p.platform}, filter=${unscheduledFilter}, match=${match}`)
+      return match
+    })
+    
+    console.log('Filtered result:', filtered.length, 'posts')
+    return filtered
   }, [showDismissed, dismissedPosts, activeUnscheduled, unscheduledFilter])
 
   return (
@@ -290,7 +305,10 @@ export default function QueuePage() {
                 {(['all', 'twitter', 'linkedin', 'instagram'] as const).map(filter => (
                   <button
                     key={filter}
-                    onClick={() => setUnscheduledFilter(filter)}
+                    onClick={() => {
+                      console.log('Filter button clicked:', filter)
+                      setUnscheduledFilter(filter)
+                    }}
                     className={`flex-1 px-2 py-1 rounded text-xs font-medium transition-colors ${
                       unscheduledFilter === filter
                         ? 'bg-blue-600 text-white'
