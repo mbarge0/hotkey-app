@@ -184,10 +184,10 @@ export default function QueuePage() {
   const displayedUnscheduled = showDismissed 
     ? (unscheduledFilter === 'all' 
         ? dismissedPosts 
-        : dismissedPosts.filter(p => p.platform.toLowerCase() === unscheduledFilter))
+        : dismissedPosts.filter(p => p.platform.toLowerCase() === unscheduledFilter.toLowerCase()))
     : (unscheduledFilter === 'all'
         ? activeUnscheduled
-        : activeUnscheduled.filter(p => p.platform.toLowerCase() === unscheduledFilter))
+        : activeUnscheduled.filter(p => p.platform.toLowerCase() === unscheduledFilter.toLowerCase()))
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">

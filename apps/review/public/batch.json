@@ -1264,8 +1264,276 @@
         }
       ],
       "createdAt": "2026-02-22T23:48:00.419Z"
+    },
+    {
+      "id": "kelly-story-2026-02-22-1804",
+      "story": {
+        "title": "Untitled",
+        "rawTitle": "Untitled",
+        "description": "Documented the exact prompt architecture that generates emotion-driven UGC videos with no speech. Walked through the 6 inputs that flow into 2 final prompts.",
+        "pillar": "ai",
+        "score": 75,
+        "timestamp": "2026-02-23T00:15:00.227Z"
+      },
+      "formats": [
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "platform": "Twitter",
+          "content": "Most AI content feels generic because people use one-off prompts.\n\nI just cracked the code for emotion-driven videos at scale.\n\n🧵 Here's the exact prompt architecture:\n\n2/\nThe breakthrough: Templates with variables, not custom prompts.\n\n6 core inputs feed into 2 final prompts:\n• Emotional arc (fear → relief)\n• Setting (office, home, cafe)\n• Character type (entrepreneur, student, parent)\n• Visual style\n• Pacing rhythm\n• Conflict trigger\n\n3/\nBefore: Writing new prompts every time\n✗ Inconsistent results\n✗ 2-3 hours per video concept\n✗ Hit-or-miss emotional impact\n\nAfter: Variable-driven system\n✓ Predictable quality\n✓ 15 minutes per video\n✓ Controlled emotional response\n\n4/\nThe magic is in the prompt flow:\n\nInput prompts (6) → Processing → Output prompts (2)\n\nFirst output = Story structure\nSecond output = Visual execution\n\nNo speech needed. Pure visual storytelling.\n\n5/\nBest part: It's completely modular.\n\nSwap \"fear → relief\" for \"confusion → clarity\"\nResult: Different emotional journey, same system\n\nSwap \"office\" for \"gym\"\nResult: Different audience, same framework\n\n6/\nThis changes everything about content creation.\n\nSystemize the creative process = Scale authentic emotion\n\nWhat creative process are you still doing manually that could be templated?",
+          "score": 92,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 12 PM",
+            "Sun 3 PM",
+            "Sun 6 PM",
+            "Mon 9 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Now",
+          "media": null
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn Article",
+          "platform": "LinkedIn",
+          "content": "Everyone's using AI prompts wrong for video content.\nThey write one-off instructions. I built a system.\n\nJust documented the exact prompt architecture that generates emotion-driven UGC videos with zero speech.\n\nThe breakthrough: 6 inputs flowing into 2 final prompts.\n\nInputs include emotional arc (fear → relief), setting (office/home/cafe), character type, visual style, pacing, and conflict trigger.\n\nThese feed into two output prompts:\n→ Story structure\n→ Visual execution\n\nResult: 15-minute video concepts vs 2-3 hours of custom prompting.\n\nBut here's why this matters:\n\nIt's completely modular. Change the emotional arc from \"fear → relief\" to \"confusion → clarity\" and you get a different story for the same framework. Swap the setting and you reach a different audience.\n\nThe prompts are templates with variables, not one-off instructions.\n\nThis is how you scale authentic content creation. Systemize the creative process to generate genuine emotion at volume.\n\nWhat part of your content creation are you still doing manually that could be templated?",
+          "score": 88,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 8 AM",
+          "media": null
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram Post",
+          "platform": "Instagram",
+          "content": "🎬 Cracked the code for emotion-driven video content\n\nMost people write one-off AI prompts. I built a system.\n\n6 inputs → 2 prompts → Scalable videos with zero speech\n\nThe secret: Templates with variables, not custom instructions every time\n\nChange the emotional arc = different story\nChange the setting = different audience\n\nFrom 3 hours per concept to 15 minutes ⚡\n\n#BuildInPublic #AI #ContentCreation #VideoMarketing #UGC #Automation #CreativeProcess #MarketingStrategy #ContentStrategy #AITools",
+          "score": 85,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 6 PM",
+            "Mon 11 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Sun 6 PM",
+          "media": null
+        }
+      ],
+      "createdAt": "2026-02-23T00:15:00.228Z"
+    },
+    {
+      "id": "matt-story-2026-02-22-1824",
+      "story": {
+        "title": "Untitled",
+        "rawTitle": "Untitled",
+        "description": "Built complete \"Silent Emotion Templates\" system for UGC reel generation by analyzing a real viral reaction video frame-by-frame. Discovered that silent reaction videos (NO SPEECH, NO LIP SYNC) solve AI video's biggest problem: the uncanny valley of bad lip sync.",
+        "pillar": "ai",
+        "score": 85,
+        "timestamp": "2026-02-23T00:26:56.027Z"
+      },
+      "formats": [
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "platform": "Twitter",
+          "content": "AI video has one massive problem:\n\nBad lip sync makes everything look fake.\n\nSo I built a system that eliminates speech entirely.\n\n🧵\n\n2/ I analyzed a viral reaction video frame-by-frame\n\nDiscovered \"processing trough\" - the micro-pause between seeing something and reacting\n\nThat 0.5 second delay is what makes reactions feel human\n\n3/ Most UGC prompts miss this completely\n\n❌ Instant emotions\n❌ Perfect lip sync attempts\n❌ Robotic expressions\n\n✅ Silent emotional arcs\n✅ Natural processing delays\n✅ Zero uncanny valley\n\n4/ Built \"Silent Emotion Templates\" with 2-prompt workflow:\n\n• Generate one perfect character image\n• Test 5 different emotional arcs\n• No regenerating entire videos\n\nSaves time AND money\n\n5/ Plot twist: Silent videos perform better anyway\n\n80% of mobile users have sound off by default\n\nThis isn't a compromise - it's better design\n\n6/ Next: Testing with real product reveals\n\nMeasuring completion rates vs talking-head versions\n\nAnyone else notice the \"processing trough\" in viral content?",
+          "score": 92,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 12 PM",
+            "Sun 3 PM",
+            "Sun 6 PM",
+            "Mon 9 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Now",
+          "media": null
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn Article",
+          "platform": "LinkedIn",
+          "content": "AI video's biggest problem isn't the technology.\nIt's the uncanny valley of bad lip sync.\n\nSo I went frame-by-frame through viral reaction videos to solve it.\n\nWhat I found: The most human moments happen in SILENCE.\n\nThat 0.5 second \"processing trough\" - the micro-pause between seeing something shocking and reacting - is what separates human from robotic.\n\nBuilt complete \"Silent Emotion Templates\" system around this insight:\n→ NO SPEECH, NO LIP SYNC\n→ Focus on natural emotional progressions\n→ 2-prompt workflow saves money and iteration time\n\nThe result? AI videos that don't scream \"AI-generated.\"\n\nBonus insight: 80% of mobile users browse with sound off anyway. Silent isn't a limitation - it's better UX.\n\nTesting this with actual product reveals next. Will document completion rates vs traditional talking-head versions.\n\nWhat subtle details have you noticed that separate human content from AI?",
+          "score": 88,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 8 AM",
+          "media": null
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram Post",
+          "platform": "Instagram",
+          "content": "🤫 Cracked the code on AI videos that don't look AI-generated\n\nThe secret? Go SILENT.\n\nAnalyzed viral reactions frame-by-frame and found the \"processing trough\" - that 0.5 second pause that makes emotions feel human.\n\nNo lip sync = no uncanny valley ✨\n\nBuilding templates now. This changes everything.\n\n#BuildInPublic #AI #UGC #VideoMarketing #AIVideo #ContentCreation #IndieHacker #SaaS #MarketingTech #Innovation",
+          "score": 85,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 6 PM",
+            "Mon 11 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Sun 6 PM",
+          "media": null
+        }
+      ],
+      "createdAt": "2026-02-23T00:26:56.028Z"
+    },
+    {
+      "id": "kelly-story-2026-02-22-1948",
+      "story": {
+        "title": "Untitled",
+        "rawTitle": "Untitled",
+        "description": "Launched the first TikTok account for app marketing: @focusedfasting for the FocusedFasting intermittent fasting timer app.\n\n**The setup:**\n- Created @focusedfasting TikTok account (linked to kelly@bloomtech.com)\n- Uploaded first video using the \"silent emotion + caption\" UGC format we developed\n- Set profile pic to the app's App Store icon (hourglass with fork/spoon)\n- Bio: \"⏱️ Fasting timer. No bloat. 📲 Free on App Store\"\n\n**The video:**\n- 8-second POV reaction format (woman's face reacting to finding a simple fasting app)\n- Captions burned in via ffmpeg: \"POV: You found a fasting app that's just a timer\" → \"No coaching. No recipes.\" → \"Finally.\"\n- Hashtags: #intermittentfasting #fasting #fastingapp #168 #weightloss #healthtok #wellness\n- Status: Public, under TikTok review (normal for new accounts)\n\n**Why per-app accounts:**\n- Better for algorithm (single topic = higher engagement)\n- Enables retargeting (pixel on specific app audience)\n- Exit optionality (can sell app + social presence together)",
+        "pillar": "ai",
+        "score": 58,
+        "timestamp": "2026-02-23T01:51:54.727Z"
+      },
+      "formats": [
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "platform": "Twitter",
+          "content": "Most AI-generated videos fail on TikTok because they can't do lip sync.\n\nSo I built a \"silent emotion\" format instead.\n\nFirst real test: @focusedfasting app marketing account\n\n🧵\n\n2/ The format:\n• 8-second POV reaction (woman finding simple fasting app)\n• Zero talking, just facial expressions\n• Burned-in captions via ffmpeg\n• Plays to Veo's strength (emotions) while avoiding its weakness (lip sync)\n\n3/ The pipeline:\n• Reve → character images\n• Veo → video generation\n• ffmpeg → caption overlay\n• Direct TikTok upload\n\nTotal time: ~15 minutes per video\n\n4/ Why separate accounts per app?\n• Algorithm loves single topics\n• Better retargeting (specific audience pixels)\n• Exit optionality (sell app + social together)\n\nVs generic \"Matt's apps\" account getting diluted reach\n\n5/ Early signals:\n• Video cleared TikTok review ✅\n• Format feels native (no uncanny valley)\n• Captions carry the message entirely\n\nIf this hits, it validates the entire AI→TikTok pipeline\n\n6/ The real test: Can AI-generated content actually drive app downloads?\n\nWatching conversion rates closely.\n\nWhat's your take on AI content for organic social?",
+          "score": 92,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 12 PM",
+            "Sun 3 PM",
+            "Sun 6 PM",
+            "Mon 9 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Now",
+          "media": null
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn Article",
+          "platform": "LinkedIn",
+          "content": "AI video can't do lip sync well.\nSo I built a format that doesn't need it.\n\nJust launched @focusedfasting on TikTok - first test of our \"silent emotion\" UGC pipeline.\n\n8-second POV format: Woman reacts to finding a simple fasting app. Zero talking. Just facial expressions + burned-in captions.\n\nThe tech stack:\n→ Reve for character consistency\n→ Veo for video generation \n→ ffmpeg for caption overlay\n→ 15 minutes total per video\n\nWhy separate accounts per app? Algorithm rewards focus. Single topic = higher engagement. Plus better retargeting and exit optionality.\n\nThis is the real test: Can AI-generated content actually drive app downloads?\n\nEarly signals look good - video cleared review, feels native, no uncanny valley.\n\nIf conversion rates follow, this validates the entire pipeline from AI generation to user acquisition.\n\nWhat's your experience with AI content for organic reach?",
+          "score": 88,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 8 AM",
+          "media": null
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram Post",
+          "platform": "Instagram",
+          "content": "🎬 First AI-generated TikTok for app marketing is live\n\nBuilt a \"silent emotion\" format because AI can't do lip sync yet. 8-second POV reaction + burned-in captions.\n\n15 minutes from idea to posted.\n\nReal test: Will it actually drive downloads? 👀\n\n#BuildInPublic #AI #TikTokMarketing #AppMarketing #SaaS #IndieHacker #AIVideo #ContentCreation #StartupLife #MarketingAutomation",
+          "score": 85,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 6 PM",
+            "Mon 11 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Sun 6 PM",
+          "media": null
+        }
+      ],
+      "createdAt": "2026-02-23T01:51:54.728Z"
+    },
+    {
+      "id": "matt-story-2026-02-23-0842",
+      "story": {
+        "title": "Untitled",
+        "rawTitle": "Untitled",
+        "description": "Added minimum temperature threshold (50°F) to Tennis booking system and created comprehensive HotKey documentation after Matt's tennis buddy got excited about the system.\n\n**The trigger:**\nMatt was playing tennis and telling his buddy about his automated booking system. Buddy went wild for it and wants one himself.\n\n**The changes:**\n1. **Added temperature rule to `schedule-tennis.js`:**\n   - `MIN_TEMP_F = 50` constant\n   - Temperature checks run BEFORE wind checks (priority order)\n   - Smart fallback: AM cold/PM warm → pick PM, vice versa → pick AM, both cold → skip day\n\n2. **Created `HOTKEY-READY.md` (14KB complete guide):**\n   - Full system workflow explanation\n   - Weather decision logic with example table\n   - File structure breakdown\n   - Setup instructions for new users\n   - Troubleshooting guide\n   - Sample schedule JSON output\n\n**Decision priority (updated):**\n1. Temp < 50°F → Skip ❄️ (NEW!)\n2. Wind > 10mph → Skip 💨\n3. Both playable → Prefer AM (free courts at Austin High)\n4. PM significantly nicer → Override to PM (SATC/Pharr booking)\n\n**The system in a nutshell:**\n- Friday 6 PM: Analyzes weather, messages 5 players\n- Saturday morning: Matt assigns players (10 minutes)\n- Daily 8:45 AM: Auto-books courts 48h ahead via Ripner\n- Daily 6 PM: Sends reminders\n- Time saved: 2.5 hours/week → 10 minutes/week",
+        "pillar": "ai",
+        "score": 72,
+        "timestamp": "2026-02-23T14:46:54.698Z"
+      },
+      "formats": [
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "platform": "Twitter",
+          "content": "My tennis buddy went WILD when he heard about my automated booking system.\n\nSo wild that I spent the weekend making it \"HotKey-ready\" for him.\n\nHere's what I learned about building shareable automation:\n\n🧵 (1/7)\n\n2/ THE PROBLEM:\nCoordinating 5 players across 5 days\n+ Weather checks\n+ Court availability\n+ Endless group texts\n\n= 2.5 hours of my life every week\n\nThere had to be a better way.\n\n3/ THE SYSTEM:\n• Friday 6PM: Auto-analyzes weather, texts 5 players\n• Saturday AM: I assign players (10 minutes total)\n• Daily 8:45AM: Auto-books courts 48h ahead\n• Daily 6PM: Sends reminders\n\nTime investment: 2.5 hours → 10 minutes\n\n4/ But my buddy wanted one thing I didn't have:\n\nTemperature checks.\n\n(Apparently some people don't play in 45°F weather like savages)\n\nSo I added: MIN_TEMP_F = 50\nPriority: Cold → Wind → Court preference\n\n5/ THE REAL WORK:\nCreating 14KB of documentation.\n\nWorkflow explanations\nDecision logic tables\nFile structure breakdown\nSetup instructions\nTroubleshooting guide\n\nMaking it \"clone and run\" ready.\n\n6/ INSIGHT:\nThe hardest part wasn't building the automation.\n\nIt was making it transferable.\n\nGood automation = works for you\nGreat automation = works for anyone\n\n7/ Pattern I'm seeing:\nBuild something useful → Someone asks for it → Document it properly → Suddenly it's valuable\n\nWhat automation are you running that others would kill for?",
+          "score": 92,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 12 PM",
+            "Sun 3 PM",
+            "Sun 6 PM",
+            "Mon 9 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Now",
+          "media": null
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn Article",
+          "platform": "LinkedIn",
+          "content": "My tennis buddy lost his mind when he heard about my automated booking system.\n\nLost it so hard that I spent the weekend making it shareable.\n\nThe system was already saving me 2.5 hours every week coordinating tennis games. Every Friday at 6 PM, it analyzes weather and messages 5 players. I spend 10 minutes Saturday morning assigning people. Then it auto-books courts 48 hours ahead and sends daily reminders.\n\nBut my buddy had one request: \"What about temperature checks?\"\n\nApparently not everyone plays tennis in 45°F weather like a maniac.\n\nSo I added MIN_TEMP_F = 50 with smart fallback logic. If morning is cold but afternoon is warm, pick afternoon. If both are cold, skip the day entirely.\n\nThe real work was creating 14KB of documentation. Workflow explanations, decision logic tables, file structure breakdown, setup instructions, troubleshooting guide. Making it \"HotKey-ready\" - someone can clone it and be running their own version in 30 minutes.\n\nHere's what I learned: The hardest part wasn't building the automation. It was making it transferable.\n\nGood automation works for you. Great automation works for anyone.\n\nWhat system are you running that others would kill for?",
+          "score": 88,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 8 AM",
+          "media": null
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram Post",
+          "platform": "Instagram",
+          "content": "🎾 Friend went WILD over my tennis booking automation\n\nSaved me 2.5 hours/week → 10 minutes\nAuto weather checks, court booking, player coordination\n\nSpent weekend making it \"clone ready\" for him\nAdded temperature rules + 14KB documentation\n\nHardest part? Making it transferable, not building it\n\nWhat automation are you hoarding? 👀\n\n#BuildInPublic #AI #Automation #Productivity #TechLife #IndieHacker #SaaS #Tennis #WeekendBuild #SystemsThinking",
+          "score": 85,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 6 PM",
+            "Mon 11 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Sun 6 PM",
+          "media": null
+        }
+      ],
+      "createdAt": "2026-02-23T14:46:54.699Z"
     }
   ],
-  "total": 19,
-  "generated": "2026-02-22T23:48:18.053Z"
+  "total": 23,
+  "generated": "2026-02-23T14:47:16.338Z"
 }
