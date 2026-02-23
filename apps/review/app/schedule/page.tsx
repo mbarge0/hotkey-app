@@ -320,10 +320,10 @@ export default function QueuePage() {
                 ))}
               </div>
 
-              <div className="space-y-2 max-h-[calc(100vh-200px)] overflow-y-auto">
+              <div className="space-y-2 max-h-[calc(100vh-200px)] overflow-y-auto" key={`filter-${unscheduledFilter}-${showDismissed}`}>
                 {displayedUnscheduled.map(post => (
                   <div
-                    key={post.id}
+                    key={`${post.id}-${unscheduledFilter}`}
                     draggable={!showDismissed}
                     onDragStart={() => !showDismissed && handleDragStart(post)}
                     onClick={() => setSelectedPost(post)}
