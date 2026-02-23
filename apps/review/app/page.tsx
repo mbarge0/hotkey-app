@@ -384,11 +384,11 @@ export default function HotKey() {
                         <div className="absolute inset-0 bg-gray-400/60 pointer-events-none"></div>
                       )}
                       
-                      {/* Status Badge - Centered horizontally, positioned over post text */}
+                      {/* Status Badge - Centered horizontally, positioned just below profile */}
                       {isScheduledOrPosted && (
-                        <div className="absolute left-1/2 transform -translate-x-1/2 pointer-events-none z-10" style={{ top: '20%' }}>
-                          <div className="px-4 py-2 bg-white/95 backdrop-blur-sm rounded-lg shadow-lg border-2 border-gray-400">
-                            <span className="text-base font-bold text-gray-700">
+                        <div className="absolute left-1/2 transform -translate-x-1/2 pointer-events-none z-10" style={{ top: '12%' }}>
+                          <div className="px-4 py-2 bg-white/95 backdrop-blur-sm rounded-lg shadow-lg border-2 border-gray-400 flex items-center justify-center">
+                            <span className="text-base font-bold text-gray-700 text-center">
                               {status === 'scheduled' ? '📅 Scheduled' : '✅ Posted'}
                             </span>
                           </div>
