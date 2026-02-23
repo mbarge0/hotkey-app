@@ -368,20 +368,18 @@ export default function HotKey() {
                 return (
                   <div 
                     key={format.id} 
-                    className={`rounded-2xl shadow-lg overflow-hidden border-2 transition-all ${
+                    className={`rounded-2xl shadow-lg overflow-hidden border-2 transition-all relative ${
                       isScheduledOrPosted 
                         ? 'bg-gray-200 border-gray-400 opacity-80' 
                         : 'bg-white border-transparent hover:border-blue-500'
                     }`}
                   >
-                    {/* Status Banner */}
+                    {/* Status Badge - Overlaid on top right */}
                     {isScheduledOrPosted && (
-                      <div className={`px-6 py-3 text-center font-bold text-lg ${
-                        status === 'scheduled' 
-                          ? 'bg-yellow-400 text-yellow-900' 
-                          : 'bg-green-400 text-green-900'
-                      }`}>
-                        {status === 'scheduled' ? '📅 SCHEDULED' : '✅ POSTED'}
+                      <div className="absolute top-4 right-4 z-10 px-3 py-1.5 bg-white/90 backdrop-blur-sm rounded-lg shadow-md border border-gray-300">
+                        <span className="text-sm font-semibold text-gray-700">
+                          {status === 'scheduled' ? '📅 Scheduled' : '✅ Posted'}
+                        </span>
                       </div>
                     )}
                     
