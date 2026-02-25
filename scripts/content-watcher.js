@@ -168,7 +168,13 @@ async function processNewStories() {
   
   const processed = loadProcessed();
   const files = fs.readdirSync(CONTENT_INBOX)
-    .filter(f => (f.startsWith('matt-story-') || f.startsWith('kelly-story-')) && f.endsWith('.md'))
+    .filter(f => {
+      // Match both old format (matt-story-*, kelly-story-*) and new format (YYYY-MM-DD-*.md)
+      return (f.startsWith('matt-story-') || 
+              f.startsWith('kelly-story-') || 
+              /^\d{4}-\d{2}-\d{2}-.+\.md$/.test(f)) && 
+             f.endsWith('.md');
+    })
     .map(f => path.join(CONTENT_INBOX, f));
   
   const newFiles = files.filter(f => !processed.stories.includes(f));

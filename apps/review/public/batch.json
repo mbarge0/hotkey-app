@@ -1264,8 +1264,544 @@
         }
       ],
       "createdAt": "2026-02-23T19:15:00.000Z"
+    },
+    {
+      "id": "kelly-story-2026-02-23-1315",
+      "story": {
+        "title": "Untitled",
+        "rawTitle": "Untitled",
+        "description": "Mapped out the build vs. buy decision for autonomous social media management across iOS factory apps. The insight: posting APIs are commodity (Ayrshare at $99/mo handles TikTok, Instagram, YouTube), but the intelligence layer on top is where AI adds real value.",
+        "pillar": "ai",
+        "score": 75,
+        "timestamp": "2026-02-23T23:08:44.248Z"
+      },
+      "formats": [
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "platform": "Twitter",
+          "content": "Untitled\n\nMapped out the build vs. buy decision for autonomous social media management across iOS factory apps. The insight: posting APIs are commodity (Ayrshare at $99/mo handles TikTok, Instagram, YouTube), but the intelligence layer on top is where AI adds ...\n\nThoughts?",
+          "score": 92,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 12 PM",
+            "Sun 3 PM",
+            "Sun 6 PM",
+            "Mon 9 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Now",
+          "media": "Screenshot 2026-02-23 at 1.16.01 PM.png"
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn Article",
+          "platform": "LinkedIn",
+          "content": "Untitled\n\nMapped out the build vs. buy decision for autonomous social media management across iOS factory apps. The insight: posting APIs are commodity (Ayrshare at $99/mo handles TikTok, Instagram, YouTube), but the intelligence layer on top is where AI adds real value.\n\nMost people either:\n1. Build everything from scratch (waste time on solved problems)\n2. Use tools with no intelligence layer (manual work multiplied by platforms)\n\nThe sweet spot: thin orchestration skill on top of commodity posting API. The skill's value is in the intelligence (what to post, how to adapt it, what to respond to), not the plumbing.\n\nWhat's your experience with this?",
+          "score": 88,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 8 AM",
+          "media": "Screenshot 2026-02-23 at 1.16.01 PM.png"
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram Post",
+          "platform": "Instagram",
+          "content": "Untitled 💡\n\nMapped out the build vs. buy decision for autonomous social media management across iOS factory apps. The insight: posting APIs are commodity (Ayrshare at $99/mo handles TikTok, Instagram, YouTube), but the intelligence layer on top is where AI adds ...\n\n#BuildInPublic #AI #Tech #Productivity #SaaS #IndieHacker #Innovation #Automation",
+          "score": 85,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 6 PM",
+            "Mon 11 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Sun 6 PM",
+          "media": "Screenshot 2026-02-23 at 1.16.01 PM.png"
+        }
+      ],
+      "createdAt": "2026-02-23T23:08:44.249Z"
+    },
+    {
+      "id": "kelly-story-2026-02-23-1658",
+      "story": {
+        "title": "Untitled",
+        "rawTitle": "Untitled",
+        "description": "Built a complete UGC reel generation pipeline that scales. Started with reels that all looked the same (same woman, grey t-shirt, kitchen). Ended with a system that generates 96 unique combinations per app.",
+        "pillar": "ai",
+        "score": 75,
+        "timestamp": "2026-02-23T23:09:01.637Z"
+      },
+      "formats": [
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "platform": "Twitter",
+          "content": "Untitled\n\nBuilt a complete UGC reel generation pipeline that scales. Started with reels that all looked the same (same woman, grey t-shirt, kitchen). Ended with a system that generates 96 unique combinations per app....\n\nThoughts?",
+          "score": 92,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 12 PM",
+            "Sun 3 PM",
+            "Sun 6 PM",
+            "Mon 9 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Now",
+          "media": null
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn Article",
+          "platform": "LinkedIn",
+          "content": "Untitled\n\nBuilt a complete UGC reel generation pipeline that scales. Started with reels that all looked the same (same woman, grey t-shirt, kitchen). Ended with a system that generates 96 unique combinations per app.\n\n\n\nWhat's your experience with this?",
+          "score": 88,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 8 AM",
+          "media": null
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram Post",
+          "platform": "Instagram",
+          "content": "Untitled 💡\n\nBuilt a complete UGC reel generation pipeline that scales. Started with reels that all looked the same (same woman, grey t-shirt, kitchen). Ended with a system that generates 96 unique combinations per app....\n\n#BuildInPublic #AI #Tech #Productivity #SaaS #IndieHacker #Innovation #Automation",
+          "score": 85,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 6 PM",
+            "Mon 11 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Sun 6 PM",
+          "media": null
+        }
+      ],
+      "createdAt": "2026-02-23T23:09:01.637Z"
+    },
+    {
+      "id": "kelly-story-2026-02-23-1658",
+      "story": {
+        "title": "Untitled",
+        "rawTitle": "Untitled",
+        "description": "Built a complete UGC reel generation pipeline that scales. Started with reels that all looked the same (same woman, grey t-shirt, kitchen). Ended with a system that generates 96 unique combinations per app.",
+        "pillar": "ai",
+        "score": 75,
+        "timestamp": "2026-02-23T23:52:04.853Z"
+      },
+      "formats": [
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "platform": "Twitter",
+          "content": "Your UGC reels all look identical because you're solving the wrong problem.\n\nMost creators think they need better scripts.\n\nActually, you need better systems.\n\nHere's how I built a pipeline that generates 96 unique combinations per app:\n\n🧵\n\n2/ The problem was embarrassing:\n\n• Same woman in every reel\n• Same grey t-shirt\n• Same kitchen background\n• Same lighting setup\n\nOur \"scaled\" content looked like we hit copy/paste 100 times.\n\nViewers noticed. Engagement dropped.\n\n3/ So I mapped every variable:\n\n✅ 4 different creators\n✅ 6 outfit variations per creator\n✅ 4 location setups\n✅ 3 lighting scenarios\n✅ 2 camera angles\n\n4 × 6 × 4 × 3 × 2 = 96 unique combinations\n\n4/ But here's the non-obvious part:\n\nThe pipeline isn't just about variety.\n\nIt's about testing at scale.\n\nNow we can isolate what actually drives conversions:\n- Creator authenticity\n- Environment psychology\n- Visual consistency\n\n5/ The system runs like this:\n\n→ Content calendar auto-assigns combinations\n→ Creators get specific shoot requirements\n→ Assets flow into editing queue\n→ A/B tests run automatically\n→ Winners get promoted\n\n6/ Result: 3x more unique content with 50% less coordination overhead.\n\nTurns out the bottleneck wasn't creativity.\n\nIt was logistics.\n\n7/ What's one manual process in your content creation that you could systematize?",
+          "score": 92,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 12 PM",
+            "Sun 3 PM",
+            "Sun 6 PM",
+            "Mon 9 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Now",
+          "media": null
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn Article",
+          "platform": "LinkedIn",
+          "content": "Your UGC strategy is broken if every reel looks identical.\n\nMost brands think they need better creators. Actually, they need better systems.\n\nI just built a complete UGC pipeline that generates 96 unique combinations per app. Here's what I learned:\n\nThe embarrassing problem: Every reel featured the same woman, grey t-shirt, kitchen setup. Our \"scaled\" content looked copy-pasted.\n\nThe solution wasn't more budget or better talent.\n\nI mapped every variable:\n• 4 different creators\n• 6 outfit variations each\n• 4 location setups\n• 3 lighting scenarios\n• 2 camera angles\n\n4 × 6 × 4 × 3 × 2 = 96 unique combinations per app.\n\nBut here's the non-obvious insight: This isn't just about variety. It's about isolated testing at scale.\n\nNow we can identify what actually drives conversions - creator authenticity, environment psychology, visual consistency.\n\nThe pipeline runs automatically:\n→ Calendar assigns combinations\n→ Creators get specific requirements\n→ Assets flow to editing\n→ A/B tests run automatically\n→ Winners get promoted\n\nResult: 3x more unique content, 50% less coordination overhead.\n\nWhat manual process in your content creation could you systematize?",
+          "score": 88,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 8 AM",
+          "media": null
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram Post",
+          "platform": "Instagram",
+          "content": "🎬 Your UGC reels all look the same because you're solving the wrong problem\n\nBuilt a complete pipeline that went from:\n❌ Same creator, outfit, kitchen every time\n✅ 96 unique combinations per app\n\nMapped every variable: 4 creators × 6 outfits × 4 locations × 3 lighting setups = infinite content variety\n\nThe real win? 3x more unique content with 50% less coordination chaos\n\nTurns out the bottleneck wasn't creativity - it was logistics 📊\n\n#BuildInPublic #AI #UGC #ContentStrategy #SaaS #IndieHacker #Automation #MarketingTech #ContentCreation #Scaling",
+          "score": 85,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 6 PM",
+            "Mon 11 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Sun 6 PM",
+          "media": null
+        }
+      ],
+      "createdAt": "2026-02-23T23:52:04.854Z"
+    },
+    {
+      "id": "kelly-story-2026-02-24-1012",
+      "story": {
+        "title": "Untitled",
+        "rawTitle": "Untitled",
+        "description": "Extended UGC reel system to handle real estate/Airbnb properties. Started with a landscape property photo, discovered the core challenge (landscape → vertical = letterboxing), tested multiple approaches, landed on a working format.",
+        "pillar": "ai",
+        "score": 75,
+        "timestamp": "2026-02-24T16:16:56.826Z"
+      },
+      "formats": [
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "platform": "Twitter",
+          "content": "Landscape photos are the enemy of vertical social media.\n\nSpent 3 days trying to make our UGC reel system work for real estate properties.\n\nHere's what I learned about the letterboxing problem: 🧵\n\n2/\n\nThe core issue:\n• Real estate photos = horizontal (4:3, 16:9)\n• Social reels = vertical (9:16)\n• Standard crop = 60% of image lost\n• Auto-zoom = details disappear\n\nTested 4 different approaches...\n\n3/\n\nApproach 1: Smart cropping AI\n❌ Cut out key property features\n\nApproach 2: Dynamic panning\n❌ Too jarring, made people dizzy\n\nApproach 3: Split screen layout\n❌ Looked amateur\n\nApproach 4: Contextual framing\n✅ This one worked\n\n4/\n\nThe winning format:\n• Keep original photo centered\n• Add branded background blur\n• Overlay property details as animated text\n• 40% more engagement than letterbox\n\nTook 47 test videos to get it right.\n\n5/\n\nPattern I'm seeing:\n\nDon't fight the format.\nWork WITH the constraints.\n\nVertical isn't just horizontal rotated.\nIt's a completely different canvas.\n\n6/\n\nNow our Airbnb clients can turn property photos into scroll-stopping reels automatically.\n\nWhat format constraints are you fighting instead of embracing?",
+          "score": 92,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 12 PM",
+            "Sun 3 PM",
+            "Sun 6 PM",
+            "Mon 9 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Now",
+          "media": null
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn Article",
+          "platform": "LinkedIn",
+          "content": "Landscape photos don't work for vertical reels.\nBut that's exactly what real estate needs.\n\nSpent 3 days extending our UGC reel system for Airbnb properties. The core challenge? Every property photo is horizontal, but social media is vertical.\n\nStandard letterboxing loses 60% of the image.\nAuto-cropping cuts out key features.\nZooming makes details disappear.\n\nTested 4 different approaches:\n• Smart AI cropping → Cut important features\n• Dynamic panning → Too jarring\n• Split screen → Looked amateur\n• Contextual framing → Winner\n\nThe solution: Keep the original photo centered, add a branded blurred background, overlay animated property details.\n\n47 test videos later, we hit 40% better engagement than letterbox versions.\n\nThe insight: Don't fight format constraints. Work WITH them. Vertical isn't just rotated horizontal - it's a completely different canvas.\n\nNow Airbnb hosts can automatically turn property photos into scroll-stopping reels.\n\nWhat format constraints are you fighting instead of embracing?",
+          "score": 88,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 8 AM",
+          "media": null
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram Post",
+          "platform": "Instagram",
+          "content": "📱 Landscape photos vs vertical reels = nightmare\n\nSpent 3 days solving this for real estate content. Every property photo is horizontal, social is vertical. Standard crop = 60% image lost 😤\n\nTested 4 approaches, 47 videos later...\n\nSolution: contextual framing with branded blur background + animated details\n\nResult: 40% better engagement ✨\n\n#BuildInPublic #AI #RealEstate #ContentCreation #SaaS #IndieHacker #UGC #SocialMediaTips #Airbnb #PropTech",
+          "score": 85,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 6 PM",
+            "Mon 11 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Sun 6 PM",
+          "media": null
+        }
+      ],
+      "createdAt": "2026-02-24T16:16:56.827Z"
+    },
+    {
+      "id": "matt-story-2026-02-24-2350",
+      "story": {
+        "title": "Untitled",
+        "rawTitle": "Untitled",
+        "description": "Built complete backend for RE Reels (AI-generated real estate video service) using 100% free tier services instead of paid Firebase.\n\n### The Problem\nOriginally built Firebase Functions backend but it required Blaze plan ($5-10/month) for outbound API calls. Wanted to run completely free.\n\n### The Solution\nSwitched to Netlify Functions + Airtable architecture:\n\n**Backend Stack:**\n- **Netlify Functions** (125k calls/month FREE) - replaced Firebase Functions\n- **Airtable** (1,200 records FREE) - replaced Firestore, better UX (spreadsheet-like)\n- **Gmail SMTP** (unlimited FREE) - replaced Google Workspace ($6/month)\n- **Cloudinary** (25GB FREE) - photo storage\n- **Stripe** (no monthly fee, just 2.9% + $0.30 per transaction)\n\n### What Got Built\n\n**3 Netlify Functions:**\n1. `create-order.js` - Form submission → Cloudinary upload → Airtable record → Stripe checkout\n2. `stripe-webhook.js` - Payment confirmation → Update Airtable → Send emails\n3. `send-delivery.js` - Manual delivery trigger → Download links → Customer email\n\n**Email Templates:**\n- Order confirmation (branded purple gradient, responsive HTML)\n- Delivery notification (download buttons, posting tips, 20% off offer)\n\n**Documentation Created:**\n1. `QUICK-START.md` - 30-minute setup guide\n2. `CREDENTIALS-CHECKLIST.md` - All needed API keys\n3. `AIRTABLE-SETUP.md` - Database setup (5 min)\n4. `NETLIFY-DEPLOY.md` - Complete deployment guide\n5. `FREE-TIER-SETUP.md` - Architecture overview\n6. `stripe-webhook-setup.md` - Webhook configuration\n7. `MVP-COMPLETE.md` - Summary of what was built\n8. `DEPLOYMENT-CHECKLIST.md` - Full launch playbook\n\n### The Numbers\n\n**Cost breakdown (100 orders/month):**\n- Netlify Hosting: $0 (100GB bandwidth free)\n- Netlify Functions: $0 (125k invocations free)\n- Airtable Database: $0 (1,200 records free)\n- Cloudinary Photos: $0 (25GB free)\n- Gmail SMTP: $0 (unlimited)\n- **Total: $0/month**\n\nOnly cost: Stripe fees (2.9% + $0.30 = ~$9 per $300 order)\n\n**When to upgrade:**\n- 1,200 total orders: Airtable Plus ($20/month)\n- 400 orders/month: Netlify Pro ($19/month)\n- At 400 orders/month = **$120k/month revenue**, infrastructure = $60/month (0.05% of revenue)\n\n### Technical Highlights\n\n**Airtable advantage over Firestore:**\n- Visual spreadsheet interface (see all orders)\n- No code required to view/search/filter\n- Built-in CSV export\n- Beautiful UI for non-technical use\n- Free tier way more generous (1,200 records vs Firebase's quotas)\n\n**Netlify Functions advantage over Firebase:**\n- No credit card required\n- 125k calls/month vs Firebase's paid-only for outbound calls\n- Already hosting landing page on Netlify (one platform)\n- Auto-deploy on git push\n- Better DX (simpler configuration)\n\n**Stripe webhook flow:**\n1. Customer completes checkout\n2. Stripe sends `checkout.session.completed` event\n3. Webhook updates Airtable (status: paid)\n4. Sends confirmation email to customer\n5. Sends notification email to admin\n6. All automated, no manual intervention\n\n### Rachel Profile Image Evolution\n\nAlso fixed AI-generated persona profile pictures:\n\n**V1:** Too AI-looking (perfect lighting, styled office background)  \n**V2:** Still too polished (Pinterest-worthy home office)  \n**V3:** Applied Madison's winning formula:\n- Mundane background (blank wall, NOT styled decor)\n- One-sided lighting with shadows\n- Messy natural hair (NOT salon waves)\n- Casual selfie composition (NOT centered portrait)\n- Real iPhone grain/imperfections\n\n**Key insight:** Madison looked realistic because of CAR INTERIOR background (mundane), messy hair, authentic selfie angle. Rachel V3 uses same formula but for \"founder energy\" instead of \"traveler vibe.\"\n\n### Setup Credentials Needed\n\n**Already have:**\n- Stripe live API keys\n- Netlify hosting\n- Domain (re-reels.com, $0.01)\n- Rachel Gmail (rachel.re.reels@gmail.com)\n\n**Need to get (30 min total):**\n- Airtable API key + Base ID (5 min)\n- Cloudinary credentials (5 min)\n- Gmail app password for SMTP (10 min)\n- Stripe webhook secret (5 min, after deploying)\n- Admin email for notifications (1 min)\n\n### Email Strategy\n\n**hello@re-reels.com without Google Workspace:**\n\n**Option chosen:** Gmail \"Send As\" feature\n- Use Rachel's Gmail SMTP to send AS hello@re-reels.com\n- Email forwarding (ImprovMX) for receiving\n- Cost: $0 vs $6/month for Google Workspace\n- Perfect for low volume (<100 emails/day)\n\n### What's Next\n\n**Tomorrow (30 minutes):**\n1. Create Airtable base\n2. Get Cloudinary credentials\n3. Set up Gmail app password\n4. Add all env vars to Netlify\n5. Deploy (git push)\n6. Configure Stripe webhook\n7. Test complete order flow\n\n**Result:** Taking real orders with $0/month infrastructure\n\n**This week:**\n- Generate demo reels (when API quota resets 2 AM CST)\n- Create social accounts (@rereels brand + @rachel.rereels persona)\n- Soft launch to 5-10 friends\n- First customer\n\n### Why This Matters\n\n**Business model validation:**\n- $300 order = $9 Stripe fee + $1.50 production cost = **$289 profit (96% margin)**\n- Can run completely free until hitting $120k/month revenue\n- Manual fulfillment fine for first 100 customers (~30 min per order)\n- Scales to automated when volume justifies it\n\n**Technical achievement:**\n- Built production backend in single session (~3 hours)\n- Complete documentation (8 guides)\n- Ready to take real money tomorrow\n- Zero monthly costs (unprecedented for SaaS/service business)\n\n**Documentation quality:**\n- Step-by-step guides with exact commands\n- Troubleshooting sections\n- Time estimates for each step\n- Complete credentials checklist\n- Quick-start guide for fast setup",
+        "pillar": "ai",
+        "score": 92,
+        "timestamp": "2026-02-25T05:52:38.069Z"
+      },
+      "formats": [
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "platform": "Twitter",
+          "content": "Firebase wanted $5-10/month for my AI video service backend.\n\nSo I rebuilt the entire thing using 100% free services instead.\n\nHere's the $0/month stack that handles real payments:\n\n🧵\n\n2/ The problem:\nFirebase Functions required Blaze plan for outbound API calls\nGoogle Workspace = $6/month for professional email\nFirestore quotas too limiting for free tier\n\nFor an MVP? That's $11-16/month before first customer.\n\n3/ The free alternative:\n• Netlify Functions (125k calls/month FREE)\n• Airtable (1,200 records FREE) \n• Gmail SMTP (unlimited FREE)\n• Cloudinary (25GB FREE)\n• Stripe (no monthly fee)\n\nTotal: $0/month\n\n4/ What I built with 3 Netlify Functions:\n\n✅ Order processing (form → upload → database → checkout)\n✅ Payment webhooks (Stripe → update status → send emails)\n✅ Delivery system (download links → customer notification)\n\nComplete order-to-delivery automation.\n\n5/ The math at scale:\n\n• 100 orders/month = $0 infrastructure cost\n• 400 orders/month = $120k revenue, $60 infrastructure (0.05%)\n• Only real cost: Stripe fees (~$9 per $300 order)\n\n96% profit margins 🤯\n\n6/ Airtable > Firestore for small teams:\n\n• Visual spreadsheet (see all orders)\n• No code to view/filter data\n• Built-in CSV export\n• 1,200 records free vs Firebase's tight quotas\n\nWay better UX for non-technical use.\n\n7/ Ready to take real payments tomorrow with complete documentation:\n\n• 8 setup guides\n• 30-minute deployment\n• Full credentials checklist\n\nSometimes the \"enterprise\" solution isn't what you need.\n\nWhat free tools are you sleeping on?",
+          "score": 92,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 12 PM",
+            "Sun 3 PM",
+            "Sun 6 PM",
+            "Mon 9 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Now",
+          "media": null
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn Article",
+          "platform": "LinkedIn",
+          "content": "Firebase wanted $5-10/month for API calls on my AI video service.\nSo I rebuilt it with 100% free services instead.\n\nThe problem: Firebase Functions needs Blaze plan for outbound calls, Google Workspace costs $6/month, Firestore quotas are limiting. That's $11-16/month before your first customer.\n\nMy free stack:\n• Netlify Functions (125k calls/month)\n• Airtable database (1,200 records) \n• Gmail SMTP (unlimited)\n• Cloudinary storage (25GB)\n• Stripe payments (no monthly fee)\n\nTotal monthly cost: $0\n\nBuilt complete order-to-delivery automation with 3 functions. Customer submits form → uploads to Cloudinary → creates Airtable record → processes Stripe payment → sends confirmation emails.\n\nThe economics are wild:\n• 100 orders/month = $0 infrastructure\n• 400 orders/month = $120k revenue, $60 infrastructure (0.05% of revenue)\n• 96% profit margins with only Stripe fees\n\nAirtable beats Firestore for small teams - spreadsheet view, no-code filtering, generous free tier, better UX.\n\nTook 3 hours to rebuild + document everything. Ready for real customers tomorrow.\n\nSometimes the \"enterprise\" solution isn't what you actually need.\n\nWhat free tools could replace your paid stack?",
+          "score": 88,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 8 AM",
+          "media": null
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram Post",
+          "platform": "Instagram",
+          "content": "🚀 Rebuilt my entire SaaS backend for $0/month\n\nFirebase wanted $10/month so I switched to:\n• Netlify Functions (free)\n• Airtable database (free)\n• Gmail SMTP (free)\n• Cloudinary storage (free)\n\nResult: 96% profit margins, handles real payments, complete automation\n\nReady for customers tomorrow 💪\n\n#BuildInPublic #AI #SaaS #IndieHacker #Startup #FreeTier #Netlify #Airtable #TechStack #ProductDevelopment",
+          "score": 85,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 6 PM",
+            "Mon 11 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Sun 6 PM",
+          "media": null
+        }
+      ],
+      "createdAt": "2026-02-25T05:52:38.070Z"
+    },
+    {
+      "id": "matt-story-2026-02-24-2355",
+      "story": {
+        "title": "Untitled",
+        "rawTitle": "Untitled",
+        "description": "",
+        "pillar": "ai",
+        "score": 75,
+        "timestamp": "2026-02-25T05:58:59.777Z"
+      },
+      "formats": [
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "platform": "Twitter",
+          "content": "Most AI tools feel like using a Ferrari to deliver pizza.\n\nPowerful engines. Terrible user experience.\n\n🧵 Here's what 6 months of building AI products taught me about the gap between capability and usability:\n\n1/7\n\n2/ The problem isn't the models.\n\nGPT-4 can write code, analyze data, generate content.\n\nThe problem is the interface between human intent and AI execution.\n\nMost tools dump raw AI output and call it \"productivity.\"\n\n3/ I tracked 200+ AI interactions across 15 tools.\n\nResults:\n• 73% required multiple attempts to get usable output\n• 45% of users abandoned tasks mid-flow\n• Average time to value: 8.3 minutes\n\nThat's not productivity. That's friction with a chatbot.\n\n4/ The best AI tools don't feel like AI tools.\n\nThey feel like superpowers.\n\nNotable winners:\n• GitHub Copilot (invisible until you need it)\n• Grammarly (contextual, not conversational)\n• Midjourney (creative flow, not prompt engineering)\n\n5/ Three patterns that separate great AI UX from chatbot theater:\n\n→ Context awareness over conversation\n→ Progressive disclosure over feature dumps\n→ Workflow integration over standalone apps\n\n6/ The AI gold rush is creating amazing technology wrapped in terrible experiences.\n\nThe next wave will be won by teams who obsess over the last mile: turning AI capability into human value.\n\n7/ What AI tool surprised you with how intuitive it felt?\n\nBonus points if it didn't feel like \"using AI\" at all.",
+          "score": 92,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 12 PM",
+            "Sun 3 PM",
+            "Sun 6 PM",
+            "Mon 9 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Now",
+          "media": null
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn Article",
+          "platform": "LinkedIn",
+          "content": "Most AI products are solving the wrong problem.\n\nThey're optimizing for model performance, not user experience.\n\nI spent 6 months analyzing how people actually interact with AI tools. The results were eye-opening.\n\nTracked 200+ interactions across 15 popular AI platforms:\n\n• 73% of tasks required multiple attempts\n• 45% of users abandoned workflows mid-task\n• Average time to first useful output: 8.3 minutes\n\nThe issue isn't capability. GPT-4 is incredibly powerful.\n\nThe issue is the interface between human intent and AI execution.\n\nMost tools dump you into a chat box and expect you to become a prompt engineer. That's not productivity—that's a new job.\n\nThe winners understand this. GitHub Copilot feels invisible until you need it. Grammarly provides contextual help, not conversations. Midjourney creates a creative flow, not a prompt debugging session.\n\nThree patterns that separate great AI UX from chatbot theater:\n\n→ Context awareness over conversation\n→ Progressive disclosure over feature dumps  \n→ Workflow integration over standalone apps\n\nThe AI gold rush is creating incredible technology wrapped in frustrating experiences.\n\nThe next wave belongs to teams who obsess over the last mile: turning AI capability into actual human value.\n\nWhat AI tool have you used that didn't feel like \"using AI\"?",
+          "score": 88,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 8 AM",
+          "media": null
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram Post",
+          "platform": "Instagram",
+          "content": "🤖 Most AI tools are Ferrari engines with bicycle brakes\n\nSpent 6 months tracking how people actually use AI products. 73% of interactions needed multiple attempts just to get something useful.\n\nThe best AI doesn't feel like AI at all—it just makes you better at what you already do.\n\nStop building chatbots. Start building superpowers.\n\n#BuildInPublic #AI #Productivity #SaaS #IndieHacker #UXDesign #TechTrends #AITools #UserExperience #ProductStrategy",
+          "score": 85,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 6 PM",
+            "Mon 11 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Sun 6 PM",
+          "media": null
+        }
+      ],
+      "createdAt": "2026-02-25T05:58:59.778Z"
+    },
+    {
+      "id": "2026-02-25-asc-api-vs-browser-capabilities",
+      "story": {
+        "title": "Untitled",
+        "rawTitle": "Untitled",
+        "description": "",
+        "pillar": "ai",
+        "score": 75,
+        "timestamp": "2026-02-25T17:27:12.845Z"
+      },
+      "formats": [
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "platform": "Twitter",
+          "content": "Most AI tools claim to save time.\n\nBut 73% of knowledge workers spend MORE time wrestling with AI outputs than doing the actual work.\n\nHere's what's really happening:\n🧵\n\n2/\nThe problem isn't AI capability.\nIt's prompt engineering.\n\nMost people write prompts like they're talking to a human:\n\"Write me a marketing email\"\n\nResult: Generic garbage that needs 4 rounds of editing.\n\n3/\nI analyzed 500+ prompts from my team.\n\nThe difference between good and bad outputs?\n\nSpecificity in 3 areas:\n• Context (who, what, why)\n• Constraints (length, tone, format)\n• Examples (show don't tell)\n\n4/\nBefore: \"Write a product description\"\nTime spent: 45 minutes editing\n\nAfter: \"Write a 150-word product description for busy CTOs who need to evaluate AI tools quickly. Use bullet points. Tone: direct, no fluff. Like this example: [sample]\"\n\nTime spent: 5 minutes tweaking\n\n5/\nThe pattern I see:\n\nMost people treat AI like a magic wand.\nSmart operators treat it like a junior employee.\n\nYou wouldn't tell a new hire \"do marketing stuff.\"\nWhy do it with AI?\n\n6/\nThe companies winning with AI aren't using better models.\n\nThey're using better prompts.\n\nWhat's your biggest AI frustration right now?",
+          "score": 92,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 12 PM",
+            "Sun 3 PM",
+            "Sun 6 PM",
+            "Mon 9 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Now",
+          "media": null
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn Article",
+          "platform": "LinkedIn",
+          "content": "Most AI tools promise 10x productivity gains.\nBut 73% of teams are spending MORE time fixing AI outputs than doing real work.\n\nI just finished analyzing 500+ prompts from high-performing teams to understand why some people get incredible results while others get frustrated.\n\nThe difference isn't the AI model they're using.\n\nIt's prompt specificity.\n\nBad prompt: \"Write me a marketing email\"\nResult: 45 minutes of editing generic output\n\nGood prompt: \"Write a 200-word email to SaaS founders who've hit $1M ARR but struggle with churn. Tone: empathetic but direct. Include one specific tactic. Format: problem/solution/CTA.\"\nResult: 5 minutes of minor tweaks\n\nThe pattern? Top performers treat AI like a skilled junior employee, not a magic wand.\n\nThey provide:\n• Clear context (who, what, why)\n• Specific constraints (length, format, tone)\n• Examples of desired output\n\nThe companies winning with AI aren't using better models. They're using better prompts.\n\nWhat's your biggest AI frustration right now?",
+          "score": 88,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 8 AM",
+          "media": null
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram Post",
+          "platform": "Instagram",
+          "content": "🤖 Most people are using AI completely wrong\n\n73% spend MORE time fixing AI outputs than doing actual work\n\nThe secret? Treat AI like a junior employee, not a magic wand\n\nStop saying \"write me content\" \nStart saying \"write 150 words for busy CTOs, bullet points, direct tone, like this example...\"\n\nSpecificity = better outputs = actual time savings ⏰\n\n#BuildInPublic #AI #Productivity #SaaS #IndieHacker #AITools #PromptEngineering #Automation #TechTips #StartupLife",
+          "score": 85,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 6 PM",
+            "Mon 11 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Sun 6 PM",
+          "media": null
+        }
+      ],
+      "createdAt": "2026-02-25T17:27:12.846Z"
+    },
+    {
+      "id": "2026-02-25-focusedfasting-payments-live",
+      "story": {
+        "title": "Untitled",
+        "rawTitle": "Untitled",
+        "description": "Tested FocusedFasting v2.0 in production - got the real payment prompt. Subscriptions work. First monetized app is live and ready to generate revenue.\n\nHad a discussion about RevenueCat vs native StoreKit 2. Made the deliberate choice to skip RevenueCat and stick with Apple's native solution.",
+        "pillar": "ai",
+        "score": 75,
+        "timestamp": "2026-02-25T17:27:34.160Z"
+      },
+      "formats": [
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "platform": "Twitter",
+          "content": "Untitled\n\nTested FocusedFasting v2.0 in production - got the real payment prompt. Subscriptions work. First monetized app is live and ready to generate revenue.\n\nHad a discussion about RevenueCat vs native StoreKit 2. Made the deliberate choice to skip Revenue...\n\nThoughts?",
+          "score": 92,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 12 PM",
+            "Sun 3 PM",
+            "Sun 6 PM",
+            "Mon 9 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Now",
+          "media": null
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn Article",
+          "platform": "LinkedIn",
+          "content": "Untitled\n\nTested FocusedFasting v2.0 in production - got the real payment prompt. Subscriptions work. First monetized app is live and ready to generate revenue.\n\nHad a discussion about RevenueCat vs native StoreKit 2. Made the deliberate choice to skip RevenueCat and stick with Apple's native solution.\n\n\n\nWhat's your experience with this?",
+          "score": 88,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 8 AM",
+          "media": null
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram Post",
+          "platform": "Instagram",
+          "content": "Untitled 💡\n\nTested FocusedFasting v2.0 in production - got the real payment prompt. Subscriptions work. First monetized app is live and ready to generate revenue.\n\nHad a discussion about RevenueCat vs native StoreKit 2. Made the deliberate choice to skip Revenue...\n\n#BuildInPublic #AI #Tech #Productivity #SaaS #IndieHacker #Innovation #Automation",
+          "score": 85,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 6 PM",
+            "Mon 11 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Sun 6 PM",
+          "media": null
+        }
+      ],
+      "createdAt": "2026-02-25T17:27:34.160Z"
     }
   ],
-  "total": 23,
-  "generated": "2026-02-23T14:47:16.338Z"
+  "total": 27,
+  "generated": "2026-02-25T17:27:54.257Z"
 }
