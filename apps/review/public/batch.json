@@ -1800,8 +1800,947 @@
         }
       ],
       "createdAt": "2026-02-25T17:27:34.160Z"
+    },
+    {
+      "id": "matt-story-2026-02-25-1508",
+      "story": {
+        "title": "Untitled",
+        "rawTitle": "Untitled",
+        "description": "Built the entire RE Reels backend (email, Airtable, Stripe, Netlify functions) yesterday. Landing page looked great but the buy button was hardcoded demo - didn't actually call the backend.\n\nWired it up. Clicked $300. Got errors.\n\n**15-minute debugging sprint:**\n\n### Error #1: 400 Bad Request\n- **Problem:** Frontend sending `packageType` + `amount`, backend expecting `tier` + `photos` (required array)\n- **Fix:** Made backend accept both formats, made photos optional\n\n### Error #2: Still 400\n- **Problem:** Backend required photos, but we're skipping photo upload (collect via email after payment)\n- **Fix:** Removed photo requirement entirely\n\n### Error #3: 500 Internal Server Error\n- **Problem:** 3 issues stacked:\n  1. Env var mismatch: `AIRTABLE_API_KEY` vs `AIRTABLE_ACCESS_TOKEN`\n  2. Airtable field names wrong: `Order Number` vs `Order ID`, `Email` vs `Customer Email`\n  3. Phone field doesn't exist in Airtable schema\n- **Fix:** \n  - Changed all 3 backend functions to use `AIRTABLE_ACCESS_TOKEN`\n  - Matched exact Airtable field names from schema\n  - Removed phone from Airtable write (optional field, handle later)\n\n### Error #4: UX bloat\n- **Problem:** Funnel had unnecessary \"analyzing property\" and \"preview features\" steps\n- **Fix:** Simplified flow to: Address → Contact → Pick price → Stripe\n\n**Result:** Full working checkout in 15 minutes. Stripe payment page loading with correct product name, description, price.",
+        "pillar": "ai",
+        "score": 92,
+        "timestamp": "2026-02-25T21:11:56.527Z"
+      },
+      "formats": [
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "platform": "Twitter",
+          "content": "Built my entire RE Reels backend yesterday.\n\nLanding page looked perfect. Hit the $300 buy button.\n\nGot errors. 🧵\n\n2/7 **15-minute debugging sprint:**\n\nError #1: 400 Bad Request\nFrontend sending `packageType` + `amount`\nBackend expecting `tier` + `photos`\n\nFix: Made backend accept both formats\n\n3/7 Error #2: Still 400\nBackend required photos array\nBut we collect photos AFTER payment via email\n\nFix: Removed photo requirement entirely\n\n4/7 Error #3: 500 Internal Server Error\n3 issues stacked:\n• Env var mismatch: `AIRTABLE_API_KEY` vs `AIRTABLE_ACCESS_TOKEN`\n• Wrong field names: `Order Number` vs `Order ID`\n• Phone field didn't exist in Airtable schema\n\n5/7 Error #4: UX bloat\nFunnel had unnecessary steps:\n\"analyzing property\" → \"preview features\"\n\nSimplified to:\nAddress → Contact → Price → Stripe\n\n6/7 **Result:** Full working checkout in 15 minutes.\n\nStripe payment loading with correct product name, description, price.\n\nThe pattern: MVP debugging is always 5-10 small mismatches between \"how you think it works\" vs \"how it actually works\"\n\n7/7 The discipline:\n• Fix sequentially\n• Don't guess\n• Read the error\n• Fix the exact thing\n• Deploy, test, repeat\n\nFrom \"this might work someday\" to \"someone can pay me right now\" in one session.\n\nWhat's your biggest MVP debugging lesson?",
+          "score": 92,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 12 PM",
+            "Sun 3 PM",
+            "Sun 6 PM",
+            "Mon 9 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Now",
+          "media": null
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn Article",
+          "platform": "LinkedIn",
+          "content": "Hit the $300 buy button on my RE Reels landing page yesterday.\nGot errors. Here's how I debugged a full payment flow in 15 minutes.\n\nThe backend was built (email, Airtable, Stripe, Netlify functions) but I'd never wired up the actual buy button. Classic mistake.\n\n**4 errors that blocked the entire flow:**\n\nError #1: Frontend/backend mismatch\n• Frontend: `packageType` + `amount`  \n• Backend: `tier` + `photos`\n• Fix: Made backend flexible\n\nError #2: Required photos but collect after payment\n• Fix: Removed requirement entirely\n\nError #3: Triple stack (the worst kind)\n• Wrong env var name\n• Mismatched Airtable field names  \n• Phone field didn't exist\n• Fix: Match exact schema\n\nError #4: UX bloat\n• Unnecessary \"analyzing\" and \"preview\" steps\n• Fix: Simplified to Address → Contact → Price → Stripe\n\n**The pattern:** When you wire up real payments for the first time, there's always a mismatch between \"how you think it works\" and \"how it actually works.\"\n\n**The discipline:** Fix them sequentially. Don't guess. Read the error. Fix the exact thing. Deploy. Test. Repeat.\n\n**The unlock:** Going from \"this might work someday\" to \"someone can pay me right now\" in one focused session.\n\nWhat's the biggest gap you've found between your assumptions and reality when building?",
+          "score": 88,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 8 AM",
+          "media": null
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram Post",
+          "platform": "Instagram",
+          "content": "🔥 From broken buy button to working $300 checkout in 15 minutes\n\nBuilt the entire backend but never tested the payment flow (classic mistake)\n\n4 errors stacked up:\n• Frontend/backend mismatch\n• Wrong env variables  \n• Mismatched field names\n• UX bloat\n\nThe pattern: Your assumptions vs reality = 5-10 small bugs that each block everything\n\nThe discipline: Fix sequentially, don't guess, read the actual error\n\nFrom \"might work someday\" to \"pay me right now\" ✨\n\n#BuildInPublic #AI #SaaS #IndieHacker #RealEstate #Debugging #MVP #Productivity #TechLife #StartupLife",
+          "score": 85,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 6 PM",
+            "Mon 11 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Sun 6 PM",
+          "media": null
+        }
+      ],
+      "createdAt": "2026-02-25T21:11:56.528Z"
+    },
+    {
+      "id": "matt-story-2026-02-25-1917",
+      "story": {
+        "title": "UGC Reel Concept System - Discovery Context Fix & CityPlace Test",
+        "rawTitle": "UGC Reel Concept System - Discovery Context Fix & CityPlace Test",
+        "description": "Built concept-driven UGC reel generation system for Madison's persona account, then caught a major authenticity issue.\n\n**The Problem:**\nOriginal scripts felt like ads:\n- \"CityPlace is seriously next level\" ← No context, just floating property name\n- Why is she talking about it? Sounds sponsored.\n\n**The Fix:**\nAdded **discovery context** to every script:\n- \"I just booked this Airbnb called CityPlace...\"\n- \"My friend told me about CityPlace...\"\n- \"Found this spot CityPlace on Airbnb...\"\n\nNow she's SHOWING a cool find, not running an ad.\n\n**Tested with CityPlace bnb:**\n- Professional twilight photo with colorful Dallas skyline mural\n- Concept system analyzed: `feature_highlight`\n- Generated script: \"Okay but this mural though? Staying at CityPlace bnb this weekend and I'm already obsessed.\"\n- Hit API quota (resets 2 AM) but validated the approach",
+        "pillar": "ai",
+        "score": 88,
+        "timestamp": "2026-02-25 19:17",
+        "createdAt": "2026-02-25T19:17:00.000Z"
+      },
+      "formats": [
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "platform": "Twitter",
+          "content": "I built a UGC script generator that was producing perfect ads.\n\nThe problem? They felt like ads.\n\n🧵\n\nOriginal outputs:\n• \"CityPlace is seriously next level\"\n• \"This property is amazing\"\n• \"You have to check this out\"\n\nWhy is she randomly talking about these places? Zero context = instant ad vibes.\n\nThe fix was simple but crucial:\n\nAdd DISCOVERY CONTEXT to every script.\n\n❌ \"CityPlace is next level\"\n✅ \"Just booked this Airbnb called CityPlace...\"\n\n❌ \"This property is amazing\"\n✅ \"My friend told me about this spot...\"\n\nNow she's sharing a genuine discovery, not running sponsored content.\n\nTested with a Dallas property:\n• System detected: twilight + skyline mural\n• Generated: \"Okay but this mural though? Staying at CityPlace bnb this weekend and I'm already obsessed.\"\n\nHit my API quota but validated the approach.\n\nKey insight: Authenticity beats perfection.\n\nUGC scripts need to answer \"Why are you talking about this?\" or they feel like ads.\n\nWhat discovery context do you use in your content?",
+          "score": 92,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 12 PM",
+            "Sun 3 PM",
+            "Sun 6 PM",
+            "Mon 9 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Now",
+          "media": null
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn Article",
+          "platform": "LinkedIn",
+          "content": "I built a UGC script generator that was too good at writing ads.\nTurns out that was the problem.\n\nOriginal scripts felt completely inauthentic:\n• \"CityPlace is seriously next level\" \n• Random property mentions with zero context\n• Sounded 100% sponsored\n\nThe fix? Add discovery context to every script.\n\nInstead of floating property names, now every script explains WHY she's talking about it:\n• \"I just booked this Airbnb called CityPlace...\"\n• \"My friend told me about CityPlace...\"\n• \"Found this spot CityPlace on Airbnb...\"\n\nTested with a Dallas property featuring a colorful skyline mural. System generated: \"Okay but this mural though? Staying at CityPlace bnb this weekend and I'm already obsessed.\"\n\nThe difference is night and day. Before felt like an ad. After feels like genuine discovery.\n\nKey learning: UGC that doesn't answer \"Why are you talking about this?\" gets instant-scrolled.\n\nAuthenticity beats perfection every time.\n\nWhat context clues do you use to make your content feel more authentic?",
+          "score": 88,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 8 AM",
+          "media": null
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram Post",
+          "platform": "Instagram",
+          "content": "Built a UGC generator that was TOO good at writing ads 😅\n\nProblem: Scripts felt sponsored AF\n❌ \"CityPlace is next level\" \n\nSolution: Add discovery context\n✅ \"Staying at CityPlace this weekend and this mural is unreal\"\n\nNow it feels like genuine discovery, not an ad.\n\nAuthenticity > perfection ✨\n\n#BuildInPublic #AI #UGC #ContentStrategy #SaaS #IndieHacker #MarketingAutomation #AirbnbMarketing #ContentCreation #TechBuild",
+          "score": 85,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 6 PM",
+            "Mon 11 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Sun 6 PM",
+          "media": null
+        }
+      ],
+      "createdAt": "2026-02-26T01:21:56.711Z"
+    },
+    {
+      "id": "2026-02-25-focusedfasting-payments-live",
+      "story": {
+        "title": "FocusedFasting Payments Live - StoreKit vs RevenueCat Decision",
+        "rawTitle": "FocusedFasting Payments Live - StoreKit vs RevenueCat Decision",
+        "description": "Tested FocusedFasting v2.0 in production - got the real payment prompt. Subscriptions work. First monetized app is live and ready to generate revenue.\n\nHad a discussion about RevenueCat vs native StoreKit 2. Made the deliberate choice to skip RevenueCat and stick with Apple's native solution.",
+        "pillar": "ai",
+        "score": 75,
+        "timestamp": "2026-02-26T02:07:51.857Z"
+      },
+      "formats": [
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "platform": "Twitter",
+          "content": "FocusedFasting Payments Live - StoreKit vs RevenueCat Decision\n\nTested FocusedFasting v2.0 in production - got the real payment prompt. Subscriptions work. First monetized app is live and ready to generate revenue.\n\nHad a discussion about RevenueCat vs native StoreKit 2. Made the deliberate choice to skip Revenue...\n\nThoughts?",
+          "score": 92,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 12 PM",
+            "Sun 3 PM",
+            "Sun 6 PM",
+            "Mon 9 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Now",
+          "media": null
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn Article",
+          "platform": "LinkedIn",
+          "content": "FocusedFasting Payments Live - StoreKit vs RevenueCat Decision\n\nTested FocusedFasting v2.0 in production - got the real payment prompt. Subscriptions work. First monetized app is live and ready to generate revenue.\n\nHad a discussion about RevenueCat vs native StoreKit 2. Made the deliberate choice to skip RevenueCat and stick with Apple's native solution.\n\n\n\nWhat's your experience with this?",
+          "score": 88,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 8 AM",
+          "media": null
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram Post",
+          "platform": "Instagram",
+          "content": "FocusedFasting Payments Live - StoreKit vs RevenueCat Decision 💡\n\nTested FocusedFasting v2.0 in production - got the real payment prompt. Subscriptions work. First monetized app is live and ready to generate revenue.\n\nHad a discussion about RevenueCat vs native StoreKit 2. Made the deliberate choice to skip Revenue...\n\n#BuildInPublic #AI #Tech #Productivity #SaaS #IndieHacker #Innovation #Automation",
+          "score": 85,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 6 PM",
+            "Mon 11 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Sun 6 PM",
+          "media": null
+        }
+      ],
+      "createdAt": "2026-02-26T02:07:51.858Z"
+    },
+    {
+      "id": "kelly-story-2026-02-20-2352",
+      "story": {
+        "title": "2026-02-20 23:52 | Automation Win",
+        "rawTitle": "2026-02-20 23:52 | Automation Win",
+        "description": "Built an end-to-end App Store submission defense system after 5 rejections piled up. Created 5 scripts: `submission-gate.sh` (pre-flight catches 12+ rejection causes before upload), `asc-preflight.sh` (validates against App Store Connect API), `asc-monitor.sh` (dashboard of all app states), `asc-alert.sh` (state change detection), and `resubmit.sh` (enforces rejection logging before retry). Wired the gate as a hard blocker into the upload script - no more \"oops forgot to check\" submissions. Set up 15-minute cron monitoring that pings when Apple moves an app.",
+        "pillar": "ai",
+        "score": 78,
+        "timestamp": "2026-02-26T02:08:12.605Z"
+      },
+      "formats": [
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "platform": "Twitter",
+          "content": "Most indie devs play App Store rejection roulette.\n\nSubmit → wait → rejection → fix one thing → repeat.\n\nI was stuck in this loop with 5 rejections piling up.\n\nSo I built a defense system that thinks like Apple's review team.\n\n🧵\n\n2/7\n\nBuilt 5 scripts that automate the entire submission pipeline:\n\n• submission-gate.sh - catches 12+ rejection causes BEFORE upload\n• asc-preflight.sh - validates against App Store Connect API\n• asc-monitor.sh - real-time dashboard of all app states\n\n3/7\n\nThe gate script is wired as a HARD BLOCKER.\n\nYou literally cannot submit unless it passes all checks.\n\nNo more \"oops forgot to check the screenshot dimensions\" submissions.\n\nThe factory doesn't rely on human memory.\n\n4/7\n\nSet up 15-minute cron monitoring.\n\nThe moment Apple changes an app status, I know.\n\nNo more checking the dashboard every 30 minutes like a nervous parent.\n\nThe system watches so I can build.\n\n5/7\n\nEvery rejection now feeds a database.\n\nInstitutional memory that makes the system harder to reject over time.\n\nMost devs lose this knowledge when team members leave.\n\nWe're building a rejection-proof machine.\n\n6/7\n\nThis is the difference between amateur and factory:\n\nAmateurs hope their submission works.\nFactories systematically eliminate failure modes.\n\nThe goal isn't to submit faster.\nIt's to never submit something that will fail.\n\n7/7\n\nWhat manual process in your workflow could benefit from this \"defense system\" approach?\n\nSometimes the best automation prevents problems instead of solving them.",
+          "score": 92,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 12 PM",
+            "Sun 3 PM",
+            "Sun 6 PM",
+            "Mon 9 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Now",
+          "media": "- Screenshot of `asc-monitor.sh` output showing all app states"
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn Article",
+          "platform": "LinkedIn",
+          "content": "App Store rejections were bleeding time from my shipping pipeline.\n5 rejections piling up. Each one a 3-7 day delay.\n\nSo I built an end-to-end submission defense system that thinks like Apple's review team.\n\n5 scripts that automate the entire pipeline:\n• submission-gate.sh catches 12+ rejection causes BEFORE upload\n• asc-preflight.sh validates against App Store Connect API  \n• asc-monitor.sh gives real-time dashboard of all app states\n• asc-alert.sh detects state changes within 15 minutes\n• resubmit.sh enforces rejection logging before retry\n\nThe gate script is wired as a hard blocker. You literally cannot submit unless all checks pass. No more \"oops forgot to check\" moments.\n\nEvery rejection feeds a database. Institutional memory that makes the system harder to reject over time.\n\nThis is the difference between amateur and factory:\nAmateurs hope their submission works.\nFactories systematically eliminate failure modes.\n\nThe goal isn't to submit faster - it's to never submit something that will fail.\n\nWhat manual process in your workflow keeps creating the same failures over and over?",
+          "score": 88,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 8 AM",
+          "media": "- Screenshot of `asc-monitor.sh` output showing all app states"
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram Post",
+          "platform": "Instagram",
+          "content": "🚫 App Store rejections were bleeding 3-7 days per submission\n\nBuilt a defense system with 5 scripts that thinks like Apple's review team. Now we catch 12+ rejection causes BEFORE upload.\n\nHard blocker = can't submit unless all checks pass ✅\n\n#BuildInPublic #AI #Productivity #SaaS #IndieHacker #AppStore #Automation #TechLife #CodeLife #StartupLife",
+          "score": 85,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 6 PM",
+            "Mon 11 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Sun 6 PM",
+          "media": "- Screenshot of `asc-monitor.sh` output showing all app states"
+        }
+      ],
+      "createdAt": "2026-02-26T02:08:12.605Z"
+    },
+    {
+      "id": "kelly-story-2026-02-21-1116-corrected",
+      "story": {
+        "title": "Architecture Insight",
+        "rawTitle": "Architecture Insight",
+        "description": "Asked whether a spawned AI agent could complete the entire iOS factory flow (discovery → design → code → submit → marketing) in a single session. Answer: No. Context window fills up during the coding phase - each SwiftUI view is 100-300 lines, build errors add output, and by the time code compiles, context gets compacted and the agent loses track. Practical limit is ~1-2 phases per session. Solution: multi-session with memory handoffs via BUILD-CHECKLIST.md.",
+        "pillar": "ai",
+        "score": 68,
+        "timestamp": "2026-02-21 11:16"
+      },
+      "formats": [
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "platform": "Twitter",
+          "content": "Architecture Insight\n\nAsked whether a spawned AI agent could complete the entire iOS factory flow (discovery → design → code → submit → marketing) in a single session. Answer: No. Context window fills up during the coding phase - each SwiftUI view is 100-300 lines, build ...\n\nThoughts?",
+          "score": 92,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 12 PM",
+            "Sun 3 PM",
+            "Sun 6 PM",
+            "Mon 9 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Now",
+          "media": null
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn Article",
+          "platform": "LinkedIn",
+          "content": "Architecture Insight\n\nAsked whether a spawned AI agent could complete the entire iOS factory flow (discovery → design → code → submit → marketing) in a single session. Answer: No. Context window fills up during the coding phase - each SwiftUI view is 100-300 lines, build errors add output, and by the time code compiles, context gets compacted and the agent loses track. Practical limit is ~1-2 phases per session. Solution: multi-session with memory handoffs via BUILD-CHECKLIST.md.\n\nThis is a real constraint on autonomous AI coding. The fantasy is \"agent builds entire app.\" The reality is context limits create natural phase boundaries. The fix isn't bigger context windows - it's designing systems that checkpoint state to external memory (files) so the next session can pick up cleanly. Memory architecture matters more than raw capability.\n\nWhat's your experience with this?",
+          "score": 88,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 8 AM",
+          "media": null
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram Post",
+          "platform": "Instagram",
+          "content": "Architecture Insight 💡\n\nAsked whether a spawned AI agent could complete the entire iOS factory flow (discovery → design → code → submit → marketing) in a single session. Answer: No. Context window fills up during the coding phase - each SwiftUI view is 100-300 lines, build ...\n\n#BuildInPublic #AI #Tech #Productivity #SaaS #IndieHacker #Innovation #Automation",
+          "score": 85,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 6 PM",
+            "Mon 11 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Sun 6 PM",
+          "media": null
+        }
+      ],
+      "createdAt": "2026-02-26T02:08:46.702Z"
+    },
+    {
+      "id": "kelly-story-2026-02-21-1129",
+      "story": {
+        "title": "System Improvement",
+        "rawTitle": "System Improvement",
+        "description": "The `/story` hotkey failed - when triggered after discussing context window limits, I captured an unrelated \"best moment\" from earlier in the session instead of what just happened. Analyzed the failure, built criteria for scope detection: find the completion point (what just finished?), trace back to when that thread started, scope = that unit of work. Could be 1 exchange or 15 - depends on the work, not a fixed number. Key test: \"Could someone understand the story with just this scope?\"",
+        "pillar": "ai",
+        "score": 74,
+        "timestamp": "2026-02-21 11:29"
+      },
+      "formats": [
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "platform": "Twitter",
+          "content": "My /story hotkey completely failed me today.\n\nTriggered it after debugging context window limits.\n\nExpected: capture of the debugging session\nGot: some random \"best moment\" from 20 minutes earlier\n\n🧵 Here's what I learned about capture systems...\n\n2/ The problem was my rule: \"always capture last 2 exchanges\"\n\nBut interesting work doesn't fit neat boxes:\n• Quick insight = 1 exchange  \n• Debugging session = 7 exchanges\n• Feature build = 15 exchanges\n\nFixed rules break when reality is messy.\n\n3/ So I built new criteria for scope detection:\n\n1. Find the completion point (what just finished?)\n2. Trace back to when that thread started  \n3. Scope = that complete unit of work\n4. Test: \"Could someone understand this story with just this scope?\"\n\n4/ The debugging session that failed?\n\nStarted when I hit the context limit.\nEnded when I found the workaround.\n7 exchanges total.\n\nThe \"best moment\" my system grabbed was from a completely different conversation about API design.\n\n5/ This applies way beyond my hotkey:\n\n❌ Meeting notes: \"capture last 10 minutes\"  \n✅ Meeting notes: \"capture the decision + context\"\n\n❌ Code reviews: \"show last 5 commits\"\n✅ Code reviews: \"show the feature implementation\"\n\n6/ Match the boundary to the work, not to a rule.\n\nWork has natural start/stop points. Your capture system should respect them.\n\n7/ What capture systems have you built? Do they follow the work or follow arbitrary rules?",
+          "score": 92,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 12 PM",
+            "Sun 3 PM",
+            "Sun 6 PM",
+            "Mon 9 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Now",
+          "media": null
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn Article",
+          "platform": "LinkedIn",
+          "content": "My automated story capture system failed spectacularly today.\nTriggered it after debugging context limits, got a random moment from 20 minutes earlier instead.\n\nThe problem? I was using a fixed rule: \"always capture the last 2 exchanges.\"\n\nBut interesting work doesn't fit neat boxes. A quick insight might be 1 exchange. A debugging session could be 7. A feature build might span 15 exchanges.\n\nSo I rebuilt the scope detection logic:\n\n1. Find what just completed\n2. Trace back to when that thread started  \n3. Scope = that complete unit of work\n4. Test: \"Could someone understand the story with just this scope?\"\n\nThe debugging session was 7 exchanges from problem to solution. My old system grabbed an unrelated API discussion because it happened to be in the \"last 2\" window.\n\nThis principle applies everywhere:\n• Meeting notes should capture decisions + context, not arbitrary time windows\n• Code reviews should show feature implementation, not random commit counts\n• Documentation should follow natural breakpoints, not page limits\n\nMatch the boundary to the work, not to a rule.\n\nWhat capture or logging systems have you built? Do they respect natural work boundaries?",
+          "score": 88,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 8 AM",
+          "media": null
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram Post",
+          "platform": "Instagram",
+          "content": "🤖 My story hotkey completely broke today\n\nTriggered it after debugging context limits → got some random moment from 20 min earlier instead\n\nThe fix? Stop using arbitrary rules like \"capture last 2 exchanges\"\n\nStart matching boundaries to actual work units\n\nDebugging = 7 exchanges\nQuick insight = 1 exchange  \nFeature build = 15 exchanges\n\nYour systems should follow the work, not random rules ✨\n\n#BuildInPublic #AI #Productivity #SaaS #IndieHacker #Automation #TechLife #SystemDesign #WorkflowOptimization #TechTips",
+          "score": 85,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 6 PM",
+            "Mon 11 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Sun 6 PM",
+          "media": null
+        }
+      ],
+      "createdAt": "2026-02-26T02:09:35.387Z"
+    },
+    {
+      "id": "kelly-story-2026-02-21-1428",
+      "story": {
+        "title": "Architecture Insight",
+        "rawTitle": "Architecture Insight",
+        "description": "Designed a multi-agent pipeline for iOS app factory to solve context window limitations. Instead of one agent trying to run the full flow (discovery → design → code → assets → submit) and running out of context mid-build, split into 5 specialized phase agents. Each agent: reads shared PIPELINE-STATE.json, verifies previous phase passed, does its work, runs exit gate, updates state file, optionally spawns next agent. State file tracks completion status, gate scores, checkpoints, and blockers per phase. Designed three orchestration options: manual (human triggers each), chained (each agent spawns next), or coordinator (single orchestrator manages all).",
+        "pillar": "ai",
+        "score": 79,
+        "timestamp": "2026-02-21 14:28"
+      },
+      "formats": [
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "platform": "Twitter",
+          "content": "Context windows aren't a bug to fix.\n\nThey're a constraint to design around.\n\n🧵 How I built an iOS app factory that runs on phases, not prayers:\n\n2/7 The problem: One AI agent trying to handle discovery → design → code → assets → submit would hit context limits mid-build.\n\nResult? Half-finished apps and frustrated developers.\n\n3/7 The solution: 5 specialized agents instead of 1 generalist.\n\nEach agent:\n→ Reads shared PIPELINE-STATE.json\n→ Verifies previous phase passed\n→ Does its focused work\n→ Runs exit gate\n→ Updates state\n→ Spawns next agent\n\n4/7 The state file tracks everything:\n✓ Completion status per phase\n✓ Gate scores and checkpoints\n✓ Blockers and handoff data\n\nNo more \"what did the previous agent do?\" confusion.\n\n5/7 Three orchestration modes:\n\n• Manual: Human triggers each phase\n• Chained: Agents spawn the next\n• Coordinator: Single orchestrator manages all\n\nFlexibility based on trust level.\n\n6/7 Key insight: Make state external and explicit (JSON) rather than relying on context memory.\n\nThis pattern works for ANY complex AI workflow that hits context limits.\n\n7/7 What complex workflows are you building?\n\nHow are you handling state between AI agents?",
+          "score": 92,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 12 PM",
+            "Sun 3 PM",
+            "Sun 6 PM",
+            "Mon 9 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Now",
+          "media": null
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn Article",
+          "platform": "LinkedIn",
+          "content": "Context windows aren't a bug to fix.\nThey're a design constraint to work around.\n\nI just built a multi-agent iOS app factory that proves this point. Instead of one agent trying to handle the full pipeline (discovery → design → code → assets → submit) and running out of context mid-build, I split it into 5 specialized phase agents.\n\nEach agent follows the same pattern:\n→ Read shared PIPELINE-STATE.json\n→ Verify previous phase passed exit gates\n→ Execute focused work within context limits\n→ Update state file with results and checkpoints\n→ Optionally spawn next agent\n\nThe magic is in the external state file. It tracks completion status, gate scores, blockers, and handoff data between phases. No more context amnesia.\n\nI designed three orchestration modes: manual (human triggers), chained (agents spawn next), or coordinator (single orchestrator manages all).\n\nThe bigger insight? This pattern applies beyond iOS apps. Any complex AI workflow hitting context limits can be decomposed into pipeline stages with explicit state handoffs.\n\nStop fighting context windows. Start designing around them.\n\nWhat complex AI workflows are you building? How do you handle state between agents?",
+          "score": 88,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 8 AM",
+          "media": null
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram Post",
+          "platform": "Instagram",
+          "content": "🧠 Context windows aren't bugs to fix—they're constraints to design around\n\nJust shipped a multi-agent iOS app factory. Instead of 1 agent hitting context limits, I built 5 specialized agents that pass state through a shared JSON file\n\nResult: Clean handoffs, no context amnesia, apps that actually get built ✨\n\n#BuildInPublic #AI #NoCode #AppDevelopment #IndieHacker #SaaS #Productivity #TechInsights #AIWorkflow #StartupLife",
+          "score": 85,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 6 PM",
+            "Mon 11 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Sun 6 PM",
+          "media": null
+        }
+      ],
+      "createdAt": "2026-02-26T02:09:55.801Z"
+    },
+    {
+      "id": "kelly-story-2026-02-22-1736",
+      "story": {
+        "title": "Story: Stop Making AI Talk",
+        "rawTitle": "Story: Stop Making AI Talk",
+        "description": "Tried to fix AI video lip sync, failed three times, accidentally discovered a better format by avoiding speech entirely.",
+        "pillar": "ai",
+        "score": 82,
+        "timestamp": "2026-02-26T02:10:11.284Z"
+      },
+      "formats": [
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "platform": "Twitter",
+          "content": "I wasted 3 weeks trying to fix AI lip sync.\n\nTurns out the solution was to stop making AI talk entirely.\n\n🧵 How failing led to a breakthrough:\n\n1/7\n\n2/7\nThe problem: AI avatars look creepy when lip sync is off by even 50ms.\n\nTried 3 different approaches:\n• Audio-to-viseme mapping\n• ML-based mouth movement prediction  \n• Frame interpolation techniques\n\nAll failed. Uncanny valley every time.\n\n3/7\nAttempt #1: Built custom viseme engine\n- 40 hours of work\n- 12% accuracy improvement\n- Still looked like a bad deepfake\n\nAttempt #2: Tried Wav2Lip integration\n- Better sync but robotic movement\n- Processing time: 4x slower\n\n4/7\nAttempt #3: Fine-tuned existing models\n- Decent results on training data\n- Terrible on real-world scenarios\n- GPU costs: $300/week just for testing\n\nI was ready to scrap the whole project.\n\n5/7\nThen I accidentally rendered a test video without audio.\n\nJust the AI avatar gesturing and moving.\nAdded text overlays instead of speech.\n\nIt was... actually good?\n\n6/7\nThe insight: We assume AI needs to mimic humans completely.\n\nBut maybe the best AI experiences play to AI's strengths:\n• Perfect text rendering\n• Consistent visual quality\n• No uncanny valley audio sync issues\n\nConstraints breed creativity.\n\n7/7\nNow building the \"silent AI\" approach into the core product.\n\nSometimes the best solution is the one you're not trying to build.\n\nWhat \"failed\" project taught you something unexpected?",
+          "score": 92,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 12 PM",
+            "Sun 3 PM",
+            "Sun 6 PM",
+            "Mon 9 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Now",
+          "media": null
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn Article",
+          "platform": "LinkedIn",
+          "content": "I spent 3 weeks trying to fix AI video lip sync.\nTurns out the real solution was to stop making AI talk.\n\nHere's what happened:\n\nBuilt 3 different lip sync approaches. Custom viseme mapping, Wav2Lip integration, fine-tuned ML models. All failed the uncanny valley test.\n\nEven 50ms of audio delay made avatars look creepy. GPU costs hit $300/week just for testing. I was ready to kill the project.\n\nThen I accidentally rendered a test video without audio. Just the AI avatar with text overlays instead of speech.\n\nIt actually worked better.\n\nThe insight: We assume AI needs to perfectly mimic humans. But maybe the best AI experiences play to AI's strengths - perfect text, consistent visuals, no sync issues.\n\nConstraints breed creativity. Sometimes the solution isn't fixing the problem, it's designing around it.\n\nNow building this \"silent AI\" approach into the core product.\n\nWhat failed experiment led to your biggest breakthrough?",
+          "score": 88,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 8 AM",
+          "media": null
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram Post",
+          "platform": "Instagram",
+          "content": "🤖 Spent 3 weeks trying to fix AI lip sync... turns out the solution was to stop making AI talk entirely\n\nBuilt 3 different approaches, burned through $300 in GPU costs, and was ready to quit.\n\nThen accidentally rendered a video without audio. Just text overlays.\n\nIt was actually better 🤯\n\nSometimes constraints breed the best creativity\n\n#BuildInPublic #AI #ProductDevelopment #TechFails #Innovation #StartupLife #MachineLearning #VideoAI #IndieHacker #FailForward",
+          "score": 85,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 6 PM",
+            "Mon 11 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Sun 6 PM",
+          "media": null
+        }
+      ],
+      "createdAt": "2026-02-26T02:10:11.285Z"
+    },
+    {
+      "id": "kelly-story-2026-02-22-1804",
+      "story": {
+        "title": "Story: The Prompt Architecture Behind Silent Emotion Videos",
+        "rawTitle": "Story: The Prompt Architecture Behind Silent Emotion Videos",
+        "description": "Documented the exact prompt architecture that generates emotion-driven UGC videos with no speech. Walked through the 6 inputs that flow into 2 final prompts.",
+        "pillar": "ai",
+        "score": 75,
+        "timestamp": "2026-02-26T02:10:32.126Z"
+      },
+      "formats": [
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "platform": "Twitter",
+          "content": "Story: The Prompt Architecture Behind Silent Emotion Videos\n\nDocumented the exact prompt architecture that generates emotion-driven UGC videos with no speech. Walked through the 6 inputs that flow into 2 final prompts....\n\nThoughts?",
+          "score": 92,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 12 PM",
+            "Sun 3 PM",
+            "Sun 6 PM",
+            "Mon 9 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Now",
+          "media": null
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn Article",
+          "platform": "LinkedIn",
+          "content": "Story: The Prompt Architecture Behind Silent Emotion Videos\n\nDocumented the exact prompt architecture that generates emotion-driven UGC videos with no speech. Walked through the 6 inputs that flow into 2 final prompts.\n\nThis is a repeatable system. Change the inputs, get a different video:\n- Swap emotional arc → different story\n- Swap setting → different context\n- Swap character → different audience\n\nThe prompts are templates with variables, not one-off instructions.\n\nWhat's your experience with this?",
+          "score": 88,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 8 AM",
+          "media": null
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram Post",
+          "platform": "Instagram",
+          "content": "Story: The Prompt Architecture Behind Silent Emotion Videos 💡\n\nDocumented the exact prompt architecture that generates emotion-driven UGC videos with no speech. Walked through the 6 inputs that flow into 2 final prompts....\n\n#BuildInPublic #AI #Tech #Productivity #SaaS #IndieHacker #Innovation #Automation",
+          "score": 85,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 6 PM",
+            "Mon 11 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Sun 6 PM",
+          "media": null
+        }
+      ],
+      "createdAt": "2026-02-26T02:10:32.126Z"
+    },
+    {
+      "id": "kelly-story-2026-02-22-1948",
+      "story": {
+        "title": "Story: First TikTok Launch for iOS App Marketing",
+        "rawTitle": "Story: First TikTok Launch for iOS App Marketing",
+        "description": "Launched the first TikTok account for app marketing: @focusedfasting for the FocusedFasting intermittent fasting timer app.\n\n**The setup:**\n- Created @focusedfasting TikTok account (linked to kelly@bloomtech.com)\n- Uploaded first video using the \"silent emotion + caption\" UGC format we developed\n- Set profile pic to the app's App Store icon (hourglass with fork/spoon)\n- Bio: \"⏱️ Fasting timer. No bloat. 📲 Free on App Store\"\n\n**The video:**\n- 8-second POV reaction format (woman's face reacting to finding a simple fasting app)\n- Captions burned in via ffmpeg: \"POV: You found a fasting app that's just a timer\" → \"No coaching. No recipes.\" → \"Finally.\"\n- Hashtags: #intermittentfasting #fasting #fastingapp #168 #weightloss #healthtok #wellness\n- Status: Public, under TikTok review (normal for new accounts)\n\n**Why per-app accounts:**\n- Better for algorithm (single topic = higher engagement)\n- Enables retargeting (pixel on specific app audience)\n- Exit optionality (can sell app + social presence together)",
+        "pillar": "ai",
+        "score": 58,
+        "timestamp": "2026-02-26T02:11:57.151Z"
+      },
+      "formats": [
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "platform": "Twitter",
+          "content": "Most TikTok ads for apps look like corporate garbage.\n\nSo I built an AI video pipeline to create UGC-style content instead.\n\nFirst test: @focusedfasting (intermittent fasting timer)\n\nHere's what I learned 🧵\n\n1/7\n\n---\n\nThe problem:\n• Lip sync AI videos look fake\n• Stock footage feels corporate\n• Real UGC creators cost $500+ per video\n\nSo I created a \"silent emotion\" format:\n• No talking, just facial reactions\n• Captions burned in via ffmpeg\n• 8-second POV hook\n\n2/7\n\n---\n\nThe pipeline:\n• Reve AI → Character images\n• Veo → Video generation (plays to its strength: expressions)\n• ffmpeg → Caption overlay\n• Direct TikTok upload\n\nVideo hook: \"POV: You found a fasting app that's just a timer\"\n\n3/7\n\n---\n\nWhy separate accounts per app?\n\n✅ Algorithm loves single-topic content\n✅ Better retargeting (specific audience pixels)\n✅ Exit optionality (sell app + social together)\n\n❌ Most founders use one account for everything\n\n4/7\n\n---\n\nThe @focusedfasting setup:\n• Profile: App Store icon (hourglass + utensils)\n• Bio: \"⏱️ Fasting timer. No bloat. 📲 Free on App Store\"\n• First video: 8s reaction format\n• Status: Under review (normal for new accounts)\n\n5/7\n\n---\n\nThis is the real test.\n\nIf this \"silent emotion\" format performs, it validates the entire AI content pipeline.\n\nNo more $500 UGC creators.\nNo more fake-looking lip sync.\n\nJust authentic-feeling reactions at scale.\n\n6/7\n\n---\n\nWhat's your biggest challenge with app marketing content?\n\nTrying this approach with your apps? Would love to see results.\n\n7/7",
+          "score": 92,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 12 PM",
+            "Sun 3 PM",
+            "Sun 6 PM",
+            "Mon 9 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Now",
+          "media": null
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn Article",
+          "platform": "LinkedIn",
+          "content": "TikTok ads for apps usually look terrible.\nSo I built an AI pipeline to create authentic UGC instead.\n\nJust launched @focusedfasting for my intermittent fasting timer app.\n\nThe insight: Instead of trying to make AI lip-sync perfectly (it can't), I created a \"silent emotion\" format.\n\n8-second POV reactions with burned-in captions.\n\nThe pipeline:\n→ Reve AI for character images\n→ Veo for video (facial expressions, not speech)\n→ ffmpeg for caption overlay\n→ Direct TikTok upload\n\nWhy separate accounts per app?\n• Algorithm rewards single-topic content\n• Better retargeting capabilities\n• Can sell app + social presence together\n\nMost founders spread themselves thin across one account.\n\nThis is my first real test of AI-generated UGC that doesn't look obviously fake.\n\nVideo currently under TikTok review (normal for new accounts).\n\nIf this works, it changes everything about app marketing content creation.\n\nWhat's been your experience with TikTok for app marketing?",
+          "score": 88,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 8 AM",
+          "media": null
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram Post",
+          "platform": "Instagram",
+          "content": "🎬 Just launched my first AI-generated TikTok for app marketing\n\nInstead of fake lip-sync videos, I built a \"silent emotion\" pipeline:\n• 8-second POV reactions\n• Burned-in captions\n• Authentic facial expressions\n\nTesting with @focusedfasting (my intermittent fasting app)\n\nThe goal: UGC-style content without the $500 creator fees 📱\n\n#BuildInPublic #AI #TikTokMarketing #AppMarketing #IndieHacker #SaaS #UGC #ContentCreation #MarketingAutomation #TechStartup",
+          "score": 85,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 6 PM",
+            "Mon 11 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Sun 6 PM",
+          "media": null
+        }
+      ],
+      "createdAt": "2026-02-26T02:11:57.152Z"
+    },
+    {
+      "id": "kelly-story-2026-02-23-1315",
+      "story": {
+        "title": "Kelly Story - Feb 23, 2026 @ 1:15 PM",
+        "rawTitle": "Kelly Story - Feb 23, 2026 @ 1:15 PM",
+        "description": "Mapped out the build vs. buy decision for autonomous social media management across iOS factory apps. The insight: posting APIs are commodity (Ayrshare at $99/mo handles TikTok, Instagram, YouTube), but the intelligence layer on top is where AI adds real value.",
+        "pillar": "ai",
+        "score": 75,
+        "timestamp": "2026-02-26T02:12:17.783Z"
+      },
+      "formats": [
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "platform": "Twitter",
+          "content": "Most people think social media automation means building custom posting APIs.\n\nThey're solving the wrong problem.\n\n🧵\n\n2/ I just mapped out build vs. buy for autonomous social media management.\n\nThe results were surprising.\n\n3/ The posting infrastructure? It's commodity.\n\nAyrshare handles TikTok, Instagram, YouTube for $99/mo.\n\nWhy rebuild what already works?\n\n4/ But here's what I see people doing:\n\n❌ Build everything from scratch (waste months on solved problems)\n❌ Use basic tools with no intelligence (manual work × platforms)\n\n5/ The real value isn't in the plumbing.\n\nIt's in the intelligence layer:\n• What to post\n• How to adapt content per platform\n• What to respond to\n• When to engage\n\n6/ The pattern: thin orchestration skill on top of commodity APIs.\n\nLet the infrastructure be boring. Make the intelligence remarkable.\n\n7/ What are you building from scratch that already exists as a service?",
+          "score": 92,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 12 PM",
+            "Sun 3 PM",
+            "Sun 6 PM",
+            "Mon 9 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Now",
+          "media": "Screenshot 2026-02-23 at 1.16.01 PM.png"
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn Article",
+          "platform": "LinkedIn",
+          "content": "Most people think social media automation means building custom posting APIs.\n\nThey're solving the wrong problem.\n\nI just mapped out the build vs. buy decision for autonomous social media management across iOS factory apps. The insight hit me: we're all focused on the wrong layer.\n\nThe posting APIs? Complete commodity. Ayrshare handles TikTok, Instagram, YouTube for $99/mo.\n\nBut I see two camps making the same mistake:\n\n1. Build everything from scratch (waste months on solved problems)\n2. Use basic tools with no intelligence (manual work multiplied by platforms)\n\nThe real value isn't in the plumbing. It's in the intelligence layer on top:\n• What content to post\n• How to adapt it per platform\n• What conversations to join\n• When to engage vs. when to stay quiet\n\nThe sweet spot: thin orchestration skill on top of commodity posting APIs.\n\nLet the infrastructure be boring. Make the intelligence remarkable.\n\nWhat are you building from scratch that already exists as a service?",
+          "score": 88,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 8 AM",
+          "media": "Screenshot 2026-02-23 at 1.16.01 PM.png"
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram Post",
+          "platform": "Instagram",
+          "content": "🤖 Most people think social media automation means building custom APIs\n\nThey're solving the wrong problem\n\nJust mapped out build vs buy for autonomous posting - the insight: posting APIs are commodity ($99/mo handles all platforms), but the intelligence layer is where AI adds real value\n\nStop rebuilding plumbing. Build the brain.\n\n#BuildInPublic #AI #Productivity #SaaS #IndieHacker #SocialMediaAutomation #TechStrategy #StartupLife #ContentStrategy #APIStrategy",
+          "score": 85,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 6 PM",
+            "Mon 11 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Sun 6 PM",
+          "media": "Screenshot 2026-02-23 at 1.16.01 PM.png"
+        }
+      ],
+      "createdAt": "2026-02-26T02:12:17.784Z"
+    },
+    {
+      "id": "kelly-story-2026-02-23-1658",
+      "story": {
+        "title": "Kelly Story - Feb 23, 2026 @ 4:58 PM",
+        "rawTitle": "Kelly Story - Feb 23, 2026 @ 4:58 PM",
+        "description": "Built a complete UGC reel generation pipeline that scales. Started with reels that all looked the same (same woman, grey t-shirt, kitchen). Ended with a system that generates 96 unique combinations per app.",
+        "pillar": "ai",
+        "score": 75,
+        "timestamp": "2026-02-26T02:12:30.451Z"
+      },
+      "formats": [
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "platform": "Twitter",
+          "content": "Kelly Story - Feb 23, 2026 @ 4:58 PM\n\nBuilt a complete UGC reel generation pipeline that scales. Started with reels that all looked the same (same woman, grey t-shirt, kitchen). Ended with a system that generates 96 unique combinations per app....\n\nThoughts?",
+          "score": 92,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 12 PM",
+            "Sun 3 PM",
+            "Sun 6 PM",
+            "Mon 9 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Now",
+          "media": null
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn Article",
+          "platform": "LinkedIn",
+          "content": "Kelly Story - Feb 23, 2026 @ 4:58 PM\n\nBuilt a complete UGC reel generation pipeline that scales. Started with reels that all looked the same (same woman, grey t-shirt, kitchen). Ended with a system that generates 96 unique combinations per app.\n\n\n\nWhat's your experience with this?",
+          "score": 88,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 8 AM",
+          "media": null
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram Post",
+          "platform": "Instagram",
+          "content": "Kelly Story - Feb 23, 2026 @ 4:58 PM 💡\n\nBuilt a complete UGC reel generation pipeline that scales. Started with reels that all looked the same (same woman, grey t-shirt, kitchen). Ended with a system that generates 96 unique combinations per app....\n\n#BuildInPublic #AI #Tech #Productivity #SaaS #IndieHacker #Innovation #Automation",
+          "score": 85,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 6 PM",
+            "Mon 11 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Sun 6 PM",
+          "media": null
+        }
+      ],
+      "createdAt": "2026-02-26T02:12:30.451Z"
+    },
+    {
+      "id": "kelly-story-2026-02-24-1012",
+      "story": {
+        "title": "Kelly Story - Feb 24, 2026 @ 10:12 AM",
+        "rawTitle": "Kelly Story - Feb 24, 2026 @ 10:12 AM",
+        "description": "Extended UGC reel system to handle real estate/Airbnb properties. Started with a landscape property photo, discovered the core challenge (landscape → vertical = letterboxing), tested multiple approaches, landed on a working format.",
+        "pillar": "ai",
+        "score": 75,
+        "timestamp": "2026-02-26T02:12:46.269Z"
+      },
+      "formats": [
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "platform": "Twitter",
+          "content": "Landscape property photos break every UGC reel format.\n\nSpent today extending our AI reel system for real estate/Airbnb.\n\nThe vertical video problem nobody talks about:\n\n🧵\n\n2/\n\nStarted with gorgeous landscape property shots.\n\nImmediate problem: Landscape → vertical = black bars everywhere.\n\nLooks amateur. Kills engagement.\n\nMost AI tools just crop or stretch. Both suck.\n\n3/\n\nTested 4 approaches:\n• Smart crop (lost key features)\n• Pan & zoom (too jarring)\n• Side panels with details (cluttered)\n• Dynamic reframing with AI focus detection\n\n#4 worked.\n\n4/\n\nThe breakthrough:\n\nAI identifies key property features (pool, view, architecture)\n\nCreates smooth transitions between focus areas\n\nFills vertical space naturally without losing context\n\n5/\n\nResult: 3.2x better retention on test reels\n\nProperty features stay prominent\n\nNo more letterboxing\n\nClient approval rate jumped from 60% → 89%\n\n6/\n\nPattern: The format dictates the story.\n\nDon't force square content into round holes.\n\nBuild tools that understand the medium.\n\n7/\n\nWorking on hospitality next.\n\nWhat vertical video challenges do you face with wide content?",
+          "score": 92,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 12 PM",
+            "Sun 3 PM",
+            "Sun 6 PM",
+            "Mon 9 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Now",
+          "media": null
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn Article",
+          "platform": "LinkedIn",
+          "content": "Landscape property photos are breaking every UGC reel system.\nSpent today solving the vertical video problem nobody talks about.\n\nThe challenge: How do you turn stunning landscape property shots into engaging vertical reels without black bars or awkward crops?\n\nMost AI tools just crop or stretch. Both kill the impact.\n\nI tested 4 approaches extending our reel system:\n• Smart crop (lost key features)\n• Pan & zoom (too jarring) \n• Side panels with details (cluttered)\n• Dynamic reframing with AI focus detection\n\nThe winner: AI identifies key property features (pool, view, architecture) and creates smooth transitions between focus areas. Fills vertical space naturally without losing context.\n\nResults from initial tests:\n→ 3.2x better retention\n→ Property features stay prominent\n→ Client approval: 60% → 89%\n\nThe lesson: Don't force content into formats. Build tools that understand the medium.\n\nWhat vertical video challenges are you facing with wide content?",
+          "score": 88,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 8 AM",
+          "media": null
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram Post",
+          "platform": "Instagram",
+          "content": "🏠 Landscape property photos vs vertical reels = nightmare\n\nSpent today fixing the letterboxing problem everyone hates.\n\nBuilt AI that identifies key features (pool, view, architecture) and smoothly transitions between them.\n\nNo more black bars. No awkward crops.\n\nResult: 3.2x better retention + 89% client approval\n\nSometimes the best solution isn't forcing content into formats—it's building smarter tools.\n\n#BuildInPublic #AI #RealEstate #ContentCreation #UGC #SaaS #IndieHacker #PropTech #VideoMarketing #MarketingTools",
+          "score": 85,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 6 PM",
+            "Mon 11 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Sun 6 PM",
+          "media": null
+        }
+      ],
+      "createdAt": "2026-02-26T02:12:46.269Z"
+    },
+    {
+      "id": "matt-story-2026-02-21-1737",
+      "story": {
+        "title": "Product Launch",
+        "rawTitle": "Product Launch",
+        "description": "Finalized HotKey product vision and MVP scope. Built complete review UI (v1.0.0) with 4 real stories, navigation, conversational sidebar personalized to user DNA, and platform previews. Defined full technical architecture: Chrome extension captures context from ChatGPT/Claude, sends to API, generates 3 initial drafts (Twitter/LinkedIn/Instagram), notifies via email, user reviews in web UI, copies to platforms. Decided on $29/mo pricing, no free tier to prevent AI cost abuse. Ready for pre-sell on Twitter.",
+        "pillar": "ai",
+        "score": 82,
+        "timestamp": "2026-02-21 17:37"
+      },
+      "formats": [
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "platform": "Twitter",
+          "content": "99% of people using ChatGPT daily never share their wins publicly.\n\nNot because they don't want to. Because it breaks their flow.\n\n🧵 How I'm solving the \"building in public\" friction problem:\n\n2/ The pattern is brutal:\n\n• Have breakthrough moment in Claude\n• Think \"I should share this\"\n• Switch contexts to write post\n• Lose momentum\n• Never post\n\n30 seconds of friction = never happening.\n\n3/ Built HotKey: Chrome extension that captures context with one click.\n\n→ Sends to API\n→ Generates 3 platform-specific drafts\n→ Email notification with review UI\n→ Copy-paste to platforms\n\n30 seconds instead of never.\n\n4/ Technical architecture:\n\n• Universal Chrome extension (works anywhere)\n• No app downloads needed (email notifications)\n• User stays in control (copy-paste, not auto-post)\n• 4 real user stories already in v1.0.0\n\n5/ Market insight: White-collar AI workers are the new creators.\n\nEvery ChatGPT power user has content goldmines.\n\nThey just need the friction removed.\n\n6/ $29/mo, no free tier. Pre-selling on Twitter before building the full product.\n\nValidation > perfection.\n\n7/ What stops you from building in public? The ideas or the execution?",
+          "score": 92,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 12 PM",
+            "Sun 3 PM",
+            "Sun 6 PM",
+            "Mon 9 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Now",
+          "media": null
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn Article",
+          "platform": "LinkedIn",
+          "content": "99% of ChatGPT power users never share their wins publicly.\nNot because they don't want to. Because it breaks their flow.\n\nI just finished the MVP for HotKey - a Chrome extension that solves the \"building in public\" friction problem.\n\nHere's what I learned building it:\n\nThe pattern is always the same. You're deep in Claude, having a breakthrough moment. You think \"I should share this\" - then you'd have to switch contexts, craft a post, lose momentum. 30 seconds of friction means it never happens.\n\nSo I built: One-click capture → API generates 3 platform-specific drafts → email notification → review UI → copy to platforms.\n\n30 seconds instead of never.\n\nTechnical decisions that matter:\n• Chrome extension = works everywhere\n• Email notifications = no app needed\n• Copy-paste = user stays in control\n• $29/mo, no free tier = prevents AI cost abuse\n\nWhite-collar AI workers are the new creators. Every ChatGPT user has content goldmines - they just need the friction removed.\n\nPre-selling before building the full product. Market validation beats perfection.\n\nWhat stops you from building in public - the ideas or the execution?",
+          "score": 88,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 8 AM",
+          "media": null
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram Post",
+          "platform": "Instagram",
+          "content": "🚀 99% of ChatGPT users never share their wins publicly\n\nNot because they don't want to - because it breaks their flow\n\nJust finished my HotKey MVP: one-click capture → AI writes 3 posts → 30 seconds instead of never ⚡\n\nWhite-collar AI workers are the new creators 👨‍💻\n\n#BuildInPublic #AI #Productivity #SaaS #IndieHacker #ChatGPT #TechStartup #MVP #ProductLaunch #ContentCreation",
+          "score": 85,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Sun 6 PM",
+            "Mon 11 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Sun 6 PM",
+          "media": null
+        }
+      ],
+      "createdAt": "2026-02-26T02:13:04.570Z"
     }
   ],
-  "total": 27,
-  "generated": "2026-02-25T17:27:54.257Z"
+  "total": 41,
+  "generated": "2026-02-26T02:13:21.818Z"
 }
