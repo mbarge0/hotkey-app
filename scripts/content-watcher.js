@@ -34,18 +34,38 @@ function saveProcessed(data) {
 function parseStory(filePath) {
   const content = fs.readFileSync(filePath, 'utf8');
   
-  // Extract metadata
-  const titleMatch = content.match(/^#\s+\[([\d-]+\s+[\d:]+)\]\s+(.+)$/m);
+  // Extract metadata - handle both old and new formats
+  // Old format: # [2026-02-25 19:17] Title Here
+  // New format: # Title Here (with **Date:** on next line)
+  const oldTitleMatch = content.match(/^#\s+\[([\d-]+\s+[\d:]+)\]\s+(.+)$/m);
+  const newTitleMatch = content.match(/^#\s+(.+)$/m);
+  const dateMatch = content.match(/\*\*Date:\*\*\s+([\d-]+\s+[\d:]+)/);
+  
+  let title = 'Untitled';
+  let timestamp = new Date().toISOString();
+  
+  if (oldTitleMatch) {
+    // Old format
+    timestamp = oldTitleMatch[1];
+    title = oldTitleMatch[2];
+  } else if (newTitleMatch) {
+    // New format
+    title = newTitleMatch[1];
+    if (dateMatch) {
+      timestamp = dateMatch[1];
+    }
+  }
+  
   const descMatch = content.match(/## What Happened\n([\s\S]+?)(?=\n## |$)/);
   const whyMatch = content.match(/## Why It Matters\n([\s\S]+?)(?=\n## |$)/);
-  const pillarMatch = content.match(/## Suggested Pillar\n(\w+)/);
+  const pillarMatch = content.match(/## Suggested Pillar\n(\w+)/) || content.match(/\*\*Pillar:\*\*\s+(.+)/);
   const scoreMatch = content.match(/\*\*Score:\*\*\s+(\d+)/);
   const mediaMatch = content.match(/## Media\n(.+)/);
   
   return {
     id: path.basename(filePath, '.md'),
-    title: titleMatch ? titleMatch[2] : 'Untitled',
-    timestamp: titleMatch ? titleMatch[1] : new Date().toISOString(),
+    title: title,
+    timestamp: timestamp,
     description: descMatch ? descMatch[1].trim() : '',
     whyItMatters: whyMatch ? whyMatch[1].trim() : '',
     pillar: pillarMatch ? pillarMatch[1] : 'ai',
