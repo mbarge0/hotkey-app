@@ -236,17 +236,7 @@ async function processNewStories() {
   }
   
   console.log(`\n🎉 All stories processed!`);
-  
-  // Auto-push to make changes visible on Netlify
-  if (newFiles.length > 0) {
-    try {
-      console.log(`\n📤 Pushing to GitHub...`);
-      execSync('cd ~/clawd/hotkey-app && git add apps/review/public/batch.json && git commit -m "Auto-update: new hotkey content" && git push', { stdio: 'pipe' });
-      console.log(`✅ Pushed to GitHub - changes will appear on Netlify in ~1 min`);
-    } catch (err) {
-      console.log(`⚠️  Push failed (might be no changes):`, err.message);
-    }
-  }
+  console.log(`📋 Review at: http://localhost:3000/review`);
 }
 
 // Main
