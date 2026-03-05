@@ -13,7 +13,11 @@ const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 
-const CONTENT_INBOX = path.join(process.env.HOME, 'Library/Mobile Documents/com~apple~CloudDocs/content-inbox');
+// Primary: repo-local content-inbox (syncs via git, works on all machines)
+// Fallback: iCloud Drive (legacy path, kept for backwards compatibility)
+const REPO_INBOX = path.join(__dirname, '../content-inbox');
+const ICLOUD_INBOX = path.join(process.env.HOME, 'Library/Mobile Documents/com~apple~CloudDocs/content-inbox');
+const CONTENT_INBOX = fs.existsSync(REPO_INBOX) ? REPO_INBOX : ICLOUD_INBOX;
 const BATCH_JSON = path.join(__dirname, '../apps/review/public/batch.json');
 const PROCESSED_FILE = path.join(__dirname, '../.processed-stories.json');
 

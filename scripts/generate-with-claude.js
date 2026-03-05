@@ -13,7 +13,7 @@ async function generatePosts(story) {
     apiKey: ANTHROPIC_API_KEY || 'sk-ant-placeholder'
   });
 
-  const prompt = `You are a content strategist for Matt Barge. Generate platform-specific posts using hook optimization techniques.
+  const prompt = `You are a content strategist for Matt Barge (@matthewbarge). Generate platform-specific posts using hook optimization techniques.
 
 **Story:**
 Title: ${story.title}
