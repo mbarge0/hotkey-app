@@ -9,3 +9,7 @@ out/
 
 # Local Netlify folder
 .netlify
+
+# Media inbox - only track .gitkeep, not dropped files
+media-inbox/*
+!media-inbox/.gitkeep
