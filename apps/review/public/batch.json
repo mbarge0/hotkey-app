@@ -2875,8 +2875,76 @@
         }
       ],
       "createdAt": "2026-03-06T09:33:47.685436"
+    },
+    {
+      "id": "2026-03-06-photo-in-reel-plus-3-posts-out",
+      "story": {
+        "title": "Photo in. Reel + 3 platform posts out. Automatically.",
+        "rawTitle": "Photo in. Reel + 3 platform posts out. Automatically.",
+        "description": "Added step_11_social to the AI real estate reel pipeline. After every reel generates, one Claude call reads the vision analysis, selected captions, and agent profile to auto-produce paste-ready TikTok caption + hashtags, Instagram post + tags, and YouTube Shorts title + SEO description. Also locked in the atmospheric_world camera technique: locked camera + animated world dramatically outperforms panning on exterior shots. First real clients: Hotel Dilley (TX workforce housing) and CityPlace BnB (Dallas STR).",
+        "pillar": "product",
+        "score": 87,
+        "timestamp": "2026-03-06 16:45"
+      },
+      "formats": [
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "platform": "Twitter",
+          "content": "Most AI video tools deliver a file.\nI built a pipeline that delivers a posting package.\n\n1 listing photo ->\n\u2022 8-second cinematic reel (Veo)\n\u2022 TikTok caption + hashtags\n\u2022 Instagram post + 30 tags\n\u2022 YouTube Shorts title + SEO description\nAll in ~2.5 minutes.\n\nBuilt step_11_social this session.\n\nAfter the reel generates, one Claude call reads:\n- vision analysis from step 1\n- selected captions from step 6\n- agent profile (brand context, target audience, style notes)\n\nOutputs a social_posts.md with paste-ready copy for all 3 channels.\n\nThe interesting part: it uses context the pipeline already collected.\n\nNo re-prompting. No separate workflow.\nThe agent profile style_notes drive everything.\n\nHotel Dilley example (workforce housing, TX):\n\u2192 TikTok: \"Tired of living out of a suitcase between jobs?\"\n\u2192 Instagram: \"This is not your average motel...\"\n\u2192 YouTube title: \"Furnished Rooms for Rent in Dilley TX \u2013 Flexible Leases\"\n\nContext-aware because the style_notes told it:\noil field workers, contractors, Eagle Ford basin, flexible leases.\n\nAlso discovered something this session:\n\nFor exterior shots \u2014 stop moving the camera.\nAnimate the world instead.\n\nLocked camera + clouds sweeping + trees swaying + lights warming =\ndramatically better than panning across a flat facade.\n\nCalled it \"atmospheric_world.\" Works on anything that should move:\npools, fire pits, backyards, dusk shots.\n\nThe \"zero work from agent\" promise was about the reel.\nNow it extends to the posting workflow too.\n\nHardest part of social media is not producing content.\nIt is knowing what to write.",
+          "score": 92,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 9 AM",
+            "Tue 9 AM",
+            "Wed 9 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 9 AM",
+          "media": null
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn",
+          "platform": "LinkedIn",
+          "content": "I extended the \"zero work\" promise past the video file today.\n\nThe pipeline I am building for real estate reels already auto-generates an 8-second cinematic walkthrough from a single listing photo. Claude analyzes the space, Veo generates the motion, Gemini writes the captions.\n\nToday I added step_11_social at the end.\n\nOne more Claude call reads everything the pipeline already collected \u2014 the vision analysis, the selected captions, the agent style notes \u2014 and outputs paste-ready social copy for TikTok, Instagram, and YouTube Shorts. No extra input from the agent. No separate workflow.\n\nHotel Dilley, a workforce housing property in Dilley TX, was the first test. The style notes described oil field workers and contractors in the Eagle Ford basin looking for flexible leases. The output:\n\nTikTok: \"Tired of living out of a suitcase between jobs?\"\nYouTube title: \"Furnished Rooms for Rent in Dilley TX \u2013 Flexible Leases\"\nInstagram: full post + 27 targeted hashtags including #eaglefordshale and #oilfieldhousing\n\nContext-aware because the context was already there.\n\nAlso locked in a camera technique today: for exterior shots, stop moving the camera and animate the world instead. Locked camera + clouds sweeping across a dusk sky + tree branches swaying + building lights warming = dramatically more cinematic than a flat pan. Works on anything that should naturally move \u2014 fire pits, pools, backyards.\n\nThe pipeline promise was 24-hour delivery, zero work from the agent. That now includes knowing what to post.\n\nWhat is the piece of your workflow you are still doing manually that the AI already has the context to handle?",
+          "score": 88,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Wed 8 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 8 AM",
+          "media": null
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram Post",
+          "platform": "Instagram",
+          "content": "\ud83d\udce6 one listing photo in. reel + full social posting package out.\n\nbuilt the auto social copy step today \u2014 after every reel generates, the pipeline writes TikTok caption, Instagram post, and YouTube Shorts title/description automatically. uses context it already collected: vision analysis, captions, brand profile.\n\nalso locked in a new technique: stop moving the camera on exterior shots. animate the world instead \u2014 clouds, wind, light. way better than panning a flat wall.\n\ntwo real clients producing content now. Hotel Dilley and CityPlace BnB Dallas.\n\n#BuildInPublic #AI #IndieHacker #RealEstate #PropTech #AIVideo #ProductBuilding #SoloFounder #Automation #ContentCreation",
+          "score": 85,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 11 AM",
+            "Tue 11 AM",
+            "Wed 11 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 11 AM",
+          "media": null
+        }
+      ],
+      "createdAt": "2026-03-06T16:41:58.452614"
     }
   ],
-  "total": 43,
-  "generated": "2026-03-06T09:33:47.685443"
+  "total": 44,
+  "generated": "2026-03-06T16:41:58.452624"
 }
