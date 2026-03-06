@@ -2741,6 +2741,74 @@
       "createdAt": "2026-02-26T02:13:04.570Z"
     },
     {
+      "id": "2026-03-06-claude-picks-frame-veo-shoots",
+      "story": {
+        "title": "Claude picks the crop, Veo shoots the motion",
+        "rawTitle": "Claude picks the crop, Veo shoots the motion",
+        "description": "Built analysis-based smart crop into a real estate video pipeline: Claude Vision analyzes a property photo and returns first_frame_x_pct and last_frame_x_pct \u2014 fractional horizontal positions for two 9:16 keyframes. For a desk-to-bedroom shot, Claude returned 0.62 and 0.28 (start right on the desk/chair foreground, arc left through the doorway to reveal the bedroom). Those two frames go to Google Veo as first-and-last keyframe anchors; Veo interpolates the camera move between them. Also wired context-specific behavior: promo format uses center crop, highlight reels use analysis-based crop \u2014 same infrastructure, different behavior per use case.",
+        "pillar": "ai",
+        "score": 84,
+        "timestamp": "2026-03-06 14:00"
+      },
+      "formats": [
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "platform": "Twitter",
+          "content": "Most real estate video tools apply the same mechanical crop to every photo.\nI let Claude Vision pick the crop instead.\n\nHere's what that unlocks:\n\nThe system sends a property photo to Claude for analysis.\nClaude returns first_frame_x_pct and last_frame_x_pct \u2014 exact horizontal centers for two 9:16 frames.\n\nNot center-based. Not rule-based.\nSpecific to where the richest motion potential lives in THIS photo.\n\nFor a desk-to-bedroom shot: Claude picked 0.62 and 0.28.\nRight side first (desk/chair as foreground anchor), arc left to reveal the bedroom.\n\nThose two frames go to Veo as first-and-last keyframes.\nVeo interpolates the camera move between them.\n\nResult: motion that felt like a cinematographer picked the shot.\nNot a crop algorithm.\n\nThe bigger insight:\n\nYou don't need a better video model.\nYou need smarter inputs.\n\nClaude doesn't make the video.\nIt makes the video model make better decisions.\n\nOne AI optimizing inputs for another.\nThis is the pattern.",
+          "score": 92,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 9 AM",
+            "Tue 9 AM",
+            "Wed 9 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 9 AM",
+          "media": null
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn",
+          "platform": "LinkedIn",
+          "content": "Most video automation applies the same crop formula to every frame.\n\nI built something different: Claude Vision analyzes the photo first, then tells the video model exactly where to start and end.\n\nHere's how it works:\n\nThe system sends a property photo to Claude with a structured analysis prompt. Claude returns two numbers: first_frame_x_pct and last_frame_x_pct. Fractional horizontal positions (0.0 to 1.0) representing where to crop the two 9:16 keyframes.\n\nThese aren't random. Claude is evaluating: where's the foreground anchor, where does depth open up, where does motion want to go in this specific scene.\n\nFor a desk-to-bedroom shot this week: Claude returned 0.62 and 0.28. Start right (framing the chair and art), arc left through a doorway, reveal the bedroom, TV, ceiling fan.\n\nThose two frames go to Google's Veo as first-and-last keyframes. Veo interpolates the camera move between them.\n\nThe result felt like a cinematographer picked the shot. Not an algorithm.\n\nOne other thing I learned in this build:\n\nFor promotional reels, center-based crop actually works better (simpler composition for the \"before\" frame). For showcase highlight reels, analysis-based is far superior.\n\nSame infrastructure. Context-specific behavior. The analysis step just needed a flag.\n\nThe real insight isn't the video quality.\n\nIt's that you don't need a better video model. You need smarter inputs to the model you already have.\n\nClaude doesn't shoot video. It makes Veo make better decisions.\n\nOne AI optimizing the inputs for another AI. That's the pattern I keep finding works in production.",
+          "score": 88,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Wed 8 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 8 AM",
+          "media": null
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram Post",
+          "platform": "Instagram",
+          "content": "Using Claude Vision to pick the exact crop coordinates for an AI video model\n\nOne property photo. Claude analyzes it and returns two numbers:\n- Where to start the camera (right side, on the desk)\n- Where to end it (left side, revealing the bedroom)\n\nThose positions go to Veo as keyframe anchors.\nVeo interpolates the motion between them.\n\nThe result: a camera move that actually makes sense for THIS photo.\nNot a center crop. Not a formula. Context-specific.\n\nOne AI optimizing inputs for another.\nThis is the pattern.\n\n#BuildInPublic #AI #RealEstate #VideoAI #IndieHacker #PropTech #AItools #GenerativeAI #Automation",
+          "score": 85,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 11 AM",
+            "Tue 11 AM",
+            "Wed 11 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 11 AM",
+          "media": null
+        }
+      ],
+      "createdAt": "2026-03-06T07:55:43.000Z"
+    },
+    {
       "id": "2026-03-06-saas-factory-one-command-full-stack",
       "story": {
         "title": "One command. Full SaaS scaffold in 30 min.",
@@ -2806,9 +2874,9 @@
           "media": null
         }
       ],
-      "createdAt": "2026-03-06T09:30:49.271336"
+      "createdAt": "2026-03-06T09:33:47.685436"
     }
   ],
-  "total": 42,
-  "generated": "2026-03-06T09:30:49.271343"
+  "total": 43,
+  "generated": "2026-03-06T09:33:47.685443"
 }
