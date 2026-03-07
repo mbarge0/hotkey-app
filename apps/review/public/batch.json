@@ -2741,6 +2741,346 @@
       "createdAt": "2026-02-26T02:13:04.570Z"
     },
     {
+      "id": "2026-03-06-claude-picks-frame-veo-shoots",
+      "story": {
+        "title": "Claude picks the crop, Veo shoots the motion",
+        "rawTitle": "Claude picks the crop, Veo shoots the motion",
+        "description": "Built analysis-based smart crop into a real estate video pipeline: Claude Vision analyzes a property photo and returns first_frame_x_pct and last_frame_x_pct \u2014 fractional horizontal positions for two 9:16 keyframes. For a desk-to-bedroom shot, Claude returned 0.62 and 0.28 (start right on the desk/chair foreground, arc left through the doorway to reveal the bedroom). Those two frames go to Google Veo as first-and-last keyframe anchors; Veo interpolates the camera move between them. Also wired context-specific behavior: promo format uses center crop, highlight reels use analysis-based crop \u2014 same infrastructure, different behavior per use case.",
+        "pillar": "ai",
+        "score": 84,
+        "timestamp": "2026-03-06 14:00"
+      },
+      "formats": [
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "platform": "Twitter",
+          "content": "Most real estate video tools apply the same mechanical crop to every photo.\nI let Claude Vision pick the crop instead.\n\nHere's what that unlocks:\n\nThe system sends a property photo to Claude for analysis.\nClaude returns first_frame_x_pct and last_frame_x_pct \u2014 exact horizontal centers for two 9:16 frames.\n\nNot center-based. Not rule-based.\nSpecific to where the richest motion potential lives in THIS photo.\n\nFor a desk-to-bedroom shot: Claude picked 0.62 and 0.28.\nRight side first (desk/chair as foreground anchor), arc left to reveal the bedroom.\n\nThose two frames go to Veo as first-and-last keyframes.\nVeo interpolates the camera move between them.\n\nResult: motion that felt like a cinematographer picked the shot.\nNot a crop algorithm.\n\nThe bigger insight:\n\nYou don't need a better video model.\nYou need smarter inputs.\n\nClaude doesn't make the video.\nIt makes the video model make better decisions.\n\nOne AI optimizing inputs for another.\nThis is the pattern.",
+          "score": 92,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 9 AM",
+            "Tue 9 AM",
+            "Wed 9 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 9 AM",
+          "media": null
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn",
+          "platform": "LinkedIn",
+          "content": "Most video automation applies the same crop formula to every frame.\n\nI built something different: Claude Vision analyzes the photo first, then tells the video model exactly where to start and end.\n\nHere's how it works:\n\nThe system sends a property photo to Claude with a structured analysis prompt. Claude returns two numbers: first_frame_x_pct and last_frame_x_pct. Fractional horizontal positions (0.0 to 1.0) representing where to crop the two 9:16 keyframes.\n\nThese aren't random. Claude is evaluating: where's the foreground anchor, where does depth open up, where does motion want to go in this specific scene.\n\nFor a desk-to-bedroom shot this week: Claude returned 0.62 and 0.28. Start right (framing the chair and art), arc left through a doorway, reveal the bedroom, TV, ceiling fan.\n\nThose two frames go to Google's Veo as first-and-last keyframes. Veo interpolates the camera move between them.\n\nThe result felt like a cinematographer picked the shot. Not an algorithm.\n\nOne other thing I learned in this build:\n\nFor promotional reels, center-based crop actually works better (simpler composition for the \"before\" frame). For showcase highlight reels, analysis-based is far superior.\n\nSame infrastructure. Context-specific behavior. The analysis step just needed a flag.\n\nThe real insight isn't the video quality.\n\nIt's that you don't need a better video model. You need smarter inputs to the model you already have.\n\nClaude doesn't shoot video. It makes Veo make better decisions.\n\nOne AI optimizing the inputs for another AI. That's the pattern I keep finding works in production.",
+          "score": 88,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Wed 8 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 8 AM",
+          "media": null
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram Post",
+          "platform": "Instagram",
+          "content": "Using Claude Vision to pick the exact crop coordinates for an AI video model\n\nOne property photo. Claude analyzes it and returns two numbers:\n- Where to start the camera (right side, on the desk)\n- Where to end it (left side, revealing the bedroom)\n\nThose positions go to Veo as keyframe anchors.\nVeo interpolates the motion between them.\n\nThe result: a camera move that actually makes sense for THIS photo.\nNot a center crop. Not a formula. Context-specific.\n\nOne AI optimizing inputs for another.\nThis is the pattern.\n\n#BuildInPublic #AI #RealEstate #VideoAI #IndieHacker #PropTech #AItools #GenerativeAI #Automation",
+          "score": 85,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 11 AM",
+            "Tue 11 AM",
+            "Wed 11 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 11 AM",
+          "media": null
+        }
+      ],
+      "createdAt": "2026-03-06T07:55:43.000Z"
+    },
+    {
+      "id": "2026-03-06-saas-factory-one-command-full-stack",
+      "story": {
+        "title": "One command. Full SaaS scaffold in 30 min.",
+        "rawTitle": "One command. Full SaaS scaffold in 30 min.",
+        "description": "Built a production-grade SaaS template (web-saas-nextjs) as an extension of the Foundry CLI. Running foundry new web-saas-nextjs my-app scaffolds 76 files: Supabase auth, Stripe billing (3 plans), multi-tenant orgs with RBAC, 5 Postgres migrations with RLS, dashboard shell, email, AI streaming route, and deployment config. Zero TypeScript errors. Also drops STRATEGY.md and PRD.md templates at scaffold time.",
+        "pillar": "product",
+        "score": 84,
+        "timestamp": "2026-03-06 14:00"
+      },
+      "formats": [
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "platform": "Twitter",
+          "content": "Most devs spend 2-3 weeks on auth, billing, and teams\nbefore writing a single line of product code.\n\nI built a command that does all of it in 30 minutes.\n\n---\n\n`foundry new web-saas-nextjs my-app`\n\nOutputs 76 files, zero TypeScript errors:\n\n\u2022 Supabase auth \u2014 email/password + Google OAuth, protected routes\n\u2022 Stripe billing \u2014 3 plans, webhooks, customer portal\n\u2022 Multi-tenant orgs \u2014 invite flow, RBAC (owner/admin/member)\n\u2022 5 DB migrations with RLS policies\n\u2022 Dashboard shell, email (Resend), AI streaming route (Anthropic)\n\n---\n\nEvery piece is wired together.\n\nNot a starter kit. Not boilerplate you delete.\nCode you'd actually write \u2014 just already written.\n\nnpm install runs automatically.\ntsc --noEmit passes clean.\nFill in .env.local. Push to Vercel. Done.\n\n---\n\nTwo decisions I made that go against the defaults:\n\nNo free tier. Base/Pro/Enterprise only.\nNo vertical templates. Domain logic is per-product.\n\nBoth came from the same realization:\nsome things feel reusable but aren't.\n\n---\n\nThe factory is only worth building at the horizontal layer.\n\nAuth, billing, teams, email, AI wiring \u2014\nnearly identical across every SaaS you'll build.\n\nThe domain data model?\nNever the same twice. Don't template it.\n\n---\n\nIt also drops two planning files at scaffold time:\n\n\u2022 STRATEGY.md \u2014 GTM framework (opportunity, ICP, messaging, channels, warm contacts, first customers)\n\u2022 PRD.md \u2014 problem, V1 scope, flows, metrics\n\nThe strategy doc lives in the repo.\nForces you to fill it in before writing product code.\n\n---\n\nWhat's the biggest time sink in your first week on a new product?\n\nCurious whether the infra tax is the same for everyone,\nor if I'm just bad at setting it up fast.",
+          "score": 92,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 9 AM",
+            "Tue 9 AM",
+            "Wed 9 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 9 AM",
+          "media": null
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn",
+          "platform": "LinkedIn",
+          "content": "Most SaaS builders spend 2-3 weeks on infrastructure before writing a single line of product code.\n\nAuth. Billing. Teams. Email. Deployment. It's the same every time.\n\nI built a CLI command that does all of it in 30 minutes.\n\n`foundry new web-saas-nextjs my-app` scaffolds 76 files:\n\n\u2014 Supabase auth with email/password + Google OAuth, middleware, onboarding redirect\n\u2014 Stripe billing with 3 plans (Base/Pro/Enterprise), webhook handler, customer portal\n\u2014 Multi-tenant org model with invite flow and RBAC (owner/admin/member)\n\u2014 5 Postgres migrations with row-level security policies\n\u2014 Dashboard shell, settings pages, transactional email (Resend), streaming AI route (Anthropic)\n\u2014 vercel.json, .env.example, and a full SETUP.md\n\nZero TypeScript errors out of the box.\n\nTwo decisions that might seem wrong at first:\n\nNo free tier. No vertical templates.\n\nFree tiers are a pricing decision, not a scaffolding one. Vertical templates (CRE, fintech, etc.) feel reusable but the domain logic is always different enough that you'd rewrite it anyway.\n\nThe factory is only valuable at the horizontal layer \u2014 the infrastructure every SaaS shares.\n\nOne other thing it drops at scaffold time: a STRATEGY.md with the full GTM framework \u2014 opportunity, ICP, messaging, channels, first customer action plan. It lives in the repo so the business thinking and the product code stay in the same place.\n\nWhat's the biggest time sink for you in the first week of a new product? I'm curious if the infra tax hits everyone the same way.",
+          "score": 88,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Wed 8 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 8 AM",
+          "media": null
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram Post",
+          "platform": "Instagram",
+          "content": "one command \u2192 full SaaS scaffold in 30 minutes\n\nauth, billing, teams, email, AI \u2014 all wired.\n76 files. zero TypeScript errors.\n\nthe infra tax on every new product used to be 2-3 weeks.\nbuilt a factory to skip it entirely.\n\n#BuildInPublic #AI #IndieHacker #SaaS #NextJS #Supabase #Stripe #TechFounder #ProductBuilding #DevTools",
+          "score": 85,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 11 AM",
+            "Tue 11 AM",
+            "Wed 11 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 11 AM",
+          "media": null
+        }
+      ],
+      "createdAt": "2026-03-06T09:33:47.685436"
+    },
+    {
+      "id": "2026-03-06-photo-in-reel-plus-3-posts-out",
+      "story": {
+        "title": "Photo in. Reel + 3 platform posts out. Automatically.",
+        "rawTitle": "Photo in. Reel + 3 platform posts out. Automatically.",
+        "description": "Added step_11_social to the AI real estate reel pipeline. After every reel generates, one Claude call reads the vision analysis, selected captions, and agent profile to auto-produce paste-ready TikTok caption + hashtags, Instagram post + tags, and YouTube Shorts title + SEO description. Also locked in the atmospheric_world camera technique: locked camera + animated world dramatically outperforms panning on exterior shots. First real clients: Hotel Dilley (TX workforce housing) and CityPlace BnB (Dallas STR).",
+        "pillar": "product",
+        "score": 87,
+        "timestamp": "2026-03-06 16:45"
+      },
+      "formats": [
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "platform": "Twitter",
+          "content": "Most AI video tools deliver a file.\nI built a pipeline that delivers a posting package.\n\n1 listing photo ->\n\u2022 8-second cinematic reel (Veo)\n\u2022 TikTok caption + hashtags\n\u2022 Instagram post + 30 tags\n\u2022 YouTube Shorts title + SEO description\nAll in ~2.5 minutes.\n\nBuilt step_11_social this session.\n\nAfter the reel generates, one Claude call reads:\n- vision analysis from step 1\n- selected captions from step 6\n- agent profile (brand context, target audience, style notes)\n\nOutputs a social_posts.md with paste-ready copy for all 3 channels.\n\nThe interesting part: it uses context the pipeline already collected.\n\nNo re-prompting. No separate workflow.\nThe agent profile style_notes drive everything.\n\nHotel Dilley example (workforce housing, TX):\n\u2192 TikTok: \"Tired of living out of a suitcase between jobs?\"\n\u2192 Instagram: \"This is not your average motel...\"\n\u2192 YouTube title: \"Furnished Rooms for Rent in Dilley TX \u2013 Flexible Leases\"\n\nContext-aware because the style_notes told it:\noil field workers, contractors, Eagle Ford basin, flexible leases.\n\nAlso discovered something this session:\n\nFor exterior shots \u2014 stop moving the camera.\nAnimate the world instead.\n\nLocked camera + clouds sweeping + trees swaying + lights warming =\ndramatically better than panning across a flat facade.\n\nCalled it \"atmospheric_world.\" Works on anything that should move:\npools, fire pits, backyards, dusk shots.\n\nThe \"zero work from agent\" promise was about the reel.\nNow it extends to the posting workflow too.\n\nHardest part of social media is not producing content.\nIt is knowing what to write.",
+          "score": 92,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 9 AM",
+            "Tue 9 AM",
+            "Wed 9 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 9 AM",
+          "media": null
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn",
+          "platform": "LinkedIn",
+          "content": "I extended the \"zero work\" promise past the video file today.\n\nThe pipeline I am building for real estate reels already auto-generates an 8-second cinematic walkthrough from a single listing photo. Claude analyzes the space, Veo generates the motion, Gemini writes the captions.\n\nToday I added step_11_social at the end.\n\nOne more Claude call reads everything the pipeline already collected \u2014 the vision analysis, the selected captions, the agent style notes \u2014 and outputs paste-ready social copy for TikTok, Instagram, and YouTube Shorts. No extra input from the agent. No separate workflow.\n\nHotel Dilley, a workforce housing property in Dilley TX, was the first test. The style notes described oil field workers and contractors in the Eagle Ford basin looking for flexible leases. The output:\n\nTikTok: \"Tired of living out of a suitcase between jobs?\"\nYouTube title: \"Furnished Rooms for Rent in Dilley TX \u2013 Flexible Leases\"\nInstagram: full post + 27 targeted hashtags including #eaglefordshale and #oilfieldhousing\n\nContext-aware because the context was already there.\n\nAlso locked in a camera technique today: for exterior shots, stop moving the camera and animate the world instead. Locked camera + clouds sweeping across a dusk sky + tree branches swaying + building lights warming = dramatically more cinematic than a flat pan. Works on anything that should naturally move \u2014 fire pits, pools, backyards.\n\nThe pipeline promise was 24-hour delivery, zero work from the agent. That now includes knowing what to post.\n\nWhat is the piece of your workflow you are still doing manually that the AI already has the context to handle?",
+          "score": 88,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Wed 8 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 8 AM",
+          "media": null
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram Post",
+          "platform": "Instagram",
+          "content": "\ud83d\udce6 one listing photo in. reel + full social posting package out.\n\nbuilt the auto social copy step today \u2014 after every reel generates, the pipeline writes TikTok caption, Instagram post, and YouTube Shorts title/description automatically. uses context it already collected: vision analysis, captions, brand profile.\n\nalso locked in a new technique: stop moving the camera on exterior shots. animate the world instead \u2014 clouds, wind, light. way better than panning a flat wall.\n\ntwo real clients producing content now. Hotel Dilley and CityPlace BnB Dallas.\n\n#BuildInPublic #AI #IndieHacker #RealEstate #PropTech #AIVideo #ProductBuilding #SoloFounder #Automation #ContentCreation",
+          "score": 85,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 11 AM",
+            "Tue 11 AM",
+            "Wed 11 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 11 AM",
+          "media": null
+        }
+      ],
+      "createdAt": "2026-03-06T16:41:58.452614"
+    },
+    {
+      "id": "2026-03-06-market-research-to-hi-fi-screens",
+      "story": {
+        "title": "Market Research to Hi-Fi Screens in One Session",
+        "rawTitle": "Market Research to Hi-Fi Screens in One Session",
+        "description": "Used iosfactory to take a new app idea from zero to hi-fi screen designs in a single session. AI did competitive market research, identified micro-landlord PM as a high-opportunity category (~20M users, competitors with 1.3-star ratings), ran full discovery, generated a complete design system, then Gemini 2.5 Pro generated HTML/CSS for 5 screens. Playwright rendered each at 390x844 and captured PNGs \u2014 HTML deleted immediately.",
+        "pillar": "ai",
+        "score": 84,
+        "timestamp": "2026-03-06 22:00"
+      },
+      "formats": [
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "platform": "Twitter",
+          "content": "1/ Most app ideas die in the \"should I build this?\" phase.\nI had AI research the market, write the discovery brief, and generate hi-fi designs \u2014 in one session.\n\n2/ The prompt: \"Find me an app with high search volume, low competition, and bad reviews.\"\n\nIt landed on micro-landlord property management.\n~20M \"accidental landlords\" in the US.\nAngi: 1.3 stars. RentTrack: fraud complaints.\nReal gap.\n\n3/ Discovery ran next.\n\nTarget user: 28-55, owns 1-3 units as passive income. Not a pro property manager.\nCurrent stack: Venmo + Google Sheets + text messages.\n\nMVP scoped to 5 features. Nothing more.\n\n4/ Then design.\n\nFull system spec generated:\n- Deep Teal #1A6B6B primary\n- DM Mono for financial figures\n- Plus Jakarta Sans headlines\n- 5 screens spec'd with real copy, real names, real dollar amounts\n\n5/ Then the real test.\n\nFed the spec to Gemini 2.5 Pro.\nIt generated complete HTML/CSS per screen.\nPlaywright rendered each at 390x844 (iPhone 14 Pro).\nHTML deleted immediately. Only the PNGs kept.\n\n6/ 5 screens. ~4 minutes.\n\nHome dashboard, property detail, payments, maintenance, tax reports.\nReal data throughout: \"Jordan Mitchell \u2014 $1,800 \u2014 PAID\" / \"Riverside Unit 2 \u2014 OVERDUE 5 days\"\n\nThey look production-ready.\n\n7/ The design quality is what I was actually testing.\n\nCan AI output be good enough to hand a developer and say \"build this\"?\n\nFirst answer: closer than I expected.",
+          "score": 88,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 9 AM",
+            "Tue 9 AM",
+            "Wed 9 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 9 AM",
+          "media": "Screenshot 2026-03-06 at 9.05.44\u202fpm.png"
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn",
+          "platform": "LinkedIn",
+          "content": "I asked an AI to find me an app idea \u2014 then design it. Here's what happened.\n\nThe prompt was simple: find a mobile app category with high search volume, low competition, and bad reviews from existing players.\n\nIt landed on micro-landlord property management.\n\nAbout 20 million Americans own 1-4 rental units. Most manage everything through Venmo, Google Sheets, and text messages. Existing tools are either enterprise software at $59+/month or free apps drowning in 1-star reviews and fraud complaints.\n\nReal gap.\n\nFrom there: a full discovery brief. Target user, problem statement, MVP scope, business model. Then a complete design system \u2014 hex codes, typography stack (DM Mono for financials, Plus Jakarta Sans for headlines), spacing, component patterns.\n\nThe actual test came next.\n\nI fed that design spec to Gemini 2.5 Pro and had it generate complete HTML/CSS for each screen. Playwright (headless Chromium) rendered each at 390x844 \u2014 iPhone 14 Pro dimensions \u2014 and captured a PNG. HTML deleted immediately. Only PNGs kept as artifacts.\n\n5 screens in about 4 minutes. Home dashboard, property detail, payments, maintenance, tax export. Real content throughout \u2014 tenant names, dollar amounts, overdue statuses.\n\nThe quality surprised me. Not perfect \u2014 status bar icons are basic, gradients a little flat. But the color system, type hierarchy, and component patterns came through. Looks like something a developer could build from.\n\nThe question I'm sitting with: how much of the design-to-build pipeline can be automated before human judgment actually adds value?",
+          "score": 85,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Wed 8 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 8 AM",
+          "media": "Screenshot 2026-03-06 at 9.05.44\u202fpm.png"
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram Post",
+          "platform": "Instagram",
+          "content": "\ud83c\udfe0 \"Find me an app idea\" \u2192 hi-fi screens. One session. No designer.\n\nAI researched the market, wrote the discovery brief, built the design system. Gemini 2.5 Pro generated the screens. 5 PNGs in 4 minutes at iPhone 14 Pro resolution.\n\nThe app: property management for small landlords. 20M people managing rentals on Venmo and Google Sheets. Turns out that's a real gap.\n\nTesting how far the design pipeline goes before you need a human.\n\n#BuildInPublic #AI #IndieHacker #iOSApp #AppDevelopment #ProductDesign #Gemini #SoloFounder #IndieBuilder #MobileApp",
+          "score": 82,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 11 AM",
+            "Tue 11 AM",
+            "Wed 11 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 11 AM",
+          "media": "Screenshot 2026-03-06 at 9.05.44\u202fpm.png"
+        }
+      ],
+      "createdAt": "2026-03-07T03:07:09.789765+00:00"
+    },
+    {
+      "id": "2026-03-07-content-factory-10-steps-1-decision",
+      "story": {
+        "title": "Designed my content factory: 10 steps, 1 daily decision",
+        "rawTitle": "Designed my content factory: 10 steps, 1 daily decision",
+        "description": "Designed a complete content production pipeline for social media: 10 deterministic steps from story capture to published post. Wrote a 1,186-line PRD covering pipeline architecture, data schemas, Publer API integration, a DE-AI rewrite step, a 7-point QA rubric, pre-sell as a first-class content type, and a daily review UI with notification cadence.",
+        "pillar": "business-systems",
+        "score": 78,
+        "timestamp": "2026-03-07 10:00"
+      },
+      "formats": [
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "platform": "Twitter",
+          "content": "Most content systems fail at the same step.\n\nNot capture. Not creation.\n\nDecision-making.\n\nEvery post requiring a channel, format, and timing call means nothing ships.\n\nSo I designed a factory.\n\nCAPTURE \u2192 STORY \u2192 ANALYZE \u2192 EXTRAPOLATE \u2192 DE-AI \u2192 QA \u2192 BANK \u2192 DECIDE \u2192 QUEUE \u2192 PUBLISH\n\n/2\nThe DE-AI step alone was worth the exercise.\n\nA dedicated pass that strips:\n- Em-dashes used as commas\n- \"Leverage\", \"delve into\", \"in today's landscape\"\n- Over-structured bullets\n- Rhetorical transitions\n\nAI tells I didn't realize were in my content. Now caught before anything hits the bank.\n\n/3\nThe ANALYZE step decides Twitter format.\n\nDefault: single tweet.\nThread only if story has 3+ distinct components.\n\nMy existing tool defaulted to threads ~90% of the time.\n\nThat's wrong. Bias toward the single.\n\n/4\nPubler API is the source of truth -- not localStorage.\n\nGET /posts?state=published = what's actually posted.\nAnalytics endpoints = per-post engagement.\n\nThat feeds back into a playbook. Generation improves from your own top performers.\n\n/5\nThe only decision I make: approve this week's plan.\n\nVisual review UI. Deployed. Works from any device.\nPlatform-specific post previews, upcoming schedule, media requests.\n\nUnder 5 minutes per day.\n\n/6\nI've built this pattern before.\n\niOS apps. Real estate reels. Now content.\n\nIf a process repeats, it can be a factory.\n\nWhat system in your work is still running on vibes instead of a pipeline?",
+          "score": 90,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 9 AM",
+            "Tue 9 AM",
+            "Wed 9 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Tue 9 AM",
+          "media": null
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn",
+          "platform": "LinkedIn",
+          "content": "I spent a session designing a content factory -- not building it yet. Just designing it right.\n\nThe result: a 10-step deterministic pipeline from story to published post.\n\nCAPTURE \u2192 STORY \u2192 ANALYZE \u2192 EXTRAPOLATE \u2192 DE-AI \u2192 QA \u2192 BANK \u2192 DECIDE \u2192 QUEUE \u2192 PUBLISH\n\nA few things that surfaced:\n\nThe DE-AI step. A required pass that strips AI language patterns before content enters the bank. Em-dashes as commas. \"Leverage.\" \"Delve into.\" Over-structured bullets. These are authenticity killers. Most pipelines skip this. This one makes it mandatory.\n\nFormat calibration. My existing tool defaulted to Twitter threads 90% of the time. The ANALYZE step now decides: single tweet unless the story has 3+ distinct components. Default to the single.\n\nPre-sell as a first-class content type. If a product is in development, the factory has rules: outcome-first framing, show the proof, soft CTA only. No hard sell before the product exists.\n\nOne daily decision. Visual review UI, deployed, accessible from any device. Approve, swap, or add media. Under 5 minutes.\n\nThe scheduling defaults came from real data -- Buffer analyzed 9.6M Instagram posts, 4.8M LinkedIn posts, 1M+ tweets. Start with evidence. Override with your own analytics once you have history.\n\nSame pattern I've applied to iOS apps and real estate reels. If a process repeats, make it a factory.\n\nWhat content process are you still running on vibes instead of a pipeline?",
+          "score": 86,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Wed 8 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Wed 8 AM",
+          "media": null
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram Post",
+          "platform": "Instagram",
+          "content": "\ud83c\udfed Built the blueprint for a content factory today.\n\n10 steps. One daily decision.\n\nSame factory pattern I use for AI-generated real estate reels -- now applied to social posts. Most content systems fail at decision-making, not creation. This one reduces it to one: approve this week\u2019s plan.\n\n#BuildInPublic #AI #ContentStrategy #IndieHacker #BusinessSystems #FactoryPattern #AITools #Automation #ContentMarketing",
+          "score": 82,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 9 AM",
+            "Tue 9 AM",
+            "Wed 9 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Wed 9 AM",
+          "media": null
+        }
+      ],
+      "createdAt": "2026-03-07T18:38:13.027052+00:00"
+    },
+    {
       "id": "2026-03-07-deleted-44k-rebuilt-in-4k",
       "story": {
         "title": "Deleted 44k lines. Rebuilt in 4k. Now it runs a business.",
@@ -2806,9 +3146,9 @@
           "media": null
         }
       ],
-      "createdAt": "2026-03-07T18:45:51.511359+00:00"
+      "createdAt": "2026-03-07T18:46:47.445380+00:00"
     }
   ],
-  "total": 42,
-  "generated": "2026-03-07T18:45:51.511359+00:00"
+  "total": 47,
+  "generated": "2026-03-07T18:46:47.445380+00:00"
 }
