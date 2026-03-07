@@ -2943,8 +2943,76 @@
         }
       ],
       "createdAt": "2026-03-06T16:41:58.452614"
+    },
+    {
+      "id": "2026-03-06-market-research-to-hi-fi-screens",
+      "story": {
+        "title": "Market Research to Hi-Fi Screens in One Session",
+        "rawTitle": "Market Research to Hi-Fi Screens in One Session",
+        "description": "Used iosfactory to take a new app idea from zero to hi-fi screen designs in a single session. AI did competitive market research, identified micro-landlord PM as a high-opportunity category (~20M users, competitors with 1.3-star ratings), ran full discovery, generated a complete design system, then Gemini 2.5 Pro generated HTML/CSS for 5 screens. Playwright rendered each at 390x844 and captured PNGs \u2014 HTML deleted immediately.",
+        "pillar": "ai",
+        "score": 84,
+        "timestamp": "2026-03-06 22:00"
+      },
+      "formats": [
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "platform": "Twitter",
+          "content": "1/ Most app ideas die in the \"should I build this?\" phase.\nI had AI research the market, write the discovery brief, and generate hi-fi designs \u2014 in one session.\n\n2/ The prompt: \"Find me an app with high search volume, low competition, and bad reviews.\"\n\nIt landed on micro-landlord property management.\n~20M \"accidental landlords\" in the US.\nAngi: 1.3 stars. RentTrack: fraud complaints.\nReal gap.\n\n3/ Discovery ran next.\n\nTarget user: 28-55, owns 1-3 units as passive income. Not a pro property manager.\nCurrent stack: Venmo + Google Sheets + text messages.\n\nMVP scoped to 5 features. Nothing more.\n\n4/ Then design.\n\nFull system spec generated:\n- Deep Teal #1A6B6B primary\n- DM Mono for financial figures\n- Plus Jakarta Sans headlines\n- 5 screens spec'd with real copy, real names, real dollar amounts\n\n5/ Then the real test.\n\nFed the spec to Gemini 2.5 Pro.\nIt generated complete HTML/CSS per screen.\nPlaywright rendered each at 390x844 (iPhone 14 Pro).\nHTML deleted immediately. Only the PNGs kept.\n\n6/ 5 screens. ~4 minutes.\n\nHome dashboard, property detail, payments, maintenance, tax reports.\nReal data throughout: \"Jordan Mitchell \u2014 $1,800 \u2014 PAID\" / \"Riverside Unit 2 \u2014 OVERDUE 5 days\"\n\nThey look production-ready.\n\n7/ The design quality is what I was actually testing.\n\nCan AI output be good enough to hand a developer and say \"build this\"?\n\nFirst answer: closer than I expected.",
+          "score": 88,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 9 AM",
+            "Tue 9 AM",
+            "Wed 9 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 9 AM",
+          "media": null
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn",
+          "platform": "LinkedIn",
+          "content": "I asked an AI to find me an app idea \u2014 then design it. Here's what happened.\n\nThe prompt was simple: find a mobile app category with high search volume, low competition, and bad reviews from existing players.\n\nIt landed on micro-landlord property management.\n\nAbout 20 million Americans own 1-4 rental units. Most manage everything through Venmo, Google Sheets, and text messages. Existing tools are either enterprise software at $59+/month or free apps drowning in 1-star reviews and fraud complaints.\n\nReal gap.\n\nFrom there: a full discovery brief. Target user, problem statement, MVP scope, business model. Then a complete design system \u2014 hex codes, typography stack (DM Mono for financials, Plus Jakarta Sans for headlines), spacing, component patterns.\n\nThe actual test came next.\n\nI fed that design spec to Gemini 2.5 Pro and had it generate complete HTML/CSS for each screen. Playwright (headless Chromium) rendered each at 390x844 \u2014 iPhone 14 Pro dimensions \u2014 and captured a PNG. HTML deleted immediately. Only PNGs kept as artifacts.\n\n5 screens in about 4 minutes. Home dashboard, property detail, payments, maintenance, tax export. Real content throughout \u2014 tenant names, dollar amounts, overdue statuses.\n\nThe quality surprised me. Not perfect \u2014 status bar icons are basic, gradients a little flat. But the color system, type hierarchy, and component patterns came through. Looks like something a developer could build from.\n\nThe question I'm sitting with: how much of the design-to-build pipeline can be automated before human judgment actually adds value?",
+          "score": 85,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Wed 8 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 8 AM",
+          "media": null
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram Post",
+          "platform": "Instagram",
+          "content": "\ud83c\udfe0 \"Find me an app idea\" \u2192 hi-fi screens. One session. No designer.\n\nAI researched the market, wrote the discovery brief, built the design system. Gemini 2.5 Pro generated the screens. 5 PNGs in 4 minutes at iPhone 14 Pro resolution.\n\nThe app: property management for small landlords. 20M people managing rentals on Venmo and Google Sheets. Turns out that's a real gap.\n\nTesting how far the design pipeline goes before you need a human.\n\n#BuildInPublic #AI #IndieHacker #iOSApp #AppDevelopment #ProductDesign #Gemini #SoloFounder #IndieBuilder #MobileApp",
+          "score": 82,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 11 AM",
+            "Tue 11 AM",
+            "Wed 11 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 11 AM",
+          "media": null
+        }
+      ],
+      "createdAt": "2026-03-07T03:07:09.789765+00:00"
     }
   ],
-  "total": 44,
-  "generated": "2026-03-06T16:41:58.452624"
+  "total": 45,
+  "generated": "2026-03-07T03:07:09.789765+00:00"
 }
