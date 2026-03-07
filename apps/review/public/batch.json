@@ -3011,8 +3011,76 @@
         }
       ],
       "createdAt": "2026-03-07T03:07:09.789765+00:00"
+    },
+    {
+      "id": "2026-03-07-content-factory-10-steps-1-decision",
+      "story": {
+        "title": "Designed my content factory: 10 steps, 1 daily decision",
+        "rawTitle": "Designed my content factory: 10 steps, 1 daily decision",
+        "description": "Designed a complete content production pipeline for social media: 10 deterministic steps from story capture to published post. Wrote a 1,186-line PRD covering pipeline architecture, data schemas, Publer API integration, a DE-AI rewrite step, a 7-point QA rubric, pre-sell as a first-class content type, and a daily review UI with notification cadence.",
+        "pillar": "business-systems",
+        "score": 78,
+        "timestamp": "2026-03-07 10:00"
+      },
+      "formats": [
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "platform": "Twitter",
+          "content": "Most content systems fail at the same step.\n\nNot capture. Not creation.\n\nDecision-making.\n\nEvery post requiring a channel, format, and timing call means nothing ships.\n\nSo I designed a factory.\n\nCAPTURE \u2192 STORY \u2192 ANALYZE \u2192 EXTRAPOLATE \u2192 DE-AI \u2192 QA \u2192 BANK \u2192 DECIDE \u2192 QUEUE \u2192 PUBLISH\n\n/2\nThe DE-AI step alone was worth the exercise.\n\nA dedicated pass that strips:\n- Em-dashes used as commas\n- \"Leverage\", \"delve into\", \"in today's landscape\"\n- Over-structured bullets\n- Rhetorical transitions\n\nAI tells I didn't realize were in my content. Now caught before anything hits the bank.\n\n/3\nThe ANALYZE step decides Twitter format.\n\nDefault: single tweet.\nThread only if story has 3+ distinct components.\n\nMy existing tool defaulted to threads ~90% of the time.\n\nThat's wrong. Bias toward the single.\n\n/4\nPubler API is the source of truth -- not localStorage.\n\nGET /posts?state=published = what's actually posted.\nAnalytics endpoints = per-post engagement.\n\nThat feeds back into a playbook. Generation improves from your own top performers.\n\n/5\nThe only decision I make: approve this week's plan.\n\nVisual review UI. Deployed. Works from any device.\nPlatform-specific post previews, upcoming schedule, media requests.\n\nUnder 5 minutes per day.\n\n/6\nI've built this pattern before.\n\niOS apps. Real estate reels. Now content.\n\nIf a process repeats, it can be a factory.\n\nWhat system in your work is still running on vibes instead of a pipeline?",
+          "score": 90,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 9 AM",
+            "Tue 9 AM",
+            "Wed 9 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Tue 9 AM",
+          "media": null
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn",
+          "platform": "LinkedIn",
+          "content": "I spent a session designing a content factory -- not building it yet. Just designing it right.\n\nThe result: a 10-step deterministic pipeline from story to published post.\n\nCAPTURE \u2192 STORY \u2192 ANALYZE \u2192 EXTRAPOLATE \u2192 DE-AI \u2192 QA \u2192 BANK \u2192 DECIDE \u2192 QUEUE \u2192 PUBLISH\n\nA few things that surfaced:\n\nThe DE-AI step. A required pass that strips AI language patterns before content enters the bank. Em-dashes as commas. \"Leverage.\" \"Delve into.\" Over-structured bullets. These are authenticity killers. Most pipelines skip this. This one makes it mandatory.\n\nFormat calibration. My existing tool defaulted to Twitter threads 90% of the time. The ANALYZE step now decides: single tweet unless the story has 3+ distinct components. Default to the single.\n\nPre-sell as a first-class content type. If a product is in development, the factory has rules: outcome-first framing, show the proof, soft CTA only. No hard sell before the product exists.\n\nOne daily decision. Visual review UI, deployed, accessible from any device. Approve, swap, or add media. Under 5 minutes.\n\nThe scheduling defaults came from real data -- Buffer analyzed 9.6M Instagram posts, 4.8M LinkedIn posts, 1M+ tweets. Start with evidence. Override with your own analytics once you have history.\n\nSame pattern I've applied to iOS apps and real estate reels. If a process repeats, make it a factory.\n\nWhat content process are you still running on vibes instead of a pipeline?",
+          "score": 86,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Wed 8 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Wed 8 AM",
+          "media": null
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram Post",
+          "platform": "Instagram",
+          "content": "\ud83c\udfed Built the blueprint for a content factory today.\n\n10 steps. One daily decision.\n\nSame factory pattern I use for AI-generated real estate reels -- now applied to social posts. Most content systems fail at decision-making, not creation. This one reduces it to one: approve this week\u2019s plan.\n\n#BuildInPublic #AI #ContentStrategy #IndieHacker #BusinessSystems #FactoryPattern #AITools #Automation #ContentMarketing",
+          "score": 82,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 9 AM",
+            "Tue 9 AM",
+            "Wed 9 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Wed 9 AM",
+          "media": null
+        }
+      ],
+      "createdAt": "2026-03-07T18:38:13.027052+00:00"
     }
   ],
-  "total": 45,
-  "generated": "2026-03-07T03:09:56.566624+00:00"
+  "total": 46,
+  "generated": "2026-03-07T18:38:13.027213+00:00"
 }
