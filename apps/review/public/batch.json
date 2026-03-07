@@ -3283,8 +3283,76 @@
         }
       ],
       "createdAt": "2026-03-07T19:32:01.986474+00:00"
+    },
+    {
+      "id": "2026-03-07-content-factory-44-stories",
+      "story": {
+        "title": "Content Factory: 44 Stories Banked in One Session",
+        "rawTitle": "Content Factory: 44 Stories Banked in One Session",
+        "description": "Built a 10-step deterministic content pipeline from scratch and ran the full backlog through it in one session. The pipeline ingested 44 stories from 5 sources and generated 90 bank entries across Twitter, LinkedIn, and Instagram. 87 are available to queue right now.",
+        "pillar": "ai",
+        "score": 88,
+        "timestamp": "2026-03-07 20:00"
+      },
+      "formats": [
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "platform": "Twitter",
+          "content": "90 pieces of social content. Generated in one session.\n\nHere is how:\n\nBuilt a 10-step content pipeline that runs like CI/CD for posts.\n\nCAPTURE grabs stories from 5 sources.\nSTORY structures them.\nANALYZE picks channels via affinity matrix.\nEXTRAPOLATE generates platform-specific copy.\nDE-AI strips the AI language patterns.\nQA scores on 7 criteria -- auto-retries failures.\nBANK persists everything.\n\n44 stories in. 90 entries out. 87 ready to queue.\nTwitter, LinkedIn, Instagram. All of it.\n\nThe only thing I do now: approve the weekly plan.\n\nMost content systems fail at the decision layer, not the creation layer.\nBuild the factory. Make the decision once.\n\nWhat does your content creation process look like? Still doing it one post at a time?",
+          "score": 92,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 9 AM",
+            "Tue 9 AM",
+            "Wed 9 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 9 AM",
+          "media": null
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn",
+          "platform": "LinkedIn",
+          "content": "90 pieces of content. One session.\n\nI built a 10-step content pipeline from scratch today and ran the full backlog through it.\n\nHere is what the pipeline does:\n\nStep 1 ingests stories from 5 sources (hotkey, OpenClaw agent, reels, manual). Step 2 structures raw captures into canonical story schema. Step 3 runs a channel affinity matrix to decide Twitter/LinkedIn/Instagram. Step 4 extrapolates platform-specific copy, or imports existing content if already generated. Step 5 strips AI language patterns (em-dashes, leverage, over-structured bullets). Step 6 scores on a 7-point QA rubric and auto-retries failures. Step 7 banks everything to a central JSON store.\n\n44 stories processed. 90 bank entries created. 87 available to queue right now.\n\nThe architecture mirrors CI/CD: every step reads from the previous step output directory, writes to its own. Each story run has a manifest.json. Any step can be re-run without re-running the ones before it.\n\nThe CLI is one command: factory.py run-all.\n\nI spent years doing content one post at a time. The problem was never creation -- it was the 15 decisions per post that wore me down. What channel? What format? Is this ready? When should it go?\n\nA factory eliminates those decisions. You make them once when you design the system.\n\nWhat is the biggest friction point in your content process?",
+          "score": 89,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Wed 8 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 8 AM",
+          "media": null
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram Post",
+          "platform": "Instagram",
+          "content": "Building a content factory today. 44 stories in. 90 posts out.\n\n10-step pipeline: capture, structure, channel analysis, write, de-AI, QA score, bank. One command runs everything.\n\nThe goal: spend under 15 min/week on content. The factory handles the rest.\n\n#BuildInPublic #AI #ContentMarketing #IndieHacker #Automation #SystemsThinking #AITools #ContentStrategy #Productivity",
+          "score": 85,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 11 AM",
+            "Tue 11 AM",
+            "Wed 11 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Mon 11 AM",
+          "media": null
+        }
+      ],
+      "createdAt": "2026-03-07T19:59:25.736864Z"
     }
   ],
-  "total": 49,
-  "generated": "2026-03-07T19:32:01.986474+00:00"
+  "total": 50,
+  "generated": "2026-03-07T19:59:25.736864Z"
 }
