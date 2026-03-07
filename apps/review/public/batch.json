@@ -3215,8 +3215,76 @@
         }
       ],
       "createdAt": "2026-03-07T19:11:06.547244+00:00"
+    },
+    {
+      "id": "2026-03-07-order-email-hi-there-to-branded-html",
+      "story": {
+        "title": "Order email went from \"Hi there\" to branded HTML",
+        "rawTitle": "Order email went from \"Hi there\" to branded HTML",
+        "description": "The auto-generated order confirmation was plain text \u2014 \"Hi there, Got your payment.\" Rebuilt as branded HTML with navy/gold RER palette, order summary, what's included, and a single conversational ask. Delivery email got the same: production notes, 3 captions, posting tips, reorder CTA.",
+        "pillar": "product",
+        "score": 83,
+        "timestamp": "2026-03-07 14:00"
+      },
+      "formats": [
+        {
+          "id": "twitter",
+          "name": "Twitter",
+          "platform": "Twitter",
+          "content": "The first email a customer gets after paying you is the most important one.\n\nOurs said \"Hi there, Got your payment.\"\n\nWe fixed it.\n\n---\n\nThe before:\nPlain text. No branding. \"Hi there\" because the name wasn't passed. A numbered list of what to attach.\n\nIt looked like a side project.\nFor realtors who live in polished marketing.\n\n---\n\nThe after:\nFull branded HTML. Navy and gold palette.\n\n- Order summary panel with what they purchased\n- What's included: reel specs, 3 captions, same-day turnaround\n- Dark CTA block with a single ask: \"Just reply with your photos and tell us anything you want\"\n\nNo form. No portal. Just reply.\n\n---\n\nThe delivery email got the same treatment.\n\nWhat was delivered. How we made it great. 3 ready-to-post captions. Posting tips. Reorder CTA.\n\nThe whole thing is generated and sent automatically when a Stripe payment hits the webhook.\n\n---\n\nThe insight: the product experience starts at the confirmation email.\n\nNot when the reel arrives. The moment they see that first email, they decide if this feels like a real product or a side project.\n\nFor realtors, that first impression matters more than almost anything.\n\n---\n\nHow much attention do you put into the automated emails your product sends?",
+          "score": 87,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 9 AM",
+            "Tue 9 AM",
+            "Wed 9 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Wed 9 AM",
+          "media": null
+        },
+        {
+          "id": "linkedin",
+          "name": "LinkedIn",
+          "platform": "LinkedIn",
+          "content": "The first email a customer gets after paying you is the most important email you'll ever send them.\n\nOurs said: \"Hi there, Got your payment.\"\n\nThat's what happens when you generate emails without thinking about them.\n\nWe rebuilt it today \u2014 full branded HTML, Real Estate Reels navy and gold. Order summary. What's included. A single conversational ask instead of a form.\n\nThe CTA block says: \"Just reply to this email with your property photos and tell us anything you'd like us to know.\" Logo, phone number, style preferences, listing details \u2014 anything. No form. No portal. Hit reply.\n\nThe delivery email got the same treatment. What was ordered. What we delivered. Production quality notes. 3 ready-to-post captions. Posting tips. Reorder CTA.\n\nThe whole thing fires automatically when a Stripe payment hits the webhook. Zero manual work.\n\nHere's what I've been thinking about: the product experience doesn't start when the reel arrives. It starts the moment that confirmation email lands.\n\nRealtors are surrounded by polished marketing all day. If the order confirmation looks like a side project, the product feels like one \u2014 no matter how good the reel is.\n\nYour automated emails are part of your product. Treat them that way.\n\nHow much attention do you put into the transactional emails your system sends?",
+          "score": 85,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 8 AM",
+            "Tue 8 AM",
+            "Wed 8 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Wed 8 AM",
+          "media": null
+        },
+        {
+          "id": "instagram",
+          "name": "Instagram Post",
+          "platform": "Instagram",
+          "content": "\ud83d\udce7 Before: \"Hi there, Got your payment.\"\n\nAfter: full branded HTML email, auto-generated when someone pays \u2014 order summary, what's included, a single conversational ask, no forms.\n\nThe confirmation email is part of the product. Treated it that way.\n\n#BuildInPublic #AI #IndieHacker #ProductDesign #EmailMarketing #StartupLife #Founders #SaaS #Automation #RealEstate",
+          "score": 78,
+          "publishType": "auto",
+          "scheduleOptions": [
+            "Now",
+            "Mon 11 AM",
+            "Tue 11 AM",
+            "Wed 11 AM",
+            "Custom"
+          ],
+          "checked": false,
+          "scheduleTime": "Wed 11 AM",
+          "media": null
+        }
+      ],
+      "createdAt": "2026-03-07T19:32:01.986474+00:00"
     }
   ],
-  "total": 48,
-  "generated": "2026-03-07T19:11:06.547244+00:00"
+  "total": 49,
+  "generated": "2026-03-07T19:32:01.986474+00:00"
 }
